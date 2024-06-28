@@ -14,113 +14,143 @@
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.0/font/bootstrap-icons.min.css" rel="stylesheet">
+
+
 
   <!-- Custom styles for this template -->
   <link href="signin.css" rel="stylesheet">
   <script src="js/ie-emulation-modes-warning.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.js"></script>
+  <link rel="stylesheet" href="style.css"> <!-- Rujukan ke file CSS -->
+    <style>
+        body {
+            background-color: #f0f0f0; /* Warna latar belakang */
+        }
+
+        .container {
+            max-width: 400px; /* Lebar maksimum container */
+            margin: 0 auto; /* Posisi tengah */
+            background-color: #fff; /* Warna latar belakang container */
+            padding: 20px; /* Padding di dalam container */
+            border-radius: 5px; /* Sudut bulat container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk tampilan lebih menarik */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Jarak antara setiap elemen form */
+        }
+
+        .form-group label {
+            font-weight: bold; /* Memperjelas label */
+            display: block; /* Memastikan label tetap pada baris yang sama */
+            margin-bottom: 5px; /* Jarak antara label dan input */
+        }
+
+        .radio label {
+            display: flex; /* Membuat radio button dan label sejajar */
+            align-items: center; /* Menyatukan ikon dengan teks */
+        }
+
+        .radio label i {
+            margin-left: 5px; /* Jarak antara ikon dan teks */
+            font-size: 1.2em; /* Ukuran ikon */
+            vertical-align: middle; /* Memposisikan ikon di tengah vertikal */
+        }
+    </style>
 
 </head>
 
 <body background="img/page-background.png">
 
-  <div class="container">
+<div class="container">
+        <form class="form-signin" action="insert-anggota.php" method="post">
+            <div class="text-center">
+                <h2 class="form-signin-heading"><i class="bi bi-book"></i> PerpustakaanPGT</h2>
+            </div>
 
-    <form class="form-signin" action="insert-anggota.php" method="post">
-      <center>
-        <h2 class="form-signin-heading"><span class="glyphicon glyphicon-th-large"></span> PerpustakaanKU </h2>
-      </center>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" id="no_induk" name="no_induk" class="form-control" placeholder="Email" autocomplete="off" autofocus="on" required>
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama" autocomplete="off" autofocus="on" required>
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" id="username" name="username" class="form-control" placeholder="Username" autocomplete="off" autofocus="on" required>
-      </div>
-      <div class="input-group" style="margin-top: 5px;">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input type="text" id="password" name="password" class="form-control" placeholder="Password" autocomplete="off" required>
-      </div>
-      <div class="input-group" style="margin-top: 5px;">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <select class="form-control" name="jk" id="jk">
-          <option> -- Pilih Salah Satu --</option>
-          <option value="P"> Perempuan</option>
-          <option value="L"> Laki-laki</option>
-        </select>
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" id="kelas" name="kelas" class="form-control" placeholder="Usia" autocomplete="off" autofocus="on" required>
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" id="ttl" name="ttl" class="form-control" placeholder="Tempat, Tanggal Lahir (DD MM YY)" autocomplete="off" autofocus="on" required>
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat" autocomplete="off" autofocus="on" required>
-      </div>
-      <br />
-      <input type="submit" value="Daftar" class="btn btn-sm btn-primary" />&nbsp;
-      <a href="login.html" class="btn btn-sm btn-danger">Batal </a>
-      <p>Login? <a href="login.html">klik disini</a></p>
-    </form>
+            <div class="form-group">
+                <label for="no_induk">Email</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="bi bi-envelope-open"></i></span>
+                    <input type="text" id="no_induk" name="no_induk" class="form-control" placeholder="Email" autocomplete="off" autofocus="on" required>
+                </div>
+            </div>
 
-  </div> <!-- /container -->
+            <div class="form-group">
+                <label for="nama">Nama</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama" autocomplete="off" autofocus="on" required>
+                </div>
+            </div>
 
-  <center>
-    <h5 class="form-signin">Copyright &copy; <a href="#" data-toggle="modal" data-target="#contact">PerpustakaanKU</a>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" autocomplete="off" autofocus="on" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" autocomplete="off" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <div class="radio">
+                    <label><input type="radio" name="jk" value="L"> Laki-laki <i class="bi bi-gender-male"></i></label>
+                    <label><input type="radio" name="jk" value="P"> Perempuan <i class="bi bi-gender-female"></i></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="kelas">Usia</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" id="kelas" name="kelas" class="form-control" placeholder="Usia" autocomplete="off" autofocus="on" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ttl">Tempat, Tanggal Lahir (DD MM YY)</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" id="ttl" name="ttl" class="form-control" placeholder="Tempat, Tanggal Lahir (DD MM YY)" autocomplete="off" autofocus="on" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat" autocomplete="off" autofocus="on" required>
+                </div>
+            </div>
+
+            <br>
+            <input type="submit" value="Daftar" class="btn btn-sm btn-primary">&nbsp;
+            <a href="login.html" class="btn btn-sm btn-danger">Batal</a>
+            <p>Login? <a href="login.html">Klik disini</a></p>
+        </form>
+    </div>
+ <!-- /container -->
+
+  
+    <h5 class="form-signin">Copyright &copy; <a href="#" data-toggle="modal" data-target="#contact">PerpustakaanPGT2024</a>
     </h5>
-  </center>
+  
 
   <!-- Modal Dialog Contact -->
-  <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
-        </div>
-        <div class="modal-body">
-          <p> PerpustakaanKu adalah salah satu layanan bagi pengguna untuk dapat mengakses berbagai buku bacaan yang dan
-            dilakukan kapan saja dan dari mana saja, dengan menggunakan jaringan internet.</p>
-          <p> PerpustakaanKu memiliki koleksi buku dalam bentuk format digital dan bisa diakses dengan komputer. koleksi
-            bacaan dari PerpustakaanKu dapat diakses dengan cepat dan mudah lewat jaringan komputer.</p>
-          <p> PerpustakaanKU bebasis website yang responsif, untuk info, saran, maupun kritik bisa menghubungi kami :
-          </p>
-          <table>
-            <tr>
-              <td>E-mail</td>
-              <td>:</td>
-              <td><a href="sisteminformasi494@gmail.com">PerpustakaanKU@gmail.com</a></td>
-            </tr>
-            <br />
-            <tr>
-              <td>Blog</td>
-              <td>:</td>
-              <td><a href="#" target="_blank">www.PerpustakaanKU.com</a></td>
-            </tr>
-            <br />
-            <tr>
-              <td>Website</td>
-              <td>:</td>
-              <td><a href="#" target="_blank">www.PerpustakaanKU.com</a></td>
-            </tr>
-          </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <?php include("modal.php")?>
   <!-- end dialog modal -->
 
 

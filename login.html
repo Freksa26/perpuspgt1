@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="PerpustakaanKU">
   <meta name="perpustakaanku" content="PerpustakaanKU">
   <link rel="icon" href="../../favicon.ico">
@@ -13,55 +11,78 @@
   <title>PerpustakaanPGT</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 
   <!-- Custom styles for this template -->
-  <link href="signin.css" rel="stylesheet">
-  <script src="js/ie-emulation-modes-warning.js"></script>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-
+  <style>
+    body {
+      background: url('img/page-background.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .container {
+      max-width: 400px;
+      padding-top: 50px;
+    }
+    .form-signin {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .btn-block {
+      margin-top: 10px;
+    }
+    .form-signin-heading {
+      margin-bottom: 20px;
+    }
+    .text-right {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
-<body background="img/page-background.png">
-
+<body>
   <div class="container">
-
     <form class="form-signin" action="proseslogin.php" method="post">
-      <center>
-        <h2 class="form-signin-heading"><span class="glyphicon glyphicon-th-large"></span> PerpustakaanKU </h2>
-      </center>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" id="username" name="username" class="form-control" placeholder="Username" autocomplete="off"
-          autofocus="on" required>
+      <div class="text-center">
+        <h2 class="form-signin-heading"><i class="bi bi-book"></i> PerpustakaanPGT</h2>
       </div>
-      <div class="input-group" style="margin-top: 5px;">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input type="text" id="password" name="password" class="form-control" placeholder="Password" autocomplete="off"
-          required>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="bi bi-person"></i></span>
+        </div>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username" autocomplete="off" autofocus required>
       </div>
-      <div class="input-group" style="margin-top: 5px;">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <select class="form-control" name="level" id="level">
-          <option> -- Pilih Salah Satu --</option>
-          <option value="admin"> Admin</option>
-          <option value="anggota"> Anggota</option>
-        </select>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="bi bi-lock"></i></span>
+        </div>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" autocomplete="off" required>
       </div>
-      <br />
+      <div class="form-group">
+        <label for="level">Pilih Pengguna:</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level" id="levelAdmin" value="admin" required>
+          <label class="form-check-label" for="levelAdmin">
+            <i class="bi bi-shield-lock"></i> Admin
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level" id="levelAnggota" value="anggota" required>
+          <label class="form-check-label" for="levelAnggota">
+            <i class="bi bi-person"></i> Anggota
+          </label>
+        </div>
+      </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <button class="btn btn-lg btn-warning btn-block" type="submit"><a href="daftar.php"> Sign up </a></button>
-      <p class="text-right"> Kembali ke Home,<a href="index.php">klik disini</a></p>
+      <a href="daftar.php" class="btn btn-lg btn-warning btn-block">Sign up</a>
+      <p class="text-right">Kembali ke Home, <a href="index.php">klik disini</a></p>
     </form>
+  </div>
 
-
-  </div> <!-- /container -->
-
-  <center>
-    <h5 class="form-signin">Copyright &copy; <a href="#" data-toggle="modal" data-target="#contact">PerpustakaanPGT</a>
-    </h5>
-  </center>
+  <footer class="text-center mt-5">
+    <h5>Copyright &copy; <a href="#" data-toggle="modal" data-target="#contact">PerpustakaanPGT</a></h5>
+  </footer>
 
   <!-- Modal Dialog Contact -->
   <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -72,29 +93,14 @@
           <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
         </div>
         <div class="modal-body">
-          <p> PerpustakaanKu adalah salah satu layanan bagi pengguna untuk dapat mengakses berbagai buku bacaan yang dan
-            dilakukan kapan saja dan dari mana saja, dengan menggunakan jaringan internet.</p>
-          <p> PerpustakaanKu memiliki koleksi buku dalam bentuk format digital dan bisa diakses dengan komputer. koleksi
-            bacaan dari PerpustakaanKu dapat diakses dengan cepat dan mudah lewat jaringan komputer.</p>
-          <p> PerpustakaanKU bebasis website yang responsif, untuk info, saran, maupun kritik bisa menghubungi kami :
-          </p>
+          <p>PerpustakaanKu adalah salah satu layanan bagi pengguna untuk dapat mengakses berbagai buku bacaan kapan saja dan dari mana saja, dengan menggunakan jaringan internet.</p>
+          <p>PerpustakaanKu memiliki koleksi buku dalam bentuk format digital dan bisa diakses dengan komputer. Koleksi bacaan dari PerpustakaanKu dapat diakses dengan cepat dan mudah lewat jaringan komputer.</p>
+          <p>PerpustakaanKU berbasis website yang responsif. Untuk info, saran, maupun kritik bisa menghubungi kami:</p>
           <table>
             <tr>
               <td>E-mail</td>
               <td>:</td>
-              <td><a href="sisteminformasi494@gmail.com">PerpustakaanKU@gmail.com</a></td>
-            </tr>
-            <br />
-            <tr>
-              <td>Blog</td>
-              <td>:</td>
-              <td><a href="#" target="_blank">www.PerpustakaanKU.com</a></td>
-            </tr>
-            <br />
-            <tr>
-              <td>Website</td>
-              <td>:</td>
-              <td><a href="#" target="_blank">www.PerpustakaanKU.com</a></td>
+              <td><a href="mailto:reksapratama33725@gmail.com">PerpusPgt</a></td>
             </tr>
           </table>
         </div>
@@ -106,9 +112,9 @@
   </div>
   <!-- end dialog modal -->
 
-
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="js/ie10-viewport-bug-workaround.js"></script>
+  <!-- Bootstrap and necessary plugins -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

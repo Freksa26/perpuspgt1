@@ -56,7 +56,7 @@ if (empty($_SESSION['username'])) {
         <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a href="index.php" class="logo">
-                PerpustakaanKU
+                PerpustakaanPGT
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">

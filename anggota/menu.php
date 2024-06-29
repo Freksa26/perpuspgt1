@@ -8,7 +8,7 @@
                                 </li>
                                 <li class="treeview">
                                     <a href="#">
-                                        <i class="fa fa-book"></i>
+                                        <i class="bi bi-book"></i>
                                         <span>Data Buku</span>
                                         <i class="fa fa-angle-left pull-right"></i>
                                     </a>
@@ -19,7 +19,7 @@
                                 </li>
                                 <li>
                                     <a href="tentang.php">
-                                        <i class="fa fa-envelope"></i> <span>Tentang PerpustakaanPGT</span>
+                                        <i class="bi bi-envelope"></i> <span>Tentang PerpustakaanPGT</span>
                                     </a>
                                 </li>
 

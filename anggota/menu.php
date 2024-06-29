@@ -17,7 +17,7 @@
                                 </li>
                                 <li>
                                     <a href="tentang.php">
-                                        <i class="fa fa-envelope"></i> <span>Tentang PerpustakaanKU</span>
+                                        <i class="fa fa-envelope"></i> <span>Tentang PerpustakaanPGT</span>
                                     </a>
                                 </li>
 

@@ -55,9 +55,9 @@ if (empty($_SESSION['username'])) {
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="index.php" class="logo">
-                PerpustakaanKU
-            </a>
+        <div class="text-center">
+        <h2 class="form-signin-heading"><i class="bi bi-book"></i> Perpustakaan PGT</h2>
+      </div>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->

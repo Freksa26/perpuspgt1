@@ -209,11 +209,7 @@ if (empty($_SESSION['username'])) {
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">
-<<<<<<< HEAD
                 Copyright &copy PerpustakaanPGT2024
-=======
-                Copyright PerpustakaanPGT2024
->>>>>>> 15d0bce7ea12318115b20e6dfb30c03ae698cc5b
             </div>
         </aside><!-- /.right-side -->
 

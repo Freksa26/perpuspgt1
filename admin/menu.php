@@ -43,17 +43,7 @@
                                         <li><a href="input-admin.php"><i class="bi bi-chevron-double-right"></i> Tambah Admin</a></li>
                                     </ul>
                                 </li>
-                                <li class="treeview">
-                                    <a href="#">
-                                    <i class="bi bi-file-earmark"></i>
-                                        <span>laporan</span>
-                                        
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="laporan-anggota.php"> <i class="bi bi-chevron-double-right"></i></i> Laporan Anggota</a></li>
-                                        <li><a href="laporan-buku.php"><i class="bi bi-chevron-double-right"></i> Laporan Buku</a></li>
-                                    </ul>
-                                </li>
+                                
                                 <li>
                                     <a href="backup.php">
                                     <i class="bi bi-file-check"></i> <span>Backup Data</span>

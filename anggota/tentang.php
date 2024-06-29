@@ -55,9 +55,15 @@ if (empty($_SESSION['username'])) {
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
+<<<<<<< HEAD
         <div class="text-center">
         <h2 class="form-signin-heading"><i class="bi bi-book"></i> Perpustakaan PGT</h2>
       </div>
+=======
+            <a href="index.php" class="logo">
+                PerpustakaanPGT
+            </a>
+>>>>>>> 15d0bce7ea12318115b20e6dfb30c03ae698cc5b
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
@@ -162,6 +168,7 @@ if (empty($_SESSION['username'])) {
 
                             <!-- </div> -->
                             <div class="panel-body table-responsive">
+<<<<<<< HEAD
                                 <p> PerpustakaanPGT adalah salah satu layanan bagi pengguna untuk dapat mengakses berbagai buku bacaan yang dan dilakukan kapan saja dan dari mana saja, dengan menggunakan jaringan internet.</p>
                                 <p> PerpustakaanPGT memiliki koleksi buku dalam bentuk format digital dan bisa diakses dengan komputer. koleksi bacaan dari PerpustakaanKu dapat diakses dengan cepat dan mudah lewat jaringan komputer.</p>
                                 <p> PerpustakaanPGT bebasis website yang responsif, untuk info, saran, maupun kritik bisa menghubungi kami :</p>
@@ -184,6 +191,12 @@ if (empty($_SESSION['username'])) {
                                         <td><a href="#" target="_blank">www.PerpustakaanPGT.com</a></td>
                                     </tr>
                                 </table>
+=======
+                                <p> PerpustakaanKu adalah salah satu layanan bagi pengguna untuk dapat mengakses berbagai buku bacaan yang dan dilakukan kapan saja dan dari mana saja, dengan menggunakan jaringan internet.</p>
+                                <p> PerpustakaanKu memiliki koleksi buku dalam bentuk format digital dan bisa diakses dengan komputer. koleksi bacaan dari PerpustakaanKu dapat diakses dengan cepat dan mudah lewat jaringan komputer.</p>
+                                <p> PerpustakaanKU bebasis website yang responsif, untuk info, saran, maupun kritik bisa menghubungi kami :</p>
+                                
+>>>>>>> 15d0bce7ea12318115b20e6dfb30c03ae698cc5b
                             </div><!-- /.box-body -->
                         </div><!-- /.box -->
                     </div>

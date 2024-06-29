@@ -10,7 +10,7 @@ if (empty($_SESSION['username'])) {
 
     <head>
         <meta charset="UTF-8">
-        <title>PerpustakaanKU</title>
+        <title>PerpustakaanPGT</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="description" content="Sarjana Komedi">
         <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
@@ -55,9 +55,15 @@ if (empty($_SESSION['username'])) {
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
+<<<<<<< HEAD
         <div class="text-center">
         <h2 class="form-signin-heading"><i class="bi bi-book"></i> Perpustakaan PGT</h2>
       </div>
+=======
+            <a href="index.php" class="logo">
+                PerpustakaanPGT
+            </a>
+>>>>>>> 15d0bce7ea12318115b20e6dfb30c03ae698cc5b
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
@@ -347,7 +353,7 @@ if (empty($_SESSION['username'])) {
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">
-                Copyright PerpustakaanKU 2021
+                Copyright PerpustakaanPGT2024
             </div>
         </aside><!-- /.right-side -->
 

@@ -8,6 +8,7 @@ if (empty($_SESSION['username'])) {
 <!DOCTYPE html>
 <html>
 
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <title>PerpustakaanKU</title>
@@ -37,6 +38,37 @@ if (empty($_SESSION['username'])) {
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- Theme style -->
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
+=======
+    <head>
+        <meta charset="UTF-8">
+        <title>PerpustakaanPGT</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <meta name="description" content="Hakko Bio Richard">
+        <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
+        <!-- bootstrap 3.0.2 -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="../css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Morris chart -->
+        <link href="../css/morris/morris.css" rel="stylesheet" type="text/css" />
+        <!-- jvectormap -->
+        <link href="../css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <!-- Date Picker -->
+        <link href="../css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+        <!-- fullCalendar -->
+        <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
+        <!-- Daterange picker -->
+        <link href="../css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link href="../css/iCheck/all.css" rel="stylesheet" type="text/css" />
+        <!-- bootstrap wysihtml5 - text editor -->
+        <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <!-- Theme style -->
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+>>>>>>> 15d0bce7ea12318115b20e6dfb30c03ae698cc5b
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -128,6 +160,7 @@ if (empty($_SESSION['username'])) {
         <!-- /.sidebar -->
     </aside>
 
+<<<<<<< HEAD
     <aside class="right-side">
         <!-- Main content -->
         <section class="content">
@@ -147,8 +180,31 @@ if (empty($_SESSION['username'])) {
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+=======
+        <aside class="right-side">
 
+            <!-- Main content -->
+            <section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <header class="panel-heading">
+                    <b>Data Buku</b>
+                </header>
+                <div class="panel-body table-responsive">
+                    <div class="box-tools m-b-15">
+                        <form action="buku.php" method="POST">
+                            <div class="input-group">
+                                <input type='text' class="form-control input-sm pull-right" style="width: 150px;" name='qcari' placeholder='Cari berdasarkan Judul' required />
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+>>>>>>> 15d0bce7ea12318115b20e6dfb30c03ae698cc5b
+                            </div>
+                        </form>
+                    </div>
+
+<<<<<<< HEAD
                             <?php
                             // Konfigurasi untuk halaman
                             $limit = 10; // Jumlah data per halaman
@@ -241,6 +297,100 @@ if (empty($_SESSION['username'])) {
 <!-- /.content -->
     <div class="footer-main">
         Copyright &copy PerpustakaanPGT2024
+=======
+                    <?php
+                    // Konfigurasi untuk halaman
+                    $limit = 10; // Jumlah data per halaman
+                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                    $start = ($page - 1) * $limit;
+
+                    $query1 = "SELECT * FROM data_buku";
+                    $countQuery = "SELECT COUNT(*) AS count FROM data_buku";
+
+                    if (isset($_POST['qcari'])) {
+                        $qcari = $_POST['qcari'];
+                        $query1 = "SELECT * FROM data_buku 
+                                   WHERE judul LIKE '%$qcari%' OR pengarang LIKE '%$qcari%'";
+                        $countQuery = "SELECT COUNT(*) AS count FROM data_buku 
+                                       WHERE judul LIKE '%$qcari%' OR pengarang LIKE '%$qcari%'";
+                    }
+
+                    // Menghitung jumlah total data
+                    $resultCount = mysqli_query($conn, $countQuery);
+                    $row = mysqli_fetch_assoc($resultCount);
+                    $total = $row['count'];
+
+                    // Query untuk menampilkan data sesuai halaman
+                    $query1 .= " LIMIT $start, $limit";
+                    $tampil = mysqli_query($conn, $query1) or die(mysqli_error($conn));
+                    ?>
+
+                    <table id="example" class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th><center>Judul</center></th>
+                                <th><center>Pengarang</center></th>
+                                <th><center>Tahun Terbit</center></th>
+                                <th><center>Penerbit</center></th>
+                                <th><center>Jumlah Halaman</center></th>
+                                <th><center>Tools</center></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while ($data = mysqli_fetch_array($tampil)) { ?>
+                                <tr>
+                                    <td><a href="detail-buku.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="fa fa-book"></span> <?php echo $data['judul']; ?></a></td>
+                                    <td><?php echo $data['pengarang']; ?></td>
+                                    <td><?php echo $data['th_terbit']; ?></td>
+                                    <td><?php echo $data['penerbit']; ?></td>
+                                    <td><?php echo $data['jumlah_buku']; ?></td>
+                                    <td>
+                                        <center>
+                                            <div id="thanks">
+                                                <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Buku" href="edit-buku.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
+                                                <a onclick="return confirm ('Yakin hapus <?php echo $data['judul']; ?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Buku" href="hapus-buku.php?hal=hapus&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-trash"></span></a>
+                                            </div>
+                                        </center>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+
+                    <?php
+                    // Menampilkan navigasi halaman
+                    $total_pages = ceil($total / $limit);
+
+                    echo "<ul class='pagination'>";
+                    if ($page > 1) {
+                        echo "<li><a href='buku.php?page=".($page - 1)."'>Previous</a></li>";
+                    }
+
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        echo "<li ".($page == $i ? "class='active'" : "")."><a href='buku.php?page=".$i."'>$i</a></li>";
+                    }
+
+                    if ($page < $total_pages) {
+                        echo "<li><a href='buku.php?page=".($page + 1)."'>Next</a></li>";
+                    }
+
+                    echo "</ul>";
+                    ?>
+
+                   
+
+                    <div class="text-right" style="margin-top: 10px;">
+                        <a href="buku.php" class="btn btn-sm btn-info">Refresh Buku <i class="fa fa-refresh"></i></a>
+                        <a href="input-buku.php" class="btn btn-sm btn-warning">Tambah Buku <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+</section><!-- /.content -->
+    <div class="footer-main">
+        Copyright PerpustakaanPGT2024
+>>>>>>> 15d0bce7ea12318115b20e6dfb30c03ae698cc5b
     </div>
     </aside><!-- /.right-side -->
 

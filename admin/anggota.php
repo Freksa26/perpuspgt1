@@ -149,121 +149,120 @@ if (empty($_SESSION['username'])) {
             <!-- /.sidebar -->
         </aside>
 
-        <aside class="right-side">
+        <?php
+// Konfigurasi untuk pagination
+$per_page = 5; // Jumlah data per halaman
 
-            <!-- Main content -->
-            <section class="content">
+// Ambil halaman saat ini
+$current_page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="panel">
-                            <header class="panel-heading">
-                                <b>Data Anggota</b>
+// Query untuk menghitung total data
+$query_count = "SELECT COUNT(*) AS total_rows FROM data_anggota";
+$result_count = mysqli_query($conn, $query_count);
+$row_count = mysqli_fetch_assoc($result_count);
+$total_rows = isset($row_count['total_rows']) ? $row_count['total_rows'] : 0;
 
-                            </header>
-                            <!-- <div class="box-header"> -->
-                            <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
+// Hitung jumlah halaman
+$total_pages = ceil($total_rows / $per_page);
 
-                            <!-- </div> -->
-                            <div class="panel-body table-responsive">
-                                <div class="box-tools m-b-15">
-                                    <form action="anggota.php" method="POST">
-                                        <div class="input-group">
-                                            <input type='text' class="form-control input-sm pull-right" style="width: 150px;" name='qcari' placeholder='Cari berdasarkan User ID dan Username' required />
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-sm btn-default" type="submit"><i class="fa fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </form>
+// Hitung offset untuk query data
+$offset = ($current_page - 1) * $per_page;
+
+// Query data anggota dengan limit dan offset
+$query_data = "SELECT * FROM data_anggota LIMIT $per_page OFFSET $offset";
+$result_data = mysqli_query($conn, $query_data) or die(mysqli_error($conn));
+?>
+
+<aside class="right-side">
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel">
+                    <header class="panel-heading">
+                        <b>Data Anggota</b>
+                    </header>
+                    <div class="panel-body table-responsive">
+                        <div class="box-tools m-b-15">
+                            <form action="anggota.php" method="POST">
+                                <div class="input-group">
+                                    <input type='text' class="form-control input-sm pull-right" style="width: 150px;" name='qcari' placeholder='Cari berdasarkan User ID dan Username' required />
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                    </div>
                                 </div>
-                                <?php
-                                $query1 = "select * from data_anggota";
-
-                                if (isset($_POST['qcari'])) {
-                                    $qcari = $_POST['qcari'];
-                                    $query1 = "SELECT * FROM  data_anggota 
-	               where no_induk like '%$qcari%'
-	               or nama like '%$qcari%'  ";
-                                }
-                                $tampil = mysqli_query($conn, $query1) or die(mysqli_error($conn));
-                                ?>
-                                <table id="example" class="table table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <center>Email </center>
-                                            </th>
-                                            <th>
-                                                <center>Nama </center>
-                                            </th>
-                                            <th>
-                                                <center>Username </center>
-                                            </th>
-                                            <th>
-                                                <center>Password </center>
-                                            </th>
-                                            <th>
-                                                <center>Jenis Kelamin </center>
-                                            </th>
-                                            <th>
-                                                <center>Usia </center>
-                                            </th>
-                                            <th>
-                                                <center>Tempat, Tanggal Lahir </center>
-                                            </th>
-                                            <th>
-                                                <center>Alamat </center>
-                                            </th>
-                                            <th>
-                                                <center>Tools</center>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <?php while ($data = mysqli_fetch_array($tampil)) { ?>
-                                        <tbody>
-                                            <tr>
-                                                <td><?php echo $data['no_induk']; ?></td>
-                                                <td><a href="detail-anggota.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="fa fa-user"></span> <?php echo $data['nama']; ?></a></td>
-                                                <td><?php echo $data['username']; ?></td>
-                                                <td><?php echo $data['password']; ?></td>
-                                                <td><?php echo $data['jk']; ?></td>
-                                                <td><?php echo $data['kelas']; ?></td>
-                                                <td><?php echo $data['ttl']; ?></td>
-                                                <td><?php echo $data['alamat']; ?></td>
-                                                <td>
-                                                    <center>
-                                                        <div id="thanks"><a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Anggota" href="edit-anggota.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
-                                                            <a onclick="return confirm ('Yakin hapus <?php echo $data['nama']; ?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Anggota" href="hapus-anggota.php?hal=hapus&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-trash"></a>
-                                                    </center>
-                                                </td>
-                                            </tr>
-                            </div>
-                        <?php
-                                    }
-                        ?>
-                        </tbody>
+                            </form>
+                        </div>
+                        <table id="example" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th><center>Email </center></th>
+                                    <th><center>Nama </center></th>
+                                    <th><center>Username </center></th>
+                                    <th><center>Password </center></th>
+                                    <th><center>Jenis Kelamin </center></th>
+                                    <th><center>Usia </center></th>
+                                    <th><center>Tempat, Tanggal Lahir </center></th>
+                                    <th><center>Alamat </center></th>
+                                    <th><center>Tools</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while ($data = mysqli_fetch_array($result_data)) { ?>
+                                    <tr>
+                                        <td><?php echo $data['no_induk']; ?></td>
+                                        <td><a href="detail-anggota.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="fa fa-user"></span> <?php echo $data['nama']; ?></a></td>
+                                        <td><?php echo $data['username']; ?></td>
+                                        <td><?php echo $data['password']; ?></td>
+                                        <td><?php echo $data['jk']; ?></td>
+                                        <td><?php echo $data['kelas']; ?></td>
+                                        <td><?php echo $data['ttl']; ?></td>
+                                        <td><?php echo $data['alamat']; ?></td>
+                                        <td>
+                                            <center>
+                                                <div id="thanks">
+                                                    <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Anggota" href="edit-anggota.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
+                                                    <a onclick="return confirm ('Yakin hapus <?php echo $data['nama']; ?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Anggota" href="hapus-anggota.php?hal=hapus&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-trash"></span></a>
+                                                </div>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
                         </table>
 
-                        <?php $tampil = mysqli_query($conn, "select * from data_anggota order by id");
-                        $user = mysqli_num_rows($tampil);
-                        ?>
-                        <center>
-                            <h4>Jumlah Anggota : <?php echo "$user"; ?> Orang </h4>
-                        </center>
+                        <div class="text-center">
+                            <ul class="pagination">
+                                <?php if ($current_page > 1) : ?>
+                                    <li><a href="?page=<?php echo ($current_page - 1); ?>">Previous</a></li>
+                                <?php endif; ?>
 
-                        <div class="text-right" style="margin-top: 10px;">
-                            <a href="anggota.php" class="btn btn-sm btn-info">Refresh Anggota <i class="fa fa-refresh"></i></a> <a href="input-anggota.php" class="btn btn-sm btn-warning">Tambah Anggota <i class="fa fa-arrow-circle-right"></i></a>
+                                <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+                                    <li <?php if ($i === $current_page) echo 'class="active"'; ?>>
+                                        <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    </li>
+                                <?php endfor; ?>
+
+                                <?php if ($current_page < $total_pages) : ?>
+                                    <li><a href="?page=<?php echo ($current_page + 1); ?>">Next</a></li>
+                                <?php endif; ?>
+                            </ul>
                         </div>
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
-                </div>
-    </div>
-    <!-- row end -->
+
+                       
+                        <div class="text-right" style="margin-top: 10px;">
+                            <a href="anggota.php" class="btn btn-sm btn-info">Refresh Anggota <i class="fa fa-refresh"></i></a>
+                            <a href="input-anggota.php" class="btn btn-sm btn-warning">Tambah Anggota <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div>
+        </div>
     </section><!-- /.content -->
-    <div class="footer-main">
-        Copyright PerpustakaanKU 2021
-    </div>
-    </aside><!-- /.right-side -->
+
+    <div class="footer-main"></div>
+</aside>
+<!-- /.right-side -->
 
     </div><!-- ./wrapper -->
 

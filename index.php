@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>PerpustakaanKU || Membaca menjadi lebih mudah!</title>
+        <title>PerpustakaanPGT || Membaca menjadi lebih mudah!</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="description" content="Perpustakaan Berbasis Web">
         <meta name="keywords" content="Perpustakaan, perpus, online, website">

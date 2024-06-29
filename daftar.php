@@ -18,54 +18,79 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.0/font/bootstrap-icons.min.css" rel="stylesheet">
 
-
-
   <!-- Custom styles for this template -->
   <link href="signin.css" rel="stylesheet">
   <script src="js/ie-emulation-modes-warning.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <link rel="stylesheet" href="style.css"> <!-- Rujukan ke file CSS -->
-    <style>
-        body {
-            background-color: #f0f0f0; /* Warna latar belakang */
-        }
+  <style>
+      body {
+          background: url('img/ibrary-background.jpg') no-repeat center center fixed; 
+          background-size: cover; /* Mengatur ukuran gambar agar menutupi seluruh halaman */
+      }
 
-        .container {
-            max-width: 400px; /* Lebar maksimum container */
-            margin: 0 auto; /* Posisi tengah */
-            background-color: #fff; /* Warna latar belakang container */
-            padding: 20px; /* Padding di dalam container */
-            border-radius: 5px; /* Sudut bulat container */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk tampilan lebih menarik */
-        }
+      .container {
+          max-width: 400px; /* Lebar maksimum container */
+          margin: 0 auto; /* Posisi tengah */
+          background-color: #fff; /* Warna latar belakang container */
+          padding: 20px; /* Padding di dalam container */
+          border-radius: 5px; /* Sudut bulat container */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk tampilan lebih menarik */
+      }
 
-        .form-group {
-            margin-bottom: 15px; /* Jarak antara setiap elemen form */
-        }
+      .form-group {
+          margin-bottom: 15px; /* Jarak antara setiap elemen form */
+      }
 
-        .form-group label {
-            font-weight: bold; /* Memperjelas label */
-            display: block; /* Memastikan label tetap pada baris yang sama */
-            margin-bottom: 5px; /* Jarak antara label dan input */
-        }
+      .form-group label {
+          font-weight: bold; /* Memperjelas label */
+          display: block; /* Memastikan label tetap pada baris yang sama */
+          margin-bottom: 5px; /* Jarak antara label dan input */
+      }
 
-        .radio label {
-            display: flex; /* Membuat radio button dan label sejajar */
-            align-items: center; /* Menyatukan ikon dengan teks */
-        }
+      .radio label {
+          display: flex; /* Membuat radio button dan label sejajar */
+          align-items: center; /* Menyatukan ikon dengan teks */
+      }
 
-        .radio label i {
-            margin-left: 5px; /* Jarak antara ikon dan teks */
-            font-size: 1.2em; /* Ukuran ikon */
-            vertical-align: middle; /* Memposisikan ikon di tengah vertikal */
-        }
-    </style>
+      .radio label i {
+          margin-left: 5px; /* Jarak antara ikon dan teks */
+          font-size: 1.2em; /* Ukuran ikon */
+          vertical-align: middle; /* Memposisikan ikon di tengah vertikal */
+      }
 
+      .input-group-addon {
+          background-color: white; /* Warna latar belakang putih untuk span */
+      }
+
+      .right-icon {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: white; /* Add background color white */
+          padding: 5px;
+          border-radius: 50%; /* Optional: make the icon background circular */
+          pointer-events: none;
+      }
+
+      .input-group {
+          position: relative;
+      }
+
+      .form-control {
+          padding-right: 45px; /* Add space for the icon */
+      }
+
+      .small-icon {
+          padding: 2px; /* Smaller padding for the icon */
+          font-size: 0.8em; /* Smaller font size for the icon */
+      }
+  </style>
 </head>
 
-<body background="img/page-background.png">
-
+<body>
 <div class="container">
     <form class="form-signin" action="insert-anggota.php" method="post">
         <div class="text-center">
@@ -143,20 +168,16 @@
     </form>
 </div>
 
- <!-- /container -->
+<!-- /container -->
 
-  
-    <h5 class="form-signin">Copyright &copy; <a href="#" data-toggle="modal" data-target="#contact">PerpustakaanPGT2024</a>
-    </h5>
-  
+<h5 class="form-signin">Copyright &copy; <a href="#" data-toggle="modal" data-target="#contact">PerpustakaanPGT2024</a>
+</h5>
 
-  <!-- Modal Dialog Contact -->
-  <?php include("modal.php")?>
-  <!-- end dialog modal -->
+<!-- Modal Dialog Contact -->
+<?php include("modal.php")?>
+<!-- end dialog modal -->
 
-
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="js/ie10-viewport-bug-workaround.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
-
 </html>

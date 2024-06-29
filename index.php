@@ -141,6 +141,7 @@
                         </div>
 
                         <style>
+                            
     /* CSS untuk mempercantik tabel */
     .panel-heading {
         background-color: #3498db; /* Warna latar belakang header panel */
@@ -185,155 +186,232 @@
 </style>
 
 <div class="col-md-4">
-    <section class="panel">
-        <header class="panel-heading">
-            <h3 class="panel-title"><strong>Data Pengunjung Hari Ini</strong></h3>
-        </header>
-        <div class="panel-body table-responsive">
-            <?php
-            $tanggal = date("Y/m/d");
-            $limit = 5; // Jumlah data per halaman
-            $page = isset($_GET['page']) ? $_GET['page'] : 1; // Halaman saat ini, default halaman 1
-            $start = ($page - 1) * $limit; // Perhitungan offset data
-
-            // Query to get the data for the current page
-            $query1 = "SELECT * FROM pengunjung WHERE tgl_kunjung='$tanggal' LIMIT $start, $limit";
-            $tampil = mysqli_query($conn, $query1) or die(mysqli_error($conn));
-
-            // Query to get the total number of records for the current date
-            $query_total = "SELECT COUNT(*) AS total FROM pengunjung WHERE tgl_kunjung='$tanggal'";
-            $result_total = mysqli_query($conn, $query_total);
-            $row_total = mysqli_fetch_assoc($result_total);
-            $total_records = $row_total['total'];
-            $total_pages = ceil($total_records / $limit);
-            ?>
-            <table class="table table-bordered table-hover" style="width: 100%; margin: auto;">
-                <thead>
-                    <tr>
-                        <th>Nama</th>
-                        <th>Tanggal</th>
-                        <th>Jam</th>
-                        <th>Keperluan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while ($data = mysqli_fetch_array($tampil)) { ?>
-                        <tr>
-                            <td><?php echo $data['nama']; ?></td>
-                            <td><?php echo $data['tgl_kunjung']; ?></td>
-                            <td><?php echo $data['jam_kunjung']; ?></td>
-                            <td><?php echo $data['perlu1']; ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-            <?php
-            $user = mysqli_num_rows($tampil);
-            ?>
-           
-
-            <!-- Pagination -->
-            <ul class='pagination justify-content-center'>
-                <?php if ($page > 1) { ?>
-                    <li class='page-item'><a class='page-link' href='index.php?page=<?php echo $page - 1; ?>'>Previous</a></li>
-                <?php } ?>
-                
-                <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                    <li class='page-item <?php if ($i == $page) echo "active"; ?>'><a class='page-link' href='index.php?page=<?php echo $i; ?>'><?php echo $i; ?></a></li>
-                <?php } ?>
-                
-                <?php if ($page < $total_pages) { ?>
-                    <li class='page-item'><a class='page-link' href='index.php?page=<?php echo $page + 1; ?>'>Next</a></li>
-                <?php } ?>
-            </ul>
-        </div>
-    </section>
-</div>
-
-
-
-
-
-                        <!--end data Pengunjung  -->
-                        <div class="col-md-8">
-    <section class="panel">
-        <header class="panel-heading">
-            <b>Buku Pengunjung</b>
-        </header>
-        <div class="panel-body">
-            <div class="twt-area">
-                <form class="form-horizontal style-form" style="margin-top: 20px;" action="insert-pengunjung.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">No</label>
-                        <div class="col-sm-10">
-                            <input name="id" type="text" id="id" class="form-control" placeholder="Tidak perlu diisi" readonly="readonly" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Nama</label>
-                        <div class="col-sm-10">
-                            <input name="nama" type="text" id="nama" class="form-control" placeholder="Nama Anda" required />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
-                        <div class="col-sm-10">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jk" id="jk_l" value="L">
-                                <label class="form-check-label" for="jk_l">Laki - Laki</label>
+                        <section class="panel">
+                            <header class="panel-heading">
+                                <h3 class="panel-title"><strong>Motto Perpustakaan PGT</strong></h3>
+                            </header>
+                            <div class="panel-body">
+                                <center>
+                                    <p><strong>"Tekun, Terampil, Kreatif"</strong></p>
+                                </center>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jk" id="jk_p" value="P">
-                                <label class="form-check-label" for="jk_p">Perempuan</label>
+                        </section>
+                    </div>
+
+                    <div class="col-md-4">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                <h3 class="panel-title"><strong>Visi Perpustakaan PGT</strong></h3>
+                            </header>
+                            <div class="panel-body">
+                                <p align="justify">Terwujudnya Politeknik berkarakter dalam menghasilkan lulusan unggul yang memiliki keahlian dan kemampuan di bidangnya serta mampu bersaing di tingkat nasional maupun internasional.</p>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="col-md-4">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                <h3 class="panel-title"><strong>Misi Perpustakaan PGT</strong></h3>
+                            </header>
+                            <div class="panel-body">
+                                <ol>
+                                    <li align="justify">Membentuk manusia yang beriman, bertaqwa dan berakhlak mulia.</li>
+                                    <li align="justify">Menghasilkan lulusan yang kompeten sesuai dengan bidang keahliannya.</li>
+                                    <li align="justify">Menyelenggarakan program pendidikan vokasi yang berkualitas sesuai dengan perkembangan ilmu pengetahuan dan teknologi.</li>
+                                </ol>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-md-4">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                <h3 class="panel-title"><strong>Tujuan Perpustakaan PGT</strong></h3>
+                            </header>
+                            <div class="panel-body">
+                                <ol>
+                                    <li align="justify">Mewujudkan lembaga pendidikan tinggi yang profesional dan akuntabel.</li>
+                                    <li align="justify">Menghasilkan lulusan yang memiliki kemampuan akademik dan/atau profesional yang unggul di tingkat nasional maupun internasional.</li>
+                                    <li align="justify">Mengembangkan penelitian yang bermutu di bidang ilmu pengetahuan dan teknologi.</li>
+                                    <li align="justify">Mengembangkan program pengabdian kepada masyarakat yang berbasis pada kebutuhan masyarakat dan pembangunan nasional.</li>
+                                </ol>
+                            </div>
+                        </section>
+                    </div>
+
+                    
+
+                    <div class="col-md-4">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                <h3 class="panel-title"><strong>Kerjasama</strong></h3>
+                            </header>
+                            <div class="panel-body">
+                                <p align="justify">Politeknik Gajah Tunggal menjalin kerjasama dengan berbagai institusi, baik di dalam maupun luar negeri, dalam rangka meningkatkan kualitas pendidikan dan lulusan.</p>
+                            </div>
+                        </section>
+                    </div>
+
+                    
+                    <div class="col-md-4">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                <h3 class="panel-title"><strong>Team Perpustakaan PGT</strong></h3>
+                            </header>
+                            <div class="panel-body">
+                                <ul>
+                                    <li><strong>Fatchurrochman Reksa Pratama</strong> - Master</li>
+                                    <li><strong>Ananditio Aryogusti</strong> - Colaborator</li>
+                                    <li><strong>Fikri Ainur Ridho</strong> -  Colaborator</li>
+                                   
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="row">
+    <!-- Buku Pengunjung -->
+    <div class="col-md-8">
+        <section class="panel">
+            <header class="panel-heading">
+                <b>Buku Pengunjung</b>
+            </header>
+            <div class="panel-body">
+                <div class="twt-area">
+                    <form class="form-horizontal style-form" style="margin-top: 20px;" action="insert-pengunjung.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">No</label>
+                            <div class="col-sm-10">
+                                <input name="id" type="text" id="id" class="form-control" placeholder="Tidak perlu diisi" readonly="readonly" />
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Usia</label>
-                        <div class="col-sm-10">
-                            <input name="kelas" type="number" id="kelas" class="form-control" placeholder="Usia Anda" required />
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Nama</label>
+                            <div class="col-sm-10">
+                                <input name="nama" type="text" id="nama" class="form-control" placeholder="Nama Anda" required />
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Keperluan</label>
-                        <div class="col-sm-10">
-                            <input name="perlu1" type="text" id="perlu1" class="form-control" placeholder="Keperluan" required />
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                            <div class="col-sm-10">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="jk" id="jk_l" value="L">
+                                    <label class="form-check-label" for="jk_l">Laki - Laki</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="jk" id="jk_p" value="P">
+                                    <label class="form-check-label" for="jk_p">Perempuan</label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Buku yang Anda Cari</label>
-                        <div class="col-sm-10">
-                            <input name="cari" type="text" id="cari" class="form-control" placeholder="Apa yang Anda cari?" required />
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Usia</label>
+                            <div class="col-sm-10">
+                                <input name="kelas" type="number" id="kelas" class="form-control" placeholder="Usia Anda" required />
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Saran</label>
-                        <div class="col-sm-10">
-                            <textarea rows="4" name="saran" id="saran" class="form-control" placeholder="Saran Anda Untuk Kami"></textarea>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Keperluan</label>
+                            <div class="col-sm-10">
+                                <input name="perlu1" type="text" id="perlu1" class="form-control" placeholder="Keperluan" required />
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Tanggal</label>
-                        <div class="col-sm-10">
-                            <input name="tgl_kunjung" type="text" class="form-control" id="tgl_kunjung" value="<?php echo date('Y/m/d'); ?>" readonly="readonly" />
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Buku yang Anda Cari</label>
+                            <div class="col-sm-10">
+                                <input name="cari" type="text" id="cari" class="form-control" placeholder="Apa yang Anda cari?" required />
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Jam</label>
-                        <div class="col-sm-10">
-                            <input name="jam_kunjung" type="text" class="form-control" id="jam_kunjung" value="<?php echo date('G:i:s'); ?>" readonly="readonly" />
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Saran</label>
+                            <div class="col-sm-10">
+                                <textarea rows="4" name="saran" id="saran" class="form-control" placeholder="Saran Anda Untuk Kami"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <div class="col-sm-10 offset-sm-2">
-                            <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
-                            <a href="#" class="btn btn-danger">Batal</a>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Tanggal</label>
+                            <div class="col-sm-10">
+                                <input name="tgl_kunjung" type="text" class="form-control" id="tgl_kunjung" value="<?php echo date('Y/m/d'); ?>" readonly="readonly" />
+                            </div>
                         </div>
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Jam</label>
+                            <div class="col-sm-10">
+                                <input name="jam_kunjung" type="text" class="form-control" id="jam_kunjung" value="<?php echo date('G:i:s'); ?>" readonly="readonly" />
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <div class="col-sm-10 offset-sm-2">
+                                <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                                <a href="#" class="btn btn-danger">Batal</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+    <!-- Data Pengunjung Hari Ini -->
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Data Pengunjung Hari Ini</strong></h3>
+            </header>
+            <div class="panel-body table-responsive">
+                <?php
+                $tanggal = date("Y/m/d");
+                $limit = 5;
+                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $start = ($page - 1) * $limit;
+
+                $query1 = "SELECT * FROM pengunjung WHERE tgl_kunjung='$tanggal' LIMIT $start, $limit";
+                $tampil = mysqli_query($conn, $query1) or die(mysqli_error($conn));
+
+                $query_total = "SELECT COUNT(*) AS total FROM pengunjung WHERE tgl_kunjung='$tanggal'";
+                $result_total = mysqli_query($conn, $query_total);
+                $row_total = mysqli_fetch_assoc($result_total);
+                $total_records = $row_total['total'];
+                $total_pages = ceil($total_records / $limit);
+                ?>
+                <table class="table table-bordered table-hover" style="width: 100%; margin: auto;">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Tanggal</th>
+                            <th>Jam</th>
+                            <th>Keperluan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($data = mysqli_fetch_array($tampil)) { ?>
+                            <tr>
+                                <td><?php echo $data['nama']; ?></td>
+                                <td><?php echo $data['tgl_kunjung']; ?></td>
+                                <td><?php echo $data['jam_kunjung']; ?></td>
+                                <td><?php echo $data['perlu1']; ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <?php
+                $user = mysqli_num_rows($tampil);
+                ?>
+
+                <!-- Pagination -->
+                <ul class='pagination justify-content-center'>
+                    <?php if ($page > 1) { ?>
+                        <li class='page-item'><a class='page-link' href='index.php?page=<?php echo $page - 1; ?>'>Previous</a></li>
+                    <?php } ?>
+                    <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
+                        <li class='page-item <?php if ($i == $page) echo "active"; ?>'><a class='page-link' href='index.php?page=<?php echo $i; ?>'><?php echo $i; ?></a></li>
+                    <?php } ?>
+                    <?php if ($page < $total_pages) { ?>
+                        <li class='page-item'><a class='page-link' href='index.php?page=<?php echo $page + 1; ?>'>Next</a></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </section>
+    </div>
 </div>
 
 <!--end panel buku pengunjung-->
@@ -414,6 +492,43 @@
         </div>
     </section>
 </div>
+<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="contactLabel">Contact Us</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email address</label>
+                                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message">Message</label>
+                                            <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Send message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    
+
+              
 
         <!-- row end -->
         <!-- /.content -->
@@ -463,6 +578,8 @@
             </div>
         </div>
         <!-- end dialog modal -->
+
+        
 
 
         <!-- jQuery 2.0.2 -->

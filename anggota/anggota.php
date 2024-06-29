@@ -10,7 +10,7 @@ if (empty($_SESSION['username'])) {
 
     <head>
         <meta charset="UTF-8">
-        <title>PerpustakaanKU</title>
+        <title>PerpustakaanPGT</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="description" content="Hakko Bio Richard">
         <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
@@ -238,6 +238,17 @@ if (empty($_SESSION['username'])) {
                                     }
                         ?>
                         </tbody>
+                        <ul class='pagination justify-content-center'>
+                    <?php if ($page > 1) { ?>
+                        <li class='page-item'><a class='page-link' href='index.php?page=<?php echo $page - 1; ?>'>Previous</a></li>
+                    <?php } ?>
+                    <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
+                        <li class='page-item <?php if ($i == $page) echo "active"; ?>'><a class='page-link' href='index.php?page=<?php echo $i; ?>'><?php echo $i; ?></a></li>
+                    <?php } ?>
+                    <?php if ($page < $total_pages) { ?>
+                        <li class='page-item'><a class='page-link' href='index.php?page=<?php echo $page + 1; ?>'>Next</a></li>
+                    <?php } ?>
+                </ul>
                         </table>
 
                         <?php $tampil = mysqli_query($conn, "select * from data_anggota order by id");

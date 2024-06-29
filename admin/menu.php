@@ -16,8 +16,8 @@
                                          
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="anggota.php">  <i class="bi bi-person"></i>  Data Anggota</a></li>
-                                        <li><a href="input-anggota.php">  <i class="bi bi-person"></i>  Tambah Anggota</a></li>
+                                        <li><a href="anggota.php"> <i class="bi bi-chevron-double-right"></i>  Data Anggota</a></li>
+                                        <li><a href="input-anggota.php"> <i class="bi bi-chevron-double-right"></i>  Tambah Anggota</a></li>
                                     </ul>
                                 </li>
 
@@ -28,19 +28,19 @@
                                         
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="buku.php"><i class="bi bi-book"></i> Data Buku</a></li>
-                                        <li><a href="input-buku.php"><i class="bi bi-book"></i> Tambah Buku</a></li>
+                                        <li><a href="buku.php"><i class="bi bi-chevron-double-right"></i> Data Buku</a></li>
+                                        <li><a href="input-buku.php"><i class="bi bi-chevron-double-right"></i> Tambah Buku</a></li>
                                     </ul>
                                 </li>
                                 <li class="treeview">
                                     <a href="#">
-                                    <i class="bi bi-lock"></i>
+                                    <i class="bi bi-key"></i>
                                         <span>Data Admin</span>
                                         
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="admin.php"><i class="bi bi-lock"></i>Data Admin</a></li>
-                                        <li><a href="input-admin.php"><i class="bi bi-lock"></i> Tambah Admin</a></li>
+                                        <li><a href="admin.php"><i class="bi bi-chevron-double-right"></i>Data Admin</a></li>
+                                        <li><a href="input-admin.php"><i class="bi bi-chevron-double-right"></i> Tambah Admin</a></li>
                                     </ul>
                                 </li>
                                 <li class="treeview">
@@ -50,8 +50,8 @@
                                         
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="laporan-anggota.php"> <i class="bi bi-file-earmark"></i> Laporan Anggota</a></li>
-                                        <li><a href="laporan-buku.php"> <i class="bi bi-file-earmark"></i> Laporan Buku</a></li>
+                                        <li><a href="laporan-anggota.php"> <i class="bi bi-chevron-double-right"></i></i> Laporan Anggota</a></li>
+                                        <li><a href="laporan-buku.php"><i class="bi bi-chevron-double-right"></i> Laporan Buku</a></li>
                                     </ul>
                                 </li>
                                 <li>

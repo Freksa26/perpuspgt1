@@ -98,7 +98,7 @@
         </div>
 
         <div class="form-group">
-            <label for="no_induk">Email</label>
+            <label for="no_induk"><i class="bi bi-envelope-open"></i> Email</label>
             <div class="input-group">
                 <span class="input-group-addon right-icon"><i class="bi bi-envelope-open"></i></span>
                 <input type="text" id="no_induk" name="no_induk" class="form-control" placeholder="Email" autocomplete="off" autofocus="on" required>
@@ -106,7 +106,7 @@
         </div>
 
         <div class="form-group">
-            <label for="nama">Full Name</label>
+            <label for="nama"><i class="bi bi-person"></i> Full Name</label>
             <div class="input-group">
                 <span class="input-group-addon right-icon"><i class="bi bi-person"></i></span>
                 <input type="text" id="nama" name="nama" class="form-control" placeholder="Full Name" autocomplete="off" autofocus="on" required>
@@ -114,7 +114,7 @@
         </div>
 
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username"><i class="bi bi-person"></i> Username</label>
             <div class="input-group">
                 <span class="input-group-addon right-icon"><i class="bi bi-person"></i></span>
                 <input type="text" id="username" name="username" class="form-control" placeholder="Username" autocomplete="off" autofocus="on" required>
@@ -122,7 +122,7 @@
         </div>
 
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password"><i class="bi bi-lock"></i> Password</label>
             <div class="input-group">
                 <span class="input-group-addon right-icon small-icon"><i class="bi bi-lock"></i></span>
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" autocomplete="off" required>
@@ -130,7 +130,7 @@
         </div>
 
         <div class="form-group">
-            <label>Jenis Kelamin</label>
+            <label><i class="bi bi-gender-ambiguous"></i> Jenis Kelamin</label>
             <div class="radio">
                 <label><input type="radio" name="jk" value="L"> Laki-laki <i class="bi bi-gender-male"></i></label>
                 <label><input type="radio" name="jk" value="P"> Perempuan <i class="bi bi-gender-female"></i></label>
@@ -138,7 +138,7 @@
         </div>
 
         <div class="form-group">
-            <label for="kelas">Usia</label>
+            <label for="kelas"><i class="bi bi-hourglass-split"></i> Usia</label>
             <div class="input-group">
                 <span class="input-group-addon right-icon"><i class="bi bi-hourglass-split"></i></span>
                 <input type="text" id="kelas" name="kelas" class="form-control" placeholder="Usia" autocomplete="off" autofocus="on" required>
@@ -146,15 +146,15 @@
         </div>
 
         <div class="form-group">
-            <label for="ttl">Tempat, Tanggal Lahir (DD MM YY)</label>
+            <label for="ttl"><i class="bi bi-calendar4-week"></i> Tempat, Tanggal Lahir (DD MM YY)</label>
             <div class="input-group">
-                <span class="input-group-addon right-icon"><i class="bi bi-calendar4-week"></i></i></span>
+                <span class="input-group-addon right-icon"><i class="bi bi-calendar4-week"></i></span>
                 <input type="text" id="ttl" name="ttl" class="form-control" placeholder="Tempat, Tanggal Lahir (DD MM YY)" autocomplete="off" autofocus="on" required>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="alamat">Alamat</label>
+            <label for="alamat"><i class="bi bi-house"></i> Alamat</label>
             <div class="input-group">
                 <span class="input-group-addon right-icon"><i class="bi bi-house"></i></span>
                 <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat" autocomplete="off" autofocus="on" required>
@@ -167,6 +167,7 @@
         <p>Login? <a href="login.html">Klik disini</a></p>
     </form>
 </div>
+
 
 <!-- /container -->
 

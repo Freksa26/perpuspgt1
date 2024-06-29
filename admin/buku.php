@@ -216,7 +216,7 @@ if (empty($_SESSION['username'])) {
                                     <td><?php echo $data['pengarang']; ?></td>
                                     <td><?php echo $data['th_terbit']; ?></td>
                                     <td><?php echo $data['penerbit']; ?></td>
-                                    <td><?php echo $data['jumlah_halaman']; ?></td>
+                                    <td><?php echo $data['jumlah_buku']; ?></td>
                                     <td>
                                         <center>
                                             <div id="thanks">

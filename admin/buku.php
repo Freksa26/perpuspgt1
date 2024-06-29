@@ -10,7 +10,7 @@ if (empty($_SESSION['username'])) {
 
     <head>
         <meta charset="UTF-8">
-        <title>PerpustakaanKU</title>
+        <title>PerpustakaanPGT</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="description" content="Hakko Bio Richard">
         <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
@@ -55,7 +55,7 @@ if (empty($_SESSION['username'])) {
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="index.php" class="logo">
+            <a href="index.php" class="logo"><i class="bi bi-book"></i>
                 PerpustakaanPGT
             </a>
             <!-- Header Navbar: style can be found in header.less -->

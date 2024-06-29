@@ -1,7 +1,9 @@
-                            <ul class="sidebar-menu">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.0/font/bootstrap-icons.min.css" rel="stylesheet">
+
+                          <ul class="sidebar-menu">
                                 <li class="active">
                                     <a href="index.php">
-                                        <i class="fa fa-dashboard"></i> <span>Beranda</span>
+                                    <i class="bi bi-house"></i> <span>Beranda</span>
                                     </a>
                                 </li>
                                 <li class="treeview">

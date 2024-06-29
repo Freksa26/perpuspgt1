@@ -5,8 +5,10 @@ if (empty($_SESSION['username'])) {
 } else {
     include "../conn.php";
 ?>
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
+
+
 
     <head>
         <meta charset="UTF-8">
@@ -39,112 +41,47 @@ if (empty($_SESSION['username'])) {
         <link href="../css/style.css" rel="stylesheet" type="text/css" />
 
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-          <![endif]-->
+    <style type="text/css">
 
-        <style type="text/css">
+    </style>
+</head>
 
-        </style>
-    </head>
-
-    <body class="skin-black">
-        <!-- header logo: style can be found in header.less -->
-        <header class="header">
-            <a href="index.php" class="logo">
-                PerpustakaanPGT
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                                <span><?php echo $_SESSION['nama']; ?> <i class="caret"></i></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                                <li class="dropdown-header text-center">Account</li>
-
-                                <li>
-                                    <a href="detail-anggota.php?hal=edit&kd=<?php echo $_SESSION['id']; ?>">
-                                        <i class="fa fa-user fa-fw pull-right"></i>
-                                        Profile
-                                    </a>
-                                </li>
-
-                                <li class="divider"></li>
-
-                                <li>
-                                    <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+<body class="skin-black">
+    <!-- header logo: style can be found in header.less -->
+    <?php include "header.php"; ?>
+   <!-- end header-->
+   <!--logout-->
+   <?php include "logout.php"; ?>
+   <!--destroy-->
+<?php } ?>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="left-side sidebar-offcanvas">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div>
+                    <center><img src="<?php echo $_SESSION['foto']; ?>" height="80" width="80" class="img-circle" alt="User Image" style="border: 3px solid white;" /></center>
                 </div>
-            </nav>
-        </header>
-        <?php
-        $timeout = 10; // Set timeout minutes
-        $logout_redirect_url = "../login.html"; // Set logout URL
-
-        $timeout = $timeout * 60; // Converts minutes to seconds
-        if (isset($_SESSION['start_time'])) {
-            $elapsed_time = time() - $_SESSION['start_time'];
-            if ($elapsed_time >= $timeout) {
-                session_destroy();
-                echo "<script>alert('Session Anda Telah Habis!'); window.location = '$logout_redirect_url'</script>";
-            }
-        }
-        $_SESSION['start_time'] = time();
-        ?>
-    <?php } ?>
-    <div class="wrapper row-offcanvas row-offcanvas-left">
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="left-side sidebar-offcanvas">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-                <!-- Sidebar user panel -->
-                <div class="user-panel">
-                    <div>
-                        <center><img src="<?php echo $_SESSION['foto']; ?>" height="80" width="80" class="img-circle" alt="User Image" style="border: 3px solid white;" /></center>
-                    </div>
-                    <div class="info">
-                        <center>
-                            <p><?php echo $_SESSION['nama']; ?></p>
-                        </center>
-
-                    </div>
+                <div class="info">
+                    <center>
+                        <p><?php echo $_SESSION['nama']; ?></p>
+                    </center>
                 </div>
-                <!-- search form -->
-                <!--<form action="#" method="get" class="sidebar-form">
-                                <div class="input-group">
-                                    <input type="text" name="q" class="form-control" placeholder="Search..."/>
-                                    <span class="input-group-btn">
-                                        <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                                    </span>
-                                </div>
-                            </form> -->
-                <!-- /.search form -->
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <?php include "menu.php"; ?>
-            </section>
-            <!-- /.sidebar -->
-        </aside>
-
+            </div>
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <?php include "menu.php"; ?>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
         <aside class="right-side">
 
             <!-- Main content -->
@@ -163,102 +100,105 @@ if (empty($_SESSION['username'])) {
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-default" type="submit"><i class="fa fa-search"></i></button>
                                 </div>
+
                             </div>
                         </form>
                     </div>
 
-                    <?php
-                    // Konfigurasi untuk halaman
-                    $limit = 10; // Jumlah data per halaman
-                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                    $start = ($page - 1) * $limit;
 
-                    $query1 = "SELECT * FROM data_buku";
-                    $countQuery = "SELECT COUNT(*) AS count FROM data_buku";
+                            <?php
+                            // Konfigurasi untuk halaman
+                            $limit = 10; // Jumlah data per halaman
+                            $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                            $start = ($page - 1) * $limit;
 
-                    if (isset($_POST['qcari'])) {
-                        $qcari = $_POST['qcari'];
-                        $query1 = "SELECT * FROM data_buku 
-                                   WHERE judul LIKE '%$qcari%' OR pengarang LIKE '%$qcari%'";
-                        $countQuery = "SELECT COUNT(*) AS count FROM data_buku 
-                                       WHERE judul LIKE '%$qcari%' OR pengarang LIKE '%$qcari%'";
-                    }
+                            $query1 = "SELECT * FROM data_buku";
+                            $countQuery = "SELECT COUNT(*) AS count FROM data_buku";
 
-                    // Menghitung jumlah total data
-                    $resultCount = mysqli_query($conn, $countQuery);
-                    $row = mysqli_fetch_assoc($resultCount);
-                    $total = $row['count'];
+                            if (isset($_POST['qcari'])) {
+                                $qcari = $_POST['qcari'];
+                                $query1 = "SELECT * FROM data_buku 
+                                           WHERE judul LIKE '%$qcari%' OR pengarang LIKE '%$qcari%'";
+                                $countQuery = "SELECT COUNT(*) AS count FROM data_buku 
+                                               WHERE judul LIKE '%$qcari%' OR pengarang LIKE '%$qcari%'";
+                            }
 
-                    // Query untuk menampilkan data sesuai halaman
-                    $query1 .= " LIMIT $start, $limit";
-                    $tampil = mysqli_query($conn, $query1) or die(mysqli_error($conn));
-                    ?>
+                            // Menghitung jumlah total data
+                            $resultCount = mysqli_query($conn, $countQuery);
+                            $row = mysqli_fetch_assoc($resultCount);
+                            $total = $row['count'];
 
-                    <table id="example" class="table table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th><center>Judul</center></th>
-                                <th><center>Pengarang</center></th>
-                                <th><center>Tahun Terbit</center></th>
-                                <th><center>Penerbit</center></th>
-                                <th><center>Jumlah Halaman</center></th>
-                                <th><center>Tools</center></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php while ($data = mysqli_fetch_array($tampil)) { ?>
-                                <tr>
-                                    <td><a href="detail-buku.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="fa fa-book"></span> <?php echo $data['judul']; ?></a></td>
-                                    <td><?php echo $data['pengarang']; ?></td>
-                                    <td><?php echo $data['th_terbit']; ?></td>
-                                    <td><?php echo $data['penerbit']; ?></td>
-                                    <td><?php echo $data['jumlah_buku']; ?></td>
-                                    <td>
-                                        <center>
-                                            <div id="thanks">
-                                                <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Buku" href="edit-buku.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
-                                                <a onclick="return confirm ('Yakin hapus <?php echo $data['judul']; ?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Buku" href="hapus-buku.php?hal=hapus&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-trash"></span></a>
-                                            </div>
-                                        </center>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+                            // Query untuk menampilkan data sesuai halaman
+                            $query1 .= " LIMIT $start, $limit";
+                            $tampil = mysqli_query($conn, $query1) or die(mysqli_error($conn));
+                            ?>
 
-                    <?php
-                    // Menampilkan navigasi halaman
-                    $total_pages = ceil($total / $limit);
+                            <table id="example" class="table table-hover table-bordered table-sm" style="border: 1px solid grey;">
+                                <thead>
+                                    <tr>
+                                        <th><center>Judul</center></th>
+                                        <th><center>Pengarang</center></th>
+                                        <th><center>Tahun Terbit</center></th>
+                                        <th><center>Penerbit</center></th>
+                                        <th><center>Jumlah Halaman</center></th>
+                                        <th><center>Tools</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php while ($data = mysqli_fetch_array($tampil)) { ?>
+                                        <tr>
+                                            <td><a href="detail-buku.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="fa fa-book"></span> <?php echo $data['judul']; ?></a></td>
+                                            <td><?php echo $data['pengarang']; ?></td>
+                                            <td><?php echo $data['th_terbit']; ?></td>
+                                            <td><?php echo $data['penerbit']; ?></td>
+                                            <td><?php echo $data['jumlah_buku']; ?></td>
+                                            <td>
+                                                <center>
+                                                    <div id="thanks">
+                                                        <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Buku" href="edit-buku.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
+                                                        <a onclick="return confirm('Yakin akan menghapus data ini?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Buku" href="hapus-buku.php?hal=hapus&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-trash"></a>
+                                                    </div>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
 
-                    echo "<ul class='pagination'>";
-                    if ($page > 1) {
-                        echo "<li><a href='buku.php?page=".($page - 1)."'>Previous</a></li>";
-                    }
+    <?php
+    // Menampilkan navigasi halaman
+    $total_pages = ceil($total / $limit);
 
-                    for ($i = 1; $i <= $total_pages; $i++) {
-                        echo "<li ".($page == $i ? "class='active'" : "")."><a href='buku.php?page=".$i."'>$i</a></li>";
-                    }
+    echo "<ul class='pagination pagination-sm'>";
+    if ($page > 1) {
+        echo "<li><a href='buku.php?page=".($page - 1)."'>Previous</a></li>";
+    }
 
-                    if ($page < $total_pages) {
-                        echo "<li><a href='buku.php?page=".($page + 1)."'>Next</a></li>";
-                    }
+    for ($i = 1; $i <= $total_pages; $i++) {
+        echo "<li ".($page == $i ? "class='active'" : "")."><a href='buku.php?page=".$i."'>$i</a></li>";
+    }
 
-                    echo "</ul>";
-                    ?>
+    if ($page < $total_pages) {
+        echo "<li><a href='buku.php?page=".($page + 1)."'>Next</a></li>";
+    }
 
-                   
+    echo "</ul>";
+    ?>
 
-                    <div class="text-right" style="margin-top: 10px;">
-                        <a href="buku.php" class="btn btn-sm btn-info">Refresh Buku <i class="fa fa-refresh"></i></a>
-                        <a href="input-buku.php" class="btn btn-sm btn-warning">Tambah Buku <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div><!-- /.box-body -->
+    <div class="text-right" style="margin-top: 10px;">
+        <a href="buku.php" class="btn btn-sm btn-info">Refresh Buku <i class="fa fa-refresh"></i></a>
+        <a href="input-buku.php" class="btn btn-sm btn-warning">Tambah Buku <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+<!-- /.box-body -->
             </div><!-- /.box -->
         </div>
     </div>
-</section><!-- /.content -->
+</section>
+<!-- /.content -->
     <div class="footer-main">
-        Copyright PerpustakaanPGT2024
+        Copyright &copy PerpustakaanPGT2024
+
     </div>
     </aside><!-- /.right-side -->
 

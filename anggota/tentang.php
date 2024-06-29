@@ -54,63 +54,11 @@ if (empty($_SESSION['username'])) {
 
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
-        <header class="header">
-            <a href="index.php" class="logo">
-                PerpustakaanPGT
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                                <span><?php echo $_SESSION['nama']; ?> <i class="caret"></i></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                                <li class="dropdown-header text-center">Account</li>
-
-                                <li>
-                                    <a href="detail-anggotan.php?hal=edit&kd=<?php echo $_SESSION['id']; ?>">
-                                        <i class="fa fa-user fa-fw pull-right"></i>
-                                        Profile
-                                    </a>
-                                </li>
-
-                                <li class="divider"></li>
-
-                                <li>
-                                    <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <?php
-        $timeout = 10; // Set timeout minutes
-        $logout_redirect_url = "../login.html"; // Set logout URL
-
-        $timeout = $timeout * 60; // Converts minutes to seconds
-        if (isset($_SESSION['start_time'])) {
-            $elapsed_time = time() - $_SESSION['start_time'];
-            if ($elapsed_time >= $timeout) {
-                session_destroy();
-                echo "<script>alert('Session Anda Telah Habis!'); window.location = '$logout_redirect_url'</script>";
-            }
-        }
-        $_SESSION['start_time'] = time();
-        ?>
+        <?php include "header.php"; ?>
+   <!-- end header-->
+   <!--logout-->
+   <?php include "logout.php"; ?>
+   <!--destroy-->
     <?php } ?>
     <div class="wrapper row-offcanvas row-offcanvas-left">
         <!-- Left side column. contains the logo and sidebar -->
@@ -153,20 +101,40 @@ if (empty($_SESSION['username'])) {
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="panel">
-                            <header class="panel-heading">
-                                <b>Tentang PerPusWeb Pro</b>
+                        <div class="panel-heading text-center">
+                            <b>Tentang Perpustakaan PGT</b>
+                        </div>
 
-                            </header>
                             <!-- <div class="box-header"> -->
                             <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
 
                             <!-- </div> -->
-                            <div class="panel-body table-responsive">
-                                <p> PerpustakaanKu adalah salah satu layanan bagi pengguna untuk dapat mengakses berbagai buku bacaan yang dan dilakukan kapan saja dan dari mana saja, dengan menggunakan jaringan internet.</p>
-                                <p> PerpustakaanKu memiliki koleksi buku dalam bentuk format digital dan bisa diakses dengan komputer. koleksi bacaan dari PerpustakaanKu dapat diakses dengan cepat dan mudah lewat jaringan komputer.</p>
-                                <p> PerpustakaanKU bebasis website yang responsif, untuk info, saran, maupun kritik bisa menghubungi kami :</p>
-                                
-                            </div><!-- /.box-body -->
+                        <div class="panel-body table-responsive" style="max-width: 800px; margin: 0 auto;">
+                            <p>PerpustakaanPGT: Menyemai Pengetahuan, Merajut Masa Depan</p>
+                            <p>Selamat datang di PerpustakaanPGT, pusat literasi dan pengetahuan di Politeknik Gajah Tunggal. Kami berdedikasi untuk menyediakan berbagai sumber daya informasi yang mendukung kebutuhan akademik, penelitian, dan pengembangan pribadi seluruh sivitas akademika.</p>
+
+                            <p>Koleksi Buku yang Lengkap dan Terbaru<br>
+                                PerpustakaanPGT memiliki koleksi buku yang lengkap, mencakup berbagai disiplin ilmu dari teknik, bisnis, komputer, hingga humaniora. Kami secara rutin memperbarui koleksi kami untuk memastikan bahwa setiap buku yang Anda butuhkan tersedia dan up-to-date.</p>
+
+                            <p>Fasilitas Modern dan Nyaman<br>
+                                Kami memahami pentingnya lingkungan yang kondusif untuk belajar. PerpustakaanPGT dilengkapi dengan fasilitas modern seperti ruang baca yang nyaman, area diskusi kelompok, dan akses internet cepat. Semua ini dirancang untuk mendukung pengalaman belajar yang optimal.</p>
+
+                            <p>Layanan Digital dan Online<br>
+                                Untuk memudahkan akses informasi, kami menyediakan layanan digital dan online. Melalui portal perpustakaan kami, Anda dapat mencari katalog buku, mengakses jurnal elektronik, dan memanfaatkan berbagai sumber daya digital lainnya dari mana saja dan kapan saja.</p>
+
+                            <p>Program Literasi dan Pelatihan<br>
+                                PerpustakaanPGT tidak hanya tempat untuk membaca buku, tetapi juga pusat kegiatan literasi dan pelatihan. Kami mengadakan berbagai program seperti workshop penulisan akademik, seminar literasi informasi, dan pelatihan penggunaan database penelitian. Ini semua bertujuan untuk meningkatkan keterampilan literasi dan penelitian mahasiswa.</p>
+
+                            <p>Staf yang Ramah dan Profesional<br>
+                                Tim kami terdiri dari pustakawan yang berpengalaman dan profesional, siap membantu Anda menemukan informasi yang Anda butuhkan. Kami berkomitmen untuk memberikan pelayanan terbaik dan mendukung kesuksesan akademik Anda.</p>
+
+                            <p>Kami mengundang Anda untuk menjelajahi PerpustakaanPGT dan memanfaatkan semua fasilitas yang kami tawarkan. Mari bersama-sama menyemai pengetahuan dan merajut masa depan yang lebih cerah.</p>
+
+                            <p>Selamat datang di PerpustakaanPGT!</p>
+
+                           
+                        </div>
+                        <!-- /.box-body -->
                         </div><!-- /.box -->
                     </div>
                 </div>
@@ -176,7 +144,8 @@ if (empty($_SESSION['username'])) {
                 Copyright &copy PerpustakaanPGT2024
             </div>
         </aside><!-- /.right-side -->
-
+        
+            
     </div><!-- ./wrapper -->
 
 

@@ -54,63 +54,11 @@ if (empty($_SESSION['username'])) {
 
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
-        <header class="header">
-            <a href="index.php" class="logo">
-                PerpustakaanPGT
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                                <span><?php echo $_SESSION['nama']; ?> <i class="caret"></i></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                                <li class="dropdown-header text-center">Account</li>
-
-                                <li>
-                                    <a href="detail-anggota.php?hal=edit&kd=<?php echo $_SESSION['id']; ?>">
-                                        <i class="fa fa-user fa-fw pull-right"></i>
-                                        Profile
-                                    </a>
-                                </li>
-
-                                <li class="divider"></li>
-
-                                <li>
-                                    <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <?php
-        $timeout = 10; // Set timeout minutes
-        $logout_redirect_url = "../login.html"; // Set logout URL
-
-        $timeout = $timeout * 60; // Converts minutes to seconds
-        if (isset($_SESSION['start_time'])) {
-            $elapsed_time = time() - $_SESSION['start_time'];
-            if ($elapsed_time >= $timeout) {
-                session_destroy();
-                echo "<script>alert('Session Anda Telah Habis!'); window.location = '$logout_redirect_url'</script>";
-            }
-        }
-        $_SESSION['start_time'] = time();
-        ?>
+        <?php include "header.php"; ?>
+        <!--end header-->
+        <!--logout-->
+   <?php include "logout.php"; ?>
+   <!--destroy-->
     <?php } ?>
     <div class="wrapper row-offcanvas row-offcanvas-left">
         <!-- Left side column. contains the logo and sidebar -->
@@ -305,7 +253,7 @@ if (empty($_SESSION['username'])) {
                     <div class="col-md-7">
                         <section class="panel tasks-widget">
                             <header class="panel-heading">
-                                Daftar Bacaan PerPusWeb
+                                Daftar Bacaan 
                             </header>
                             <div class="panel-body">
 

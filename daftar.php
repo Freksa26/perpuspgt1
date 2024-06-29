@@ -94,7 +94,7 @@
 <div class="container">
     <form class="form-signin" action="insert-anggota.php" method="post">
         <div class="text-center">
-            <h2 class="form-signin-heading"><i class="bi bi-book"></i> Perpustakaan</h2>
+            <h2 class="form-signin-heading"><i class="bi bi-book"></i> PerpustakaanPGT</h2>
         </div>
 
         <div class="form-group">

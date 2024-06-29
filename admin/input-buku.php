@@ -200,7 +200,7 @@ if (empty($_SESSION['username'])) {
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">ISBN</label>
                                         <div class="col-sm-8">
-                                            <input name="isbn" type="text" id="isbn" class="form-control" autocomplete="off" placeholder="ISBN" required="" />
+                                            <input name="isbn" type="text" id="isbn" class="form-control" autocomplete="off" placeholder="ISBN"  />
                                         </div>
                                     </div>
                                     <div class="form-group">

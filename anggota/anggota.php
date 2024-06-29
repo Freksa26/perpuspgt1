@@ -259,7 +259,7 @@ if (empty($_SESSION['username'])) {
                         </center>
 
                         <div class="text-right" style="margin-top: 10px;">
-                            <a href="anggota.php" class="btn btn-sm btn-info">Refresh Anggota <i class="fa fa-refresh"></i></a> <a href="input-anggota.php" class="btn btn-sm btn-warning">Tambah Anggota <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="anggota.php" class="btn btn-sm btn-info">Refresh <i class="fa fa-refresh"></i></a> <a href="input-anggota.php" class="btn btn-sm btn-warning">Tambah Anggota <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->

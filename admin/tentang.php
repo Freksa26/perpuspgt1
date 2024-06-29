@@ -154,31 +154,43 @@ if (empty($_SESSION['username'])) {
             <!-- Main content -->
             <section class="content">
 
-                <div class="row">
+            <div class="row">
                     <div class="col-xs-12">
                         <div class="panel">
-                            <header class="panel-heading">
-                                <b>Tentang PerPusWeb Pro</b>
+                        <div class="panel-heading text-center">
+                            <b>Tentang Perpustakaan PGT</b>
+                        </div>
 
-                            </header>
                             <!-- <div class="box-header"> -->
                             <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
 
                             <!-- </div> -->
-                            <div class="panel-body table-responsive">
-                                <p> PerpustakaanPGT adalah salah satu layanan bagi pengguna untuk dapat mengakses berbagai buku bacaan yang dan dilakukan kapan saja dan dari mana saja, dengan menggunakan jaringan internet.</p>
-                                <p> PerpustakaanKu memiliki koleksi buku dalam bentuk format digital dan bisa diakses dengan komputer. koleksi bacaan dari PerpustakaanKu dapat diakses dengan cepat dan mudah lewat jaringan komputer.</p>
-                                <p> PerpustakaanKU bebasis website yang responsif, untuk info, saran, maupun kritik bisa menghubungi kami :</p>
-                                <table>
-                                    <tr>
-                                        <td>E-mail</td>
-                                        <td>:</td>
-                                        <td><a href="sisteminformasi494@gmail.com">PerpustakaanKU@gmail.com</a></td>
-                                    </tr>
-                                    <br />
-                                    
-                                </table>
-                            </div><!-- /.box-body -->
+                        <div class="panel-body table-responsive" style="max-width: 800px; margin: 0 auto;">
+                            <p>PerpustakaanPGT: Menyemai Pengetahuan, Merajut Masa Depan</p>
+                            <p>Selamat datang di PerpustakaanPGT, pusat literasi dan pengetahuan di Politeknik Gajah Tunggal. Kami berdedikasi untuk menyediakan berbagai sumber daya informasi yang mendukung kebutuhan akademik, penelitian, dan pengembangan pribadi seluruh sivitas akademika.</p>
+
+                            <p>Koleksi Buku yang Lengkap dan Terbaru<br>
+                                PerpustakaanPGT memiliki koleksi buku yang lengkap, mencakup berbagai disiplin ilmu dari teknik, bisnis, komputer, hingga humaniora. Kami secara rutin memperbarui koleksi kami untuk memastikan bahwa setiap buku yang Anda butuhkan tersedia dan up-to-date.</p>
+
+                            <p>Fasilitas Modern dan Nyaman<br>
+                                Kami memahami pentingnya lingkungan yang kondusif untuk belajar. PerpustakaanPGT dilengkapi dengan fasilitas modern seperti ruang baca yang nyaman, area diskusi kelompok, dan akses internet cepat. Semua ini dirancang untuk mendukung pengalaman belajar yang optimal.</p>
+
+                            <p>Layanan Digital dan Online<br>
+                                Untuk memudahkan akses informasi, kami menyediakan layanan digital dan online. Melalui portal perpustakaan kami, Anda dapat mencari katalog buku, mengakses jurnal elektronik, dan memanfaatkan berbagai sumber daya digital lainnya dari mana saja dan kapan saja.</p>
+
+                            <p>Program Literasi dan Pelatihan<br>
+                                PerpustakaanPGT tidak hanya tempat untuk membaca buku, tetapi juga pusat kegiatan literasi dan pelatihan. Kami mengadakan berbagai program seperti workshop penulisan akademik, seminar literasi informasi, dan pelatihan penggunaan database penelitian. Ini semua bertujuan untuk meningkatkan keterampilan literasi dan penelitian mahasiswa.</p>
+
+                            <p>Staf yang Ramah dan Profesional<br>
+                                Tim kami terdiri dari pustakawan yang berpengalaman dan profesional, siap membantu Anda menemukan informasi yang Anda butuhkan. Kami berkomitmen untuk memberikan pelayanan terbaik dan mendukung kesuksesan akademik Anda.</p>
+
+                            <p>Kami mengundang Anda untuk menjelajahi PerpustakaanPGT dan memanfaatkan semua fasilitas yang kami tawarkan. Mari bersama-sama menyemai pengetahuan dan merajut masa depan yang lebih cerah.</p>
+
+                            <p>Selamat datang di PerpustakaanPGT!</p>
+
+                           
+                        </div>
+                        <!-- /.box-body -->
                         </div><!-- /.box -->
                     </div>
                 </div>

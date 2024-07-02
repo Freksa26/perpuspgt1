@@ -185,7 +185,7 @@
     }
 </style>
 
-<div class="col-md-4">
+                    <div class="col-md-4">
                         <section class="panel">
                             <header class="panel-heading">
                                 <h3 class="panel-title"><strong>Motto Perpustakaan PGT</strong></h3>

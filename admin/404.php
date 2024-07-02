@@ -10,7 +10,7 @@ if (empty($_SESSION['username'])) {
 
     <head>
         <meta charset="UTF-8">
-        <title>PerpustakaanKU</title>
+        <title>PerpustakaanPGT</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="description" content="Sarjana Komedi">
         <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
@@ -56,7 +56,7 @@ if (empty($_SESSION['username'])) {
         <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a href="index.php" class="logo">
-                PerpustakaanKU
+                PerpustakaanPGT
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -166,7 +166,7 @@ if (empty($_SESSION['username'])) {
 
                             <!-- </div> -->
                             <div class="panel-body table-responsive">
-                                <h1><b>Halaman Ini Hanya Tersedia di PerpustakaanKU</b></h1>
+                                <h1><b>Halaman Ini Hanya Tersedia di PerpustakaanPGT</b></h1>
                                 <table>
                                     <tr>
                                         <td>Email</td>
@@ -176,7 +176,7 @@ if (empty($_SESSION['username'])) {
                                     <tr>
                                         <td>Blog</td>
                                         <td>:</td>
-                                        <td><a href="#" target="_blank">www.PerpustakaanKU.com</a></td>
+                                        <td><a href="#" target="_blank">www.PerpustakaanPGT.com</a></td>
                                     </tr>
                                 </table>
                             </div><!-- /.box-body -->
@@ -186,7 +186,7 @@ if (empty($_SESSION['username'])) {
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">
-                Copyright PerpustakaanKU 2021
+                Copyright @copy PerpustakaanPGT2024
             </div>
         </aside><!-- /.right-side -->
 

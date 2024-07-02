@@ -496,53 +496,119 @@ function AddFont($family, $style='', $file='')
 
 function SetFont($family, $style='', $size=0)
 {
-	// Select a font; size given in points
-	if($family=='')
-		$family = $this->FontFamily;
-	else
-		$family = strtolower($family);
-	$style = strtoupper($style);
-	if(strpos($style,'U')!==false)
-	{
-		$this->underline = true;
-		$style = str_replace('U','',$style);
-	}
-	else
-		$this->underline = false;
-	if($style=='IB')
-		$style = 'BI';
-	if($size==0)
-		$size = $this->FontSizePt;
-	// Test if font is already selected
-	if($this->FontFamily==$family && $this->FontStyle==$style && $this->FontSizePt==$size)
-		return;
-	// Test if font is already loaded
-	$fontkey = $family.$style;
-	if(!isset($this->fonts[$fontkey]))
-	{
-		// Test if one of the core fonts
-		if($family=='arial')
-			$family = 'helvetica';
-		if(in_array($family,$this->CoreFonts))
+    // Select a font; size given in points
+    if ($family == '') {
+        $family = $this->FontFamily;
+    } else {
+        $family = strtolower($family);
+    }
+    $style = strtoupper($style);
+
+    if (strpos($style, 'U') !== false) {
+        $this->underline = true;
+        $style = str_replace('U', '', $style);
+    } else {
+        $this->underline = false;
+    }
+
+    if ($style == 'IB') {
+        $style = 'BI';
+    }
+
+    if ($size == 0) {
+        $size = $this->FontSizePt;
+    }
+
+    // Test if font is already selected
+    if ($this->FontFamily == $family && $this->FontStyle == $style && $this->FontSizePt == $size) {
+        return;
+    }
+
+    // Test if font is already loaded
+    $fontkey = $family . $style;
+    
+    if (!isset($this->fonts[$fontkey])) {
+        // Test if one of the core fonts
+        if ($family == 'arial') {
+            $family = 'helvetica';
+        }
+
+		function SetFont($family, $style='', $size=0)
 		{
-			if($family=='symbol' || $family=='zapfdingbats')
-				$style = '';
-			$fontkey = $family.$style;
-			if(!isset($this->fonts[$fontkey]))
-				$this->AddFont($family,$style);
+			// Select a font; size given in points
+			if ($family == '') {
+				$family = $this->FontFamily;
+			} else {
+				$family = strtolower($family);
+			}
+			$style = strtoupper($style);
+		
+			if (strpos($style, 'U') !== false) {
+				$this->underline = true;
+				$style = str_replace('U', '', $style);
+			} else {
+				$this->underline = false;
+			}
+		
+			if ($style == 'IB') {
+				$style = 'BI';
+			}
+		
+			if ($size == 0) {
+				$size = $this->FontSizePt;
+			}
+		
+			// Test if font is already selected
+			if ($this->FontFamily == $family && $this->FontStyle == $style && $this->FontSizePt == $size) {
+				return;
+			}
+		
+			// Test if font is already loaded
+			$fontkey = $family . $style;
+		
+			if (!isset($this->fonts[$fontkey])) {
+				// Test if one of the core fonts
+				if (in_array($family, $this->CoreFonts)) {
+					if ($family == 'symbol' || $family == 'zapfdingbats') {
+						$style = ''; // No style for symbol or zapfdingbats
+					}
+		
+					$fontkey = $family . $style;
+		
+					if (!isset($this->fonts[$fontkey])) {
+						$this->AddFont($family, $style);
+					}
+				} else {
+					$this->Error('Undefined font: ' . $family . ' ' . $style);
+					return; // Exit function if font is undefined
+				}
+			}
+		
+			// Select the font
+			$this->FontFamily = $family;
+			$this->FontStyle = $style;
+			$this->FontSizePt = $size;
+			$this->FontSize = $size / $this->k;
+			$this->CurrentFont = &$this->fonts[$fontkey];
+		
+			if ($this->page > 0) {
+				$this->_out(sprintf('BT /F%d %.2F Tf ET', $this->CurrentFont['i'], $this->FontSizePt));
+			}
 		}
-		else
-			$this->Error('Undefined font: '.$family.' '.$style);
-	}
-	// Select it
-	$this->FontFamily = $family;
-	$this->FontStyle = $style;
-	$this->FontSizePt = $size;
-	$this->FontSize = $size/$this->k;
-	$this->CurrentFont = &$this->fonts[$fontkey];
-	if($this->page>0)
-		$this->_out(sprintf('BT /F%d %.2F Tf ET',$this->CurrentFont['i'],$this->FontSizePt));
+		
+
+    // Select it
+    $this->FontFamily = $family;
+    $this->FontStyle = $style;
+    $this->FontSizePt = $size;
+    $this->FontSize = $size / $this->k;
+    $this->CurrentFont = &$this->fonts[$fontkey];
+
+    if ($this->page > 0) {
+        $this->_out(sprintf('BT /F%d %.2F Tf ET', $this->CurrentFont['i'], $this->FontSizePt));
+    }
 }
+
 
 function SetFontSize($size)
 {
@@ -1094,45 +1160,53 @@ function _getpagesize($size)
 	}
 }
 
-function _beginpage($orientation, $size)
-{
-	$this->page++;
-	$this->pages[$this->page] = '';
-	$this->state = 2;
-	$this->x = $this->lMargin;
-	$this->y = $this->tMargin;
-	$this->FontFamily = '';
-	// Check page size and orientation
-	if($orientation=='')
-		$orientation = $this->DefOrientation;
-	else
-		$orientation = strtoupper($orientation[0]);
-	if($size=='')
-		$size = $this->DefPageSize;
-	else
-		$size = $this->_getpagesize($size);
-	if($orientation!=$this->CurOrientation || $size[0]!=$this->CurPageSize[0] || $size[1]!=$this->CurPageSize[1])
-	{
-		// New size or orientation
-		if($orientation=='P')
-		{
-			$this->w = $size[0];
-			$this->h = $size[1];
-		}
-		else
-		{
-			$this->w = $size[1];
-			$this->h = $size[0];
-		}
-		$this->wPt = $this->w*$this->k;
-		$this->hPt = $this->h*$this->k;
-		$this->PageBreakTrigger = $this->h-$this->bMargin;
-		$this->CurOrientation = $orientation;
-		$this->CurPageSize = $size;
-	}
-	if($orientation!=$this->DefOrientation || $size[0]!=$this->DefPageSize[0] || $size[1]!=$this->DefPageSize[1])
-		$this->PageSizes[$this->page] = array($this->wPt, $this->hPt);
+class FPDF {
+    public function _beginpage($orientation, $size)
+    {
+        $this->page++;
+        $this->pages[$this->page] = '';
+        $this->state = 2;
+        $this->x = $this->lMargin;
+        $this->y = $this->tMargin;
+        $this->FontFamily = '';
+
+        // Check page size and orientation
+        if ($orientation == '') {
+            $orientation = $this->DefOrientation;
+        } else {
+            $orientation = strtoupper(substr($orientation, 0, 1));
+        }
+
+        if ($size == '') {
+            $size = $this->DefPageSize;
+        } else {
+            $size = $this->_getpagesize($size);
+        }
+
+        if ($orientation != $this->CurOrientation || $size[0] != $this->CurPageSize[0] || $size[1] != $this->CurPageSize[1]) {
+            // New size or orientation
+            if ($orientation == 'P') {
+                $this->w = $size[0];
+                $this->h = $size[1];
+            } else {
+                $this->w = $size[1];
+                $this->h = $size[0];
+            }
+
+            $this->wPt = $this->w * $this->k;
+            $this->hPt = $this->h * $this->k;
+            $this->PageBreakTrigger = $this->h - $this->bMargin;
+            $this->CurOrientation = $orientation;
+            $this->CurPageSize = $size;
+        }
+
+        if ($orientation != $this->DefOrientation || $size[0] != $this->DefPageSize[0] || $size[1] != $this->DefPageSize[1]) {
+            $this->PageSizes[$this->page] = array($this->wPt, $this->hPt);
+        }
+    }
 }
+
+
 
 function _endpage()
 {

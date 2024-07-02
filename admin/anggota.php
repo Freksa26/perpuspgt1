@@ -146,6 +146,8 @@ if (empty($_SESSION['username'])) {
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <?php include "menu.php"; ?>
             </section>
+
+            
             <!-- /.sidebar -->
         </aside>
 
@@ -260,7 +262,9 @@ $result_data = mysqli_query($conn, $query_data) or die(mysqli_error($conn));
         </div>
     </section><!-- /.content -->
 
-    <div class="footer-main"></div>
+    <div class="footer-main">
+        Copyright &copy PerpustakaanPGT2024
+    </div>
 </aside>
 <!-- /.right-side -->
 

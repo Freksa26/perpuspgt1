@@ -67,7 +67,7 @@
         </script>
 
         <style type="text/css">
-
+ 
         </style>
     </head>
 
@@ -183,6 +183,12 @@
     .panel-body .total-visitors span {
         color: #3498db; /* Warna teks untuk jumlah pengunjung */
     }
+    body {
+            background-image: url('img/pps.jpg'); /* Replace with your actual path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
 </style>
 
                     <div class="col-md-4">

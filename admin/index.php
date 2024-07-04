@@ -47,8 +47,14 @@ if (empty($_SESSION['username'])) {
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
           <![endif]-->
 
-        <style type="text/css">
-
+          <style type="text/css">
+            body {
+                background-image: url('img/pps.jpg'); /* Replace with the path to your image */
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+            }
         </style>
     </head>
 

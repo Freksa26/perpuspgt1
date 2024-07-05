@@ -1,98 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <meta name="description" content="PerpustakaanKU">
-  <meta name="perpustakaanku" content="PerpustakaanKU">
-  <link rel="icon" href="../../favicon.ico">
-
-  <title>PerpustakaanKU</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.0/font/bootstrap-icons.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="signin.css" rel="stylesheet">
-  <script src="js/ie-emulation-modes-warning.js"></script>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <link rel="stylesheet" href="style.css"> <!-- Rujukan ke file CSS -->
-  <style>
-      body {
-          background: url('img/ibrary-background.jpg') no-repeat center center fixed; 
-          background-size: cover; /* Mengatur ukuran gambar agar menutupi seluruh halaman */
-      }
-
-      .container {
-          max-width: 400px; /* Lebar maksimum container */
-          margin: 0 auto; /* Posisi tengah */
-          background-color: #fff; /* Warna latar belakang container */
-          padding: 20px; /* Padding di dalam container */
-          border-radius: 5px; /* Sudut bulat container */
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk tampilan lebih menarik */
-      }
-
-      .form-group {
-          margin-bottom: 15px; /* Jarak antara setiap elemen form */
-      }
-
-      .form-group label {
-          font-weight: bold; /* Memperjelas label */
-          display: block; /* Memastikan label tetap pada baris yang sama */
-          margin-bottom: 5px; /* Jarak antara label dan input */
-      }
-
-      .radio label {
-          display: flex; /* Membuat radio button dan label sejajar */
-          align-items: center; /* Menyatukan ikon dengan teks */
-      }
-
-      .radio label i {
-          margin-left: 5px; /* Jarak antara ikon dan teks */
-          font-size: 1.2em; /* Ukuran ikon */
-          vertical-align: middle; /* Memposisikan ikon di tengah vertikal */
-      }
-
-      .input-group-addon {
-          background-color: white; /* Warna latar belakang putih untuk span */
-      }
-
-      .right-icon {
-          position: absolute;
-          right: 10px;
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: white; /* Add background color white */
-          padding: 5px;
-          border-radius: 50%; /* Optional: make the icon background circular */
-          pointer-events: none;
-      }
-
-      .input-group {
-          position: relative;
-      }
-
-      .form-control {
-          padding-right: 45px; /* Add space for the icon */
-      }
-
-      .small-icon {
-          padding: 2px; /* Smaller padding for the icon */
-          font-size: 0.8em; /* Smaller font size for the icon */
-      }
-  </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PerpustakaanKU">
+    <meta name="perpustakaanku" content="PerpustakaanKU">
+    <link rel="icon" href="../../favicon.ico">
+    <title>PerpustakaanKU</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="style.css"> <!-- Reference to custom CSS file -->
+    <style>
+        body {
+            background: url('img/ibrary-background.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+        }
+        .container {
+            max-width: 400px; 
+            margin: 0 auto; 
+            background-color: #fff; 
+            padding: 20px; 
+            border-radius: 5px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+        .form-group {
+            margin-bottom: 15px; 
+        }
+        .form-group label {
+            font-weight: bold; 
+            display: block; 
+            margin-bottom: 5px; 
+        }
+        .radio label {
+            display: flex; 
+            align-items: center; 
+        }
+        .radio label i {
+            margin-left: 5px; 
+            font-size: 1.2em; 
+            vertical-align: middle; 
+        }
+        .input-group-addon {
+            background-color: white; 
+        }
+        .right-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white; 
+            padding: 5px;
+            border-radius: 50%; 
+            pointer-events: none;
+        }
+        .input-group {
+            position: relative;
+        }
+        .form-control {
+            padding-right: 45px; 
+        }
+        .small-icon {
+            padding: 2px; 
+            font-size: 0.8em; 
+        }
+    </style>
 </head>
-
 <body>
 <div class="container">
-    <form class="form-signin" action="insert-anggota.php" method="post">
+    <form class="form-signin" action="insert-anggota.php" method="post" enctype="multipart/form-data">
         <div class="text-center">
             <h2 class="form-signin-heading"><i class="bi bi-book"></i> PerpustakaanPGT</h2>
         </div>
@@ -161,6 +143,19 @@
             </div>
         </div>
 
+       
+    <!-- Formulir lainnya -->
+    <div class="form-group">
+        <label for="foto"><i class="bi bi-camera"></i> Foto</label>
+        <div class="input-group">
+            <span class="input-group-addon right-icon"><i class="bi bi-camera"></i></span>
+            <input type="file" id="foto" name="foto" class="form-control" required>
+        </div>
+    </div>
+    <!-- Tombol submit dan link batal -->
+
+
+
         <br>
         <input type="submit" value="Daftar" class="btn btn-sm btn-primary">&nbsp;
         <a href="login.html" class="btn btn-sm btn-danger">Batal</a>
@@ -168,17 +163,12 @@
     </form>
 </div>
 
-
-<!-- /container -->
-
-<h5 class="form-signin">Copyright &copy; <a href="#" data-toggle="modal" data-target="#contact">PerpustakaanPGT2024</a>
-</h5>
+<h5 class="form-signin">Copyright &copy; <a href="#" data-toggle="modal" data-target="#contact">PerpustakaanPGT2024</a></h5>
 
 <!-- Modal Dialog Contact -->
 <?php include("modal.php")?>
 <!-- end dialog modal -->
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

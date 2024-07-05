@@ -225,7 +225,7 @@ if (empty($_SESSION['username'])) {
                                                 <option value="<?php echo $data['asal']; ?>"> <?php echo $data['asal']; ?></option>
                                                 <option value="Pembelian"> Pembelian</option>
                                                 <option value="Sumbangan"> Sumbangan</option>
-                                                <option value="Koleksi Perpustakaan"> Koleksi PerpustakaanKU</option>
+                                                <option value="Koleksi Perpustakaan"> Koleksi PerpustakaanPGT</option>
                                             </select>
                                         </div>
                                     </div>

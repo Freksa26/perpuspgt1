@@ -67,16 +67,15 @@ if (empty($_SESSION['username'])) {
             <section class="sidebar">
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
-                    <div>
-                        <center><img src="<?php echo $_SESSION['foto']; ?>" height="80" width="80" class="img-circle" alt="User Image" style="border: 3px solid white;" /></center>
-                    </div>
-                    <div class="info">
-                        <center>
-                            <p><?php echo $_SESSION['nama']; ?></p>
-                        </center>
-
-                    </div>
+               
+                <div class="info">
+                    <center>
+                        
+                        Selamat datang <br>
+                        <p><?php echo $_SESSION['nama']; ?></p>
+                    </center>
                 </div>
+            </div>
                 <!-- search form -->
                 <!--<form action="#" method="get" class="sidebar-form">
                                 <div class="input-group">

@@ -66,15 +66,16 @@ if (empty($_SESSION['username'])) {
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel -->
-                <div class="user-panel">
+                < <div class="user-panel">
                
-                <div class="info">
-                    <center>
-                        Selamat datang <br>
-                        <p><?php echo $_SESSION['nama']; ?></p>
-                    </center>
-                </div>
-            </div>
+               <div class="info">
+                   <center>
+                       
+                       Selamat datang <br>
+                       <p><?php echo $_SESSION['nama']; ?></p>
+                   </center>
+               </div>
+           </div>
                 <!-- search form -->
                 <!--<form action="#" method="get" class="sidebar-form">
                                 <div class="input-group">

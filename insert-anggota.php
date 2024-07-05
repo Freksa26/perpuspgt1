@@ -2,6 +2,7 @@
 
 include "conn.php";
 
+// Ambil data dari form
 $no_induk = $_POST['no_induk'];
 $nama = $_POST['nama'];
 $username = $_POST['username'];
@@ -43,8 +44,8 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
 
                 // Pindahkan file ke direktori tujuan
                 if (move_uploaded_file($foto_tmp_name, $foto_destination)) {
-                    // Masukkan data ke tabel 'foto' di database 'perpuspro'
-                    $sql = "INSERT INTO db_perpuspor(no_induk, nama, username, password, jk, kelas, ttl, alamat, foto) 
+                    // Masukkan data ke tabel 'data_anggota' di database 'perpuspro'
+                    $sql = "INSERT INTO data_anggota (no_induk, nama, username, password, jk, kelas, ttl, alamat, foto) 
                             VALUES ('$no_induk', '$nama', '$username', '$password', '$jk', '$kelas', '$ttl', '$alamat', '$foto_new_name')";
                     $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 

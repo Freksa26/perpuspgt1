@@ -71,6 +71,7 @@ if (empty($_SESSION['username'])) {
                
                 <div class="info">
                     <center>
+                        
                         Selamat datang <br>
                         <p><?php echo $_SESSION['nama']; ?></p>
                     </center>

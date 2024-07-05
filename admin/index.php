@@ -294,70 +294,81 @@ if (empty($_SESSION['username'])) {
 
                 </div>
 
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="panel">
-                            <header class="panel-heading">
-                                Daftar Anggota Baru
-                            </header><?php
-                                        $tampil = mysqli_query($conn, "select * from data_anggota order by id desc limit 3");
-                                        while ($data1 = mysqli_fetch_array($tampil)) {
-                                        ?>
-                                <ul class="list-group teammates">
-                                    <li class="list-group-item">
-                                        <a href="anggota.php"><img src="<?php echo $data1['foto']; ?>" width="50" height="50" style="border: 3px solid #555555;"></a>
-                                        <a href="anggota.php"><?php echo $data1['nama']; ?></a>
-                                    </li>
-                                </ul>
-                            <?php } ?>
-                            <div class="panel-footer bg-white">
-                                <!-- <span class="pull-right badge badge-info">32</span> -->
-                                <a href="anggota.php" class="btn btn-sm btn-info">Data Anggota <i class="fa fa-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <section class="panel tasks-widget">
-                            <header class="panel-heading">
-                                Daftar Bacaan PerPusWeb
-                            </header>
-                            <div class="panel-body">
+               <?php
+// Mengatur jumlah buku per halaman
+$limit = 5;
 
-                                <div class="task-content">
+// Menentukan halaman saat ini
+$page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 
-                                    <ul class="task-list">
-                                        <?php
-                                        $tampil = mysqli_query($conn, "select * from data_buku order by id desc limit 5");
-                                        while ($data6 = mysqli_fetch_array($tampil)) {
-                                        ?>
-                                            <li>
-                                                <div class="task-checkbox">
-                                                    <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                                    <input type="checkbox" class="flat-grey list-child" />
-                                                    <!-- <input type="checkbox" class="square-grey"/> -->
-                                                </div>
-                                                <div class="task-title">
-                                                    <span class="task-title-sp"><?php echo $data6['judul']; ?></span>
-                                                    <span class="label label-primary"><?php echo $data6['tgl_input']; ?></span>
-                                                    <div class="pull-right hidden-phone">
-                                                        <button class="btn btn-info btn-xs"><i class="fa fa-check"></i></button>
-                                                        <button class="btn btn-success btn-xs"><i class="fa fa-pencil"></i></button>
-                                                        <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        <?php } ?>
-                                    </ul>
+// Menghitung offset untuk query
+$offset = ($page - 1) * $limit;
+
+// Query untuk mengambil data buku dengan limit dan offset
+$query = "SELECT * FROM data_buku ORDER BY id DESC LIMIT $limit OFFSET $offset";
+$tampil = mysqli_query($conn, $query);
+
+// Menghitung total jumlah buku
+$query_total = "SELECT COUNT(*) AS total FROM data_buku";
+$result_total = mysqli_query($conn, $query_total);
+$row_total = mysqli_fetch_assoc($result_total);
+$total_buku = $row_total['total'];
+
+// Menghitung total halaman yang tersedia
+$total_pages = ceil($total_buku / $limit);
+?>
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel tasks-widget">
+            <header class="panel-heading">
+                Daftar Bacaan PerPusWeb
+            </header>
+            <div class="panel-body">
+                <div class="task-content">
+                    <ul class="task-list">
+                        <?php
+                        while ($data6 = mysqli_fetch_array($tampil)) {
+                        ?>
+                            <li>
+                                <div class="task-checkbox">
+                                    <input type="checkbox" class="flat-grey list-child" />
                                 </div>
-
-                                <div class=" add-task-row">
-                                    <a class="btn btn-warning btn-sm pull-left" href="buku.php">Lihat Buku Bacaan</a>
-                                    <!--<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>-->
+                                <div class="task-title">
+                                    <span class="task-title-sp"><?php echo $data6['judul']; ?></span>
+                                    <span class="label label-primary"><?php echo $data6['tgl_input']; ?></span>
+                                    <div class="pull-right hidden-phone">
+                                        <button class="btn btn-info btn-xs"><i class="fa fa-check"></i></button>
+                                        <button class="btn btn-success btn-xs"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
-                    </div>
+                            </li>
+                        <?php } ?>
+                    </ul>
                 </div>
+
+                <!-- Navigasi halaman -->
+                <ul class="pagination">
+                    <?php if ($page > 1) : ?>
+                        <li><a href="?page=<?php echo ($page - 1); ?>">Previous</a></li>
+                    <?php endif; ?>
+                    
+                    <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+                        <li <?php if ($i == $page) echo 'class="active"'; ?>>
+                            <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php endfor; ?>
+
+                    <?php if ($page < $total_pages) : ?>
+                        <li><a href="?page=<?php echo ($page + 1); ?>">Next</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">

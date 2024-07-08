@@ -12,6 +12,14 @@ $kelas = $_POST['kelas'];
 $ttl = $_POST['ttl'];
 $alamat = $_POST['alamat'];
 
+// Periksa apakah username atau no_induk sudah ada di database
+$check_sql = "SELECT * FROM data_anggota WHERE username='$username' OR no_induk='$no_induk'";
+$check_res = mysqli_query($conn, $check_sql);
+if (mysqli_num_rows($check_res) > 0) {
+    echo "<script>alert('Username atau Nomor Induk sudah terdaftar!'); window.history.back();</script>";
+    exit();
+}
+
 // Handle upload file foto
 if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
     $foto = $_FILES['foto'];
@@ -31,7 +39,7 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
     // Periksa apakah tipe file diperbolehkan
     if (in_array($foto_actual_ext, $allowed)) {
         if ($foto_error === 0) {
-            if ($foto_size < 1000000) { // Ukuran file kurang dari 1MB
+            if ($foto_size < 5000000) { // Ukuran file kurang dari 1MB
                 // Generate nama unik untuk file
                 $foto_new_name = uniqid('', true) . "." . $foto_actual_ext;
                 $upload_dir = 'uploads/';
@@ -47,29 +55,28 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
                     // Masukkan data ke tabel 'data_anggota' di database 'perpuspro'
                     $sql = "INSERT INTO data_anggota (no_induk, nama, username, password, jk, kelas, ttl, alamat, foto) 
                             VALUES ('$no_induk', '$nama', '$username', '$password', '$jk', '$kelas', '$ttl', '$alamat', '$foto_new_name')";
-                    $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                    $res = mysqli_query($conn, $sql);
 
                     // Berikan pesan ke user berdasarkan hasil operasi SQL
                     if ($res) {
-                        echo "Data anda telah berhasil diinput, Masukkan Username dan password anda di <span><a href='login.html'><b> Disini </b></a></span>";
-                        echo "<h3><a href='login.html'>Klik Disini</a> untuk Login </h3>";
+                        echo "<script>alert('Data anda telah berhasil diinput!'); window.location.href='login.html';</script>";
                     } else {
-                        echo "Terjadi kesalahan dalam menginput data!";
+                        echo "<script>alert('Terjadi kesalahan dalam menginput data!'); window.history.back();</script>";
                     }
                 } else {
-                    echo "Gagal memindahkan file ke direktori tujuan!";
+                    echo "<script>alert('Gagal memindahkan file ke direktori tujuan!'); window.history.back();</script>";
                 }
             } else {
-                echo "Ukuran file terlalu besar!";
+                echo "<script>alert('Ukuran file terlalu besar!'); window.history.back();</script>";
             }
         } else {
-            echo "Ada kesalahan saat mengupload file!";
+            echo "<script>alert('Ada kesalahan saat mengupload file!'); window.history.back();</script>";
         }
     } else {
-        echo "Tipe file tidak diperbolehkan!";
+        echo "<script>alert('Tipe file tidak diperbolehkan!'); window.history.back();</script>";
     }
 } else {
-    echo "Foto belum dipilih atau terjadi kesalahan saat upload!";
+    echo "<script>alert('Foto belum dipilih atau terjadi kesalahan saat upload!'); window.history.back();</script>";
 }
 
 ?>

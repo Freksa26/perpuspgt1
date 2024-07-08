@@ -21,7 +21,7 @@
                         <li class="user-header text-bg-primary">
                             <img src="<?php echo $_SESSION['foto']; ?>" class="user-image rounded-circle shadow" alt="User Image">
                             <p>
-                            <i class="bi bi-person"></i> 
+                          
                                 <span class="d-none d-md-inline"><?= $_SESSION['nama'] ?></span>
                                 <small>Selamat datang<br>
                                     <span class="d-none d-md-inline"><?= $_SESSION['no_induk'] ?></span>

@@ -227,7 +227,7 @@ $result_data = mysqli_query($conn, $query_data) or die(mysqli_error($conn));
 </section><!-- /.content -->
 <!-- /.content -->
     <div class="footer-main">
-        Copyright @copy PerpustakaanPGT2024
+        Copyright PerpustakaanPGT2024
     </div>
     </aside><!-- /.right-side -->
 

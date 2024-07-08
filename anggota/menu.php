@@ -14,7 +14,7 @@
                                     </a>
                                     <ul class="treeview-menu">
                                         <li><a href="buku.php"><i class="fa fa-angle-double-right"></i> Data Buku</a></li>
-                                       
+                                        <li><a href="input-buku.php"><i class="fa fa-angle-double-right"></i> Tambah Buku&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="bi bi-plus-square"></i></a></li>
                                     </ul>
                                 </li>
                                 <li>

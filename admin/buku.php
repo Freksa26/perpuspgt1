@@ -263,7 +263,7 @@ if (empty($_SESSION['username'])) {
 </section><!-- /.content -->
 <!-- /.content -->
     <div class="footer-main">
-        Copyright @copy PerpustakaanPGT2024
+        Copyright PerpustakaanPGT2024
     </div>
     </aside><!-- /.right-side -->
 

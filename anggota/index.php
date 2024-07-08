@@ -66,16 +66,17 @@ if (empty($_SESSION['username'])) {
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel -->
-                < <div class="user-panel">
-               
-               <div class="info">
-                   <center>
-                       
-                       Selamat datang <br>
-                       <p><?php echo $_SESSION['nama']; ?></p>
-                   </center>
-               </div>
-           </div>
+                <div class="user-panel">
+                    <div>
+                        <center><img src="<?php echo $_SESSION['foto']; ?>" height="80" width="80" class="img-circle" alt="Foto Anggota" style="border: 3px solid white;" /></center>
+                    </div>
+                    <div class="info">
+                        <center>
+                            <p><?php echo $_SESSION['nama']; ?></p>
+                        </center>
+
+                    </div>
+                </div>
                 <!-- search form -->
                 <!--<form action="#" method="get" class="sidebar-form">
                                 <div class="input-group">
@@ -294,7 +295,7 @@ if (empty($_SESSION['username'])) {
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">
-                Copyright @copy PerpustakaanPGT2024
+                Copyright PerpustakaanPGT2024
             </div>
         </aside><!-- /.right-side -->
 

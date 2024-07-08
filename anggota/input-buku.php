@@ -10,7 +10,7 @@ if (empty($_SESSION['username'])) {
 
     <head>
         <meta charset="UTF-8">
-        <title>PerpustakaanKU</title>
+        <title>PerpustakaanPGT</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="description" content="Hakko Bio Richard">
         <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
@@ -54,53 +54,8 @@ if (empty($_SESSION['username'])) {
 
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
-        <header class="header">
-            <a href="index.php" class="logo">
-                PerpustakaanKU
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                                <span><?php echo $_SESSION['fullname']; ?> <i class="caret"></i></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                                <li class="dropdown-header text-center">Account</li>
-
-                                <li>
-                                    <a href="detail-admin.php?hal=edit&kd=<?php echo $_SESSION['user_id']; ?>">
-                                        <i class="fa fa-user fa-fw pull-right"></i>
-                                        Profile
-                                    </a>
-                                    <a href="admin.php">
-                                        <i class="fa fa-cog fa-fw pull-right"></i>
-                                        Settings
-                                    </a>
-                                </li>
-
-                                <li class="divider"></li>
-
-                                <li>
-                                    <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+        <?php include "header.php"; ?>
+        <!--end header-->
         <?php
         $timeout = 10; // Set timeout minutes
         $logout_redirect_url = "../login.html"; // Set logout URL
@@ -124,11 +79,11 @@ if (empty($_SESSION['username'])) {
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div>
-                        <center><img src="<?php echo $_SESSION['gambar']; ?>" height="80" width="80" class="img-circle" alt="User Image" style="border: 3px solid white;" /></center>
+                        <center><img src="<?php echo $_SESSION['foto']; ?>" height="80" width="80" class="img-circle" alt="User Image" style="border: 3px solid white;" /></center>
                     </div>
                     <div class="info">
                         <center>
-                            <p><?php echo $_SESSION['fullname']; ?></p>
+                            <p><?php echo $_SESSION['nama']; ?></p>
                         </center>
 
                     </div>
@@ -158,82 +113,83 @@ if (empty($_SESSION['username'])) {
                     <div class="col-xs-12">
                         <div class="panel">
                             <header class="panel-heading">
-                                <b>Edit Anggota</b>
+                                <b>Input Buku</b>
 
                             </header>
                             <!-- <div class="box-header"> -->
                             <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-                            <?php
-                            $query = mysqli_query($conn, "SELECT * FROM data_anggota WHERE id='$_GET[kd]'");
-                            $data  = mysqli_fetch_array($query);
-                            ?>
+
                             <!-- </div> -->
                             <div class="panel-body">
-                                <form class="form-horizontal style-form" style="margin-top: 20px;" action="update-anggota.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                                <form class="form-horizontal style-form" style="margin-top: 20px;" action="insert-buku.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">ID Anggota</label>
+                                        <label class="col-sm-2 col-sm-2 control-label">Kode Buku</label>
                                         <div class="col-sm-8">
-                                            <input name="id" type="text" id="id" class="form-control" placeholder="Tidak perlu di isi" value="<?php echo $data['id']; ?>" autofocus="on" readonly="readonly" />
+                                            <input name="id" type="text" id="id" class="form-control" placeholder="Tidak perlu di isi" autofocus="on" readonly="readonly" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Email</label>
+                                        <label class="col-sm-2 col-sm-2 control-label">Judul</label>
                                         <div class="col-sm-8">
-                                            <input name="no_induk" type="text" id="no_induk" class="form-control" placeholder="Ex : xxx.@gmail.com" value="<?php echo $data['no_induk']; ?>" required />
-                                            <!--<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>-->
+                                            <input name="judul" type="text" id="judul" class="form-control" autocomplete="off" placeholder="Judul Buku" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Nama</label>
+                                        <label class="col-sm-2 col-sm-2 control-label">Pengarang</label>
                                         <div class="col-sm-8">
-                                            <input name="nama" type="text" id="nama" class="form-control" placeholder="Nama" value="<?php echo $data['nama']; ?>" required />
+                                            <input name="pengarang" type="text" id="pengarang" class="form-control" autocomplete="off" placeholder="Pengarang" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Username</label>
+                                        <label class="col-sm-2 col-sm-2 control-label">Tahun Terbit</label>
                                         <div class="col-sm-8">
-                                            <input name="username" type="text" id="username" class="form-control" placeholder="Username" value="<?php echo $data['username']; ?>" required />
+                                            <input name="th_terbit" type="text" id="th_terbit" class="form-control" autocomplete="off" placeholder="Tahun Terbit" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Password</label>
+                                        <label class="col-sm-2 col-sm-2 control-label">Penerbit</label>
                                         <div class="col-sm-8">
-                                            <input name="password" type="text" id="password" class="form-control" placeholder="Password" value="<?php echo $data['password']; ?>" required />
+                                            <input name="penerbit" type="text" id="penerbit" class="form-control" autocomplete="off" placeholder="Penerbit" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Jenis Kelamin</label>
+                                        <label class="col-sm-2 col-sm-2 control-label">ISBN</label>
+                                        <div class="col-sm-8">
+                                            <input name="isbn" type="text" id="isbn" class="form-control" autocomplete="off" placeholder="ISBN" required="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Kategori</label>
+                                        <div class="col-sm-8">
+                                            <input name="kategori" type="text" id="Kategori" class="form-control" autocomplete="off" placeholder="Kategori" required="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Jumlah Halaman</label>
+                                        <div class="col-sm-8">
+                                            <input name="jumlah_buku" type="text" id="jumlah_buku" class="form-control" autocomplete="off" placeholder="Jumlah Halaman" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Asal</label>
                                         <div class="col-sm-4">
-                                            <select class="form-control" name="jk" id="jk">
-                                                <option> <?php echo $data['jk']; ?></option>
-                                                <option value="L"> Laki - Laki</option>
-                                                <option value="P"> Perempuan</option>
+                                            <select class="form-control" name="asal" id="asal" required>
+                                                <option value=""> -- Pilih Salah Satu --</option>
+                                                <option value="Pembelian"> Pembelian</option>
+                                                <option value="Sumbangan"> Sumbangan</option>
+                                                <option value="Koleksi PerpustakaanKU"> Koleksi PerpustakaanKU</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Usia</label>
+                                        <label class="col-sm-2 col-sm-2 control-label">Tanggal Input</label>
                                         <div class="col-sm-8">
-                                            <input name="kelas" class="form-control" id="kelas" type="text" placeholder="Usia" value="<?php echo $data['kelas']; ?>" required />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Tempat Tanggal Lahir</label>
-                                        <div class="col-sm-8">
-                                            <input name="ttl" class="form-control" id="ttl" type="text" placeholder="Tempat, DD MM YY" value="<?php echo $data['ttl']; ?>" required />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
-                                        <div class="col-sm-8">
-                                            <input name="alamat" class="form-control" id="alamat" type="text" placeholder="Alamat" value="<?php echo $data['alamat']; ?>" required />
+                                            <input name="tgl_input" type="text" id="tgl_input" class="form-control" autocomplete="off" value="<?php echo "" . date("Y/m/d") . ""; ?>" readonly="readonly" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Foto</label>
                                         <div class="col-sm-8">
-                                            <span class="help-block">Silahkan memilih foto untuk update atau mengedit data, tekan tombol batal untuk kembali.</span>
-                                            <img src="<?php echo $data['foto']; ?>" height="250" width="250" alt="Foto Anggota" style="margin-bottom: 10px;" /><br />
                                             <input name="nama_file" id="nama_file" type="file" />
                                         </div>
                                     </div>
@@ -241,7 +197,7 @@ if (empty($_SESSION['username'])) {
                                         <label class="col-sm-2 col-sm-2 control-label"></label>
                                         <div class="col-sm-8">
                                             <input type="submit" value="Simpan" class="btn btn-sm btn-primary" />&nbsp;
-                                            <a href="anggota.php" class="btn btn-sm btn-danger">Batal </a>
+                                            <a href="input-anggota.php" class="btn btn-sm btn-danger">Batal </a>
                                         </div>
                                     </div>
                                     <div style="margin-top: 20px;"></div>
@@ -253,7 +209,7 @@ if (empty($_SESSION['username'])) {
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">
-                Copyright PerpustakaanKU 2021
+                Copyright &copy PerpustakaanPGT2024
             </div>
         </aside><!-- /.right-side -->
 

@@ -10,7 +10,7 @@ if (empty($_SESSION['username'])) {
 
     <head>
         <meta charset="UTF-8">
-        <title>PerpustakaanPGT</title>
+        <title>PerpustakaanKU</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="description" content="Hakko Bio Richard">
         <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
@@ -67,15 +67,16 @@ if (empty($_SESSION['username'])) {
             <section class="sidebar">
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
-               
-                <div class="info">
-                    <center>
-                        
-                        Selamat datang <br>
-                        <p><?php echo $_SESSION['nama']; ?></p>
-                    </center>
+                    <div>
+                        <center><img src="<?php echo $_SESSION['foto']; ?>" height="80" width="80" class="img-circle" alt="User Image" style="border: 3px solid white;" /></center>
+                    </div>
+                    <div class="info">
+                        <center>
+                            <p><?php echo $_SESSION['nama']; ?></p>
+                        </center>
+
+                    </div>
                 </div>
-            </div>
                 <!-- search form -->
                 <!--<form action="#" method="get" class="sidebar-form">
                                 <div class="input-group">
@@ -202,7 +203,7 @@ if (empty($_SESSION['username'])) {
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">
-                Copyright @copy PerpustakaanPGT2024
+                Copyright PerpustakaanKU 2021
             </div>
         </aside><!-- /.right-side -->
 

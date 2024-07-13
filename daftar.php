@@ -33,10 +33,11 @@
       .container {
           max-width: 400px; /* Lebar maksimum container */
           margin: 0 auto; /* Posisi tengah */
-          background-color: #fff; /* Warna latar belakang container */
+          background-color: rgba(255, 255, 255, 1); /* Warna latar belakang transparan untuk container */
           padding: 20px; /* Padding di dalam container */
-          border-radius: 5px; /* Sudut bulat container */
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk tampilan lebih menarik */
+          border-radius: 10px; /* Sudut bulat container */
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Efek bayangan untuk tampilan 3D */
+          backdrop-filter: blur(10px); /* Efek blur untuk tampilan lebih menarik */
       }
 
       .form-group {

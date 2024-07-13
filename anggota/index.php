@@ -88,75 +88,117 @@ if (empty($_SESSION['username'])) {
             <!-- Main content -->
             <section class="content">
 
-                <div class="row" style="margin-bottom:5px;">
+            <div class="row" style="margin-bottom: 20px;">
+    <style>
+        /* Style untuk memberikan efek 3D pada ikon */
+        .sm-st-icon {
+            display: inline-block;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+        }
 
+        /* Style untuk informasi di dalam blok statistik */
+        .sm-st-info {
+            padding-left: 10px;
+        }
 
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-red"><i class="fa fa-user"></i></span>
-                            <div class="sm-st-info">
-                                <?php $tampil = mysqli_query($conn, "select * from data_anggota order by id desc");
-                                $total = mysqli_num_rows($tampil);
-                                ?>
-                                <span><?php echo "$total"; ?></span>
-                                Total Anggota
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-violet"><i class="fa fa-book"></i></span>
-                            <div class="sm-st-info">
-                                <?php $tampil = mysqli_query($conn, "select * from data_buku order by id desc");
-                                $total1 = mysqli_num_rows($tampil);
-                                ?>
-                                <span><?php echo "$total1"; ?></span>
-                                Total Buku
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
-                            <div class="sm-st-info">
-                                <?php $tampil = mysqli_query($conn, "select * from admin order by user_id desc");
-                                $total2 = mysqli_num_rows($tampil);
-                                ?>
-                                <span><?php echo "$total2"; ?></span>
-                                Total Admin
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-green"><i class="fa fa-group"></i></span>
-                            <div class="sm-st-info">
-                                <?php $tampil = mysqli_query($conn, "select * from pengunjung order by id desc");
-                                $total3 = mysqli_num_rows($tampil);
-                                ?>
-                                <span><?php echo "$total3"; ?></span>
-                                Total Pengunjung
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        /* Style untuk clearfix */
+        .sm-st.clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Warna dan tata letak sesuai kebutuhan */
+        .st-red {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .st-violet {
+            background-color: #9b59b6;
+            color: white;
+        }
+
+        .st-blue {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .st-green {
+            background-color: #2ecc71;
+            color: white;
+        }
+    </style>
+
+    <div class="col-md-4">
+        <div class="sm-st clearfix">
+            <span class="sm-st-icon st-red"><i class="fa fa-user"></i></span>
+            <div class="sm-st-info">
+                <?php
+                $tampil = mysqli_query($conn, "SELECT * FROM data_anggota ORDER BY id DESC");
+                $total = mysqli_num_rows($tampil);
+                ?>
+                <span><?php echo "$total"; ?></span>
+                Total Anggota
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="sm-st clearfix">
+            <span class="sm-st-icon st-violet"><i class="fa fa-book"></i></span>
+            <div class="sm-st-info">
+                <?php
+                $tampil = mysqli_query($conn, "SELECT * FROM data_buku ORDER BY id DESC");
+                $total1 = mysqli_num_rows($tampil);
+                ?>
+                <span><?php echo "$total1"; ?></span>
+                Total Buku
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="sm-st clearfix">
+            <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
+            <div class="sm-st-info">
+                <?php
+                $tampil = mysqli_query($conn, "SELECT * FROM admin ORDER BY user_id DESC");
+                $total2 = mysqli_num_rows($tampil);
+                ?>
+                <span><?php echo "$total2"; ?></span>
+                Total Admin
+            </div>
+        </div>
+    </div>
+
+    <!-- Tambah blok untuk statistik pengunjung -->
+    <div class="col-md-4">
+        <div class="sm-st clearfix">
+            <span class="sm-st-icon st-green"><i class="fa fa-group"></i></span>
+            <div class="sm-st-info">
+                <?php
+                $tampil = mysqli_query($conn, "SELECT * FROM pengunjung ORDER BY id DESC");
+                $total3 = mysqli_num_rows($tampil);
+                ?>
+                <span><?php echo "$total3"; ?></span>
+                Total Pengunjung
+            </div>
+        </div>
+    </div>
+</div>
+
 
                 <!-- Main row -->
                 <div class="row">
 
-                    <div class="col-md-8">
-                        <!--earning graph start-->
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Grafik Peminjaman Buku
-                            </header>
-                            <div class="panel-body">
-                                <canvas id="linechart" width="600" height="330"></canvas>
-                            </div>
-                        </section>
-                        <!--earning graph end-->
 
-                    </div>
                     <div class="col-lg-4">
 
                         <!--chat start-->

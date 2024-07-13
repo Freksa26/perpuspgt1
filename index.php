@@ -33,6 +33,13 @@
         <!-- Theme style -->
         <link href="css/style.css" rel="stylesheet" type="text/css" />
 
+        <style type="text/css">
+ body {
+            background: url('img/olena-bohovyk-Ft_Wn-K5YH8-unsplash.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        </style>
         <script type="text/javascript">
             // 1 detik = 1000
             window.setTimeout("waktu()", 1000);
@@ -66,9 +73,6 @@
             }
         </script>
 
-        <style type="text/css">
-
-        </style>
     </head>
 
     <body class="skin-black">
@@ -141,133 +145,148 @@
                         </div>
 
                         <style>
-                            
-    /* CSS untuk mempercantik tabel */
-    .panel-heading {
-        background-color: #3498db; /* Warna latar belakang header panel */
-        color: #ffffff; /* Warna teks pada header panel */
-        padding: 10px 15px;
-        border-radius: 4px 4px 0 0;
-    }
+        .panel {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .panel:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .panel-heading {
+            background-color: #3498db; /* Warna latar belakang header panel */
+            color: #ffffff; /* Warna teks pada header panel */
+            padding: 10px 15px;
+            border-radius: 10px 10px 0 0;
+        }
 
-    .panel-body {
-        padding: 15px;
-    }
+        .panel-title {
+            margin: 0;
+        }
 
-    .panel-body table {
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
+        .panel-body {
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 0 0 10px 10px;
+        }
 
-    .panel-body table th,
-    .panel-body table td {
-        padding: 8px; /* Mengurangi padding untuk ukuran lebih kecil */
-        text-align: left;
-        border-bottom: 1px solid #ddd; /* Garis bawah untuk setiap baris */
-    }
+        .panel-body table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
 
-    .panel-body table th {
-        background-color: #f2f2f2; /* Warna latar belakang header kolom */
-    }
+        .panel-body table th,
+        .panel-body table td {
+            padding: 8px; /* Mengurangi padding untuk ukuran lebih kecil */
+            text-align: left;
+            border-bottom: 1px solid #ddd; /* Garis bawah untuk setiap baris */
+        }
 
-    .panel-body table tbody tr:hover {
-        background-color: #f9f9f9; /* Warna latar belakang saat dihover */
-    }
+        .panel-body table th {
+            background-color: #f2f2f2; /* Warna latar belakang header kolom */
+        }
 
-    .panel-body .total-visitors {
-        margin-top: 10px;
-        font-weight: bold;
-    }
+        .panel-body table tbody tr:hover {
+            background-color: #f9f9f9; /* Warna latar belakang saat dihover */
+        }
 
-    .panel-body .total-visitors span {
-        color: #3498db; /* Warna teks untuk jumlah pengunjung */
-    }
-</style>
+        .panel-body .total-visitors {
+            margin-top: 10px;
+            font-weight: bold;
+        }
 
-                    <div class="col-md-4">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                <h3 class="panel-title"><strong>Motto Perpustakaan PGT</strong></h3>
-                            </header>
-                            <div class="panel-body">
-                                <center>
-                                    <p><strong>"Tekun, Terampil, Kreatif"</strong></p>
-                                </center>
-                            </div>
-                        </section>
-                    </div>
+        .panel-body .total-visitors span {
+            color: #3498db; /* Warna teks untuk jumlah pengunjung */
+        }
+    </style>
 
-                    <div class="col-md-4">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                <h3 class="panel-title"><strong>Visi Perpustakaan PGT</strong></h3>
-                            </header>
-                            <div class="panel-body">
-                                <p align="justify">Terwujudnya Politeknik berkarakter dalam menghasilkan lulusan unggul yang memiliki keahlian dan kemampuan di bidangnya serta mampu bersaing di tingkat nasional maupun internasional.</p>
-                            </div>
-                        </section>
-                    </div>
+<div class="container">
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Motto Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <center>
+                    <p><strong>"Tekun, Terampil, Kreatif"</strong></p>
+                </center>
+            </div>
+        </section>
+    </div>
 
-                    <div class="col-md-4">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                <h3 class="panel-title"><strong>Misi Perpustakaan PGT</strong></h3>
-                            </header>
-                            <div class="panel-body">
-                                <ol>
-                                    <li align="justify">Membentuk manusia yang beriman, bertaqwa dan berakhlak mulia.</li>
-                                    <li align="justify">Menghasilkan lulusan yang kompeten sesuai dengan bidang keahliannya.</li>
-                                    <li align="justify">Menyelenggarakan program pendidikan vokasi yang berkualitas sesuai dengan perkembangan ilmu pengetahuan dan teknologi.</li>
-                                </ol>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="col-md-4">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                <h3 class="panel-title"><strong>Tujuan Perpustakaan PGT</strong></h3>
-                            </header>
-                            <div class="panel-body">
-                                <ol>
-                                    <li align="justify">Mewujudkan lembaga pendidikan tinggi yang profesional dan akuntabel.</li>
-                                    <li align="justify">Menghasilkan lulusan yang memiliki kemampuan akademik dan/atau profesional yang unggul di tingkat nasional maupun internasional.</li>
-                                    <li align="justify">Mengembangkan penelitian yang bermutu di bidang ilmu pengetahuan dan teknologi.</li>
-                                    <li align="justify">Mengembangkan program pengabdian kepada masyarakat yang berbasis pada kebutuhan masyarakat dan pembangunan nasional.</li>
-                                </ol>
-                            </div>
-                        </section>
-                    </div>
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Visi Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <p align="justify">Terwujudnya Politeknik berkarakter dalam menghasilkan lulusan unggul yang memiliki keahlian dan kemampuan di bidangnya serta mampu bersaing di tingkat nasional maupun internasional.</p>
+            </div>
+        </section>
+    </div>
 
-                    
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Misi Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <ol>
+                    <li align="justify">Membentuk manusia yang beriman, bertaqwa dan berakhlak mulia.</li>
+                    <li align="justify">Menghasilkan lulusan yang kompeten sesuai dengan bidang keahliannya.</li>
+                    <li align="justify">Menyelenggarakan program pendidikan vokasi yang berkualitas sesuai dengan perkembangan ilmu pengetahuan dan teknologi.</li>
+                </ol>
+            </div>
+        </section>
+    </div>
 
-                    <div class="col-md-4">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                <h3 class="panel-title"><strong>Kerjasama</strong></h3>
-                            </header>
-                            <div class="panel-body">
-                                <p align="justify">Politeknik Gajah Tunggal menjalin kerjasama dengan berbagai institusi, baik di dalam maupun luar negeri, dalam rangka meningkatkan kualitas pendidikan dan lulusan.</p>
-                            </div>
-                        </section>
-                    </div>
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Tujuan Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <ol>
+                    <li align="justify">Mewujudkan lembaga pendidikan tinggi yang profesional dan akuntabel.</li>
+                    <li align="justify">Menghasilkan lulusan yang memiliki kemampuan akademik dan/atau profesional yang unggul di tingkat nasional maupun internasional.</li>
+                    <li align="justify">Mengembangkan penelitian yang bermutu di bidang ilmu pengetahuan dan teknologi.</li>
+                    <li align="justify">Mengembangkan program pengabdian kepada masyarakat yang berbasis pada kebutuhan masyarakat dan pembangunan nasional.</li>
+                </ol>
+            </div>
+        </section>
+    </div>
 
-                    
-                    <div class="col-md-4">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                <h3 class="panel-title"><strong>Team Perpustakaan PGT</strong></h3>
-                            </header>
-                            <div class="panel-body">
-                                <ul>
-                                    <li><strong>Fatchurrochman Reksa Pratama</strong> - Master</li>
-                                    <li><strong>Ananditio Aryogusti</strong> - Colaborator</li>
-                                    <li><strong>Fikri Ainur Ridho</strong> -  Colaborator</li>
-                                   
-                                </ul>
-                            </div>
-                        </section>
-                    </div>
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Kerjasama</strong></h3>
+            </header>
+            <div class="panel-body">
+                <p align="justify">Politeknik Gajah Tunggal menjalin kerjasama dengan berbagai institusi, baik di dalam maupun luar negeri, dalam rangka meningkatkan kualitas pendidikan dan lulusan.</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Team Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <ul>
+                    <li><strong>Fatchurrochman Reksa Pratama</strong> - Master</li>
+                    <li><strong>Ananditio Aryogusti</strong> - Colaborator</li>
+                    <li><strong>Fikri Ainur Ridho</strong> -  Colaborator</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
                     <div class="row">
     <!-- Buku Pengunjung -->
     <div class="col-md-8">
@@ -396,8 +415,6 @@
                 <?php
                 $user = mysqli_num_rows($tampil);
                 ?>
-
-                <!-- Pagination -->
                 <ul class='pagination justify-content-center'>
                     <?php if ($page > 1) { ?>
                         <li class='page-item'><a class='page-link' href='index.php?page=<?php echo $page - 1; ?>'>Previous</a></li>
@@ -413,16 +430,10 @@
         </section>
     </div>
 </div>
-
-<!--end panel buku pengunjung-->
-
                             </section>
                         </div>
-
                     </div>
                 </section>
-
-                <!-- Data Total Pengunjung -->
                 <div class="col-md-12">
     <section class="panel">
         <header class="panel-heading">
@@ -469,7 +480,6 @@
             } else {
                 echo "<p>Tidak ada data pengunjung.</p>";
             }
-
             // Pagination
             $query_total = "SELECT COUNT(*) AS total FROM pengunjung";
             $result_total = mysqli_query($conn, $query_total);
@@ -524,22 +534,11 @@
                             </div>
                         </div>
                     </div>
-
-                   
-                    
-
-              
-
-        <!-- row end -->
-        <!-- /.content -->
         <div class="footer-main">
             Copyright &copy; PerpustakaanPGT2024
         </div>
-        </aside><!-- /.right-side -->
-
-        </div><!-- ./wrapper -->
-
-        <!-- Modal Dialog Contact -->
+        </aside>
+        </div>
         <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -577,50 +576,22 @@
                 </div>
             </div>
         </div>
-        <!-- end dialog modal -->
-
-        
-
-
-        <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <script src="js/jquery.min.js" type="text/javascript"></script>
-
-        <!-- jQuery UI 1.10.3 -->
         <script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-        <!-- Bootstrap -->
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <!-- daterangepicker -->
         <script src="js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-
         <script src="js/plugins/chart.js" type="text/javascript"></script>
-
-        <!-- datepicker
-            <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>-->
-        <!-- Bootstrap WYSIHTML5
-            <script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>-->
-        <!-- iCheck -->
         <script src="js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-        <!-- calendar -->
         <script src="js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
-
-        <!-- Director App -->
         <script src="js/Director/app.js" type="text/javascript"></script>
-
-        <!-- Director dashboard demo (This is only for demo purposes) -->
         <script src="js/Director/dashboard.js" type="text/javascript"></script>
-
-        <!-- Director for demo purposes -->
         <script type="text/javascript">
             $('input').on('ifChecked', function(event) {
-                // var element = $(this).parent().find('input:checkbox:first');
-                // element.parent().parent().parent().addClass('highlight');
                 $(this).parents('li').addClass("task-done");
                 console.log('ok');
             });
             $('input').on('ifUnchecked', function(event) {
-                // var element = $(this).parent().find('input:checkbox:first');
-                // element.parent().parent().parent().removeClass('highlight');
                 $(this).parents('li').removeClass("task-done");
                 console.log('not');
             });
@@ -640,7 +611,6 @@
         <script type="text/javascript">
             $(function() {
                 "use strict";
-                //BAR CHART
                 var data = {
                     labels: ["January", "February", "March", "April", "May", "June", "July"],
                     datasets: [{
@@ -671,8 +641,6 @@
                 });
 
             });
-            // Chart.defaults.global.responsive = true;
         </script>
     </body>
-
     </html>

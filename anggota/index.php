@@ -91,6 +91,9 @@ if (empty($_SESSION['username'])) {
             <div class="row" style="margin-bottom: 20px;">
     <style>
         /* Style untuk memberikan efek 3D pada ikon */
+        .sidebar-menu .treeview-menu > li > a {
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
         .sm-st-icon {
             display: inline-block;
             border-radius: 50%;
@@ -123,6 +126,9 @@ if (empty($_SESSION['username'])) {
         .st-violet {
             background-color: #9b59b6;
             color: white;
+        }
+        .btn {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
         .st-blue {
@@ -263,7 +269,44 @@ if (empty($_SESSION['username'])) {
 
 
                 </div>
+                <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Motto Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <center>
+                    <p><strong>"Tekun, Terampil, Kreatif"</strong></p>
+                </center>
+            </div>
+        </section>
+    </div>
 
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Visi Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <p align="justify">Terwujudnya Politeknik berkarakter dalam menghasilkan lulusan unggul yang memiliki keahlian dan kemampuan di bidangnya serta mampu bersaing di tingkat nasional maupun internasional.</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Misi Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <ol>
+                    <li align="justify">Membentuk manusia yang beriman, bertaqwa dan berakhlak mulia.</li>
+                    <li align="justify">Menghasilkan lulusan yang kompeten sesuai dengan bidang keahliannya.</li>
+                    <li align="justify">Menyelenggarakan program pendidikan vokasi yang berkualitas sesuai dengan perkembangan ilmu pengetahuan dan teknologi.</li>
+                </ol>
+            </div>
+        </section>
+    </div>
                 <div class="row">
                     <div class="col-md-5">
                         <div class="panel">
@@ -281,47 +324,6 @@ if (empty($_SESSION['username'])) {
                                 </ul>
                             <?php } ?>
                         </div>
-                    </div>
-                    <div class="col-md-7">
-                        <section class="panel tasks-widget">
-                            <header class="panel-heading">
-                                Daftar Bacaan 
-                            </header>
-                            <div class="panel-body">
-
-                                <div class="task-content">
-
-                                    <ul class="task-list">
-                                        <?php
-                                        $tampil = mysqli_query($conn, "select * from data_buku order by id desc limit 5");
-                                        while ($data6 = mysqli_fetch_array($tampil)) {
-                                        ?>
-                                            <li>
-                                                <div class="task-checkbox">
-                                                    <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                                    <input type="checkbox" class="flat-grey list-child" />
-                                                    <!-- <input type="checkbox" class="square-grey"/> -->
-                                                </div>
-                                                <div class="task-title">
-                                                    <span class="task-title-sp"><?php echo $data6['judul']; ?></span>
-                                                    <span class="label label-primary"><?php echo $data6['tgl_input']; ?></span>
-                                                    <div class="pull-right hidden-phone">
-                                                        <button class="btn btn-info btn-xs"><i class="fa fa-check"></i></button>
-                                                        <button class="btn btn-success btn-xs"><i class="fa fa-pencil"></i></button>
-                                                        <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        <?php } ?>
-                                    </ul>
-                                </div>
-
-                                <div class=" add-task-row">
-                                    <a class="btn btn-warning btn-sm pull-left" href="buku.php">Lihat Buku Bacaan</a>
-                                    <!--<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>-->
-                                </div>
-                            </div>
-                        </section>
                     </div>
                 </div>
                 <!-- row end -->

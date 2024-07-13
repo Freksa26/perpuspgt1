@@ -89,58 +89,81 @@ if (empty($_SESSION['username'])) {
             <section class="content">
 
             <div class="row" style="margin-bottom: 20px;">
-    <style>
-        /* Style untuk memberikan efek 3D pada ikon */
-        .sidebar-menu .treeview-menu > li > a {
-        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-        }
-        .sm-st-icon {
-            display: inline-block;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            line-height: 60px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Efek bayangan */
-        }
-
-        /* Style untuk informasi di dalam blok statistik */
-        .sm-st-info {
-            padding-left: 10px;
-        }
-
-        /* Style untuk clearfix */
-        .sm-st.clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        /* Warna dan tata letak sesuai kebutuhan */
-        .st-red {
-            background-color: #e74c3c;
-            color: white;
-        }
-
-        .st-violet {
-            background-color: #9b59b6;
-            color: white;
-        }
-        .btn {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .st-blue {
-            background-color: #3498db;
-            color: white;
-        }
-
-        .st-green {
-            background-color: #2ecc71;
-            color: white;
-        }
-    </style>
+           
+        <style type="text/css">
+            /* Style untuk memberikan efek 3D pada ikon */
+            .sidebar-menu .treeview-menu > li > a {
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            }
+            .sm-st-icon {
+                display: inline-block;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+                font-size: 30px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+                transition: transform 0.3s ease; /* Efek transisi */
+            }
+            .sm-st-icon:hover {
+                transform: scale(1.1); /* Efek skala saat hover */
+            }
+            /* Style untuk informasi di dalam blok statistik */
+            .sm-st-info {
+                padding-left: 10px;
+            }
+            /* Style untuk clearfix */
+            .sm-st.clearfix::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+            /* Warna dan tata letak sesuai kebutuhan */
+            .st-red {
+                background-color: #e74c3c;
+                color: white;
+            }
+            .st-violet {
+                background-color: #9b59b6;
+                color: white;
+            }
+            .btn {
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+            .st-blue {
+                background-color: #3498db;
+                color: white;
+            }
+            .st-green {
+                background-color: #2ecc71;
+                color: white;
+            }
+            /* Tambahan styling untuk panel */
+            .panel {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+                border-radius: 10px; /* Membuat sudut membulat */
+                transition: transform 0.3s ease; /* Efek transisi */
+            }
+            .panel:hover {
+                transform: translateY(-10px); /* Efek mengangkat saat hover */
+            }
+            /* Tambahan styling untuk header */
+            .panel-heading {
+                background: linear-gradient(45deg, #3498db, #2980b9); /* Mengubah menjadi biru */
+                color: white;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            /* Tambahan styling untuk footer */
+            .footer-main {
+                background: #333;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+            }
+        </style>
 
     <div class="col-md-4">
         <div class="sm-st clearfix">
@@ -199,12 +222,8 @@ if (empty($_SESSION['username'])) {
         </div>
     </div>
 </div>
-
-
-                <!-- Main row -->
-                <div class="row">
-
-
+<div class="container">
+<div class="row">
                     <div class="col-lg-4">
 
                         <!--chat start-->
@@ -262,14 +281,8 @@ if (empty($_SESSION['username'])) {
                                 <?php } ?>
                             </div>
                         </section>
-
-
-
                     </div>
-
-
-                </div>
-                <div class="col-md-4">
+                    <div class="col-md-4">
         <section class="panel">
             <header class="panel-heading">
                 <h3 class="panel-title"><strong>Motto Perpustakaan PGT</strong></h3>
@@ -279,23 +292,19 @@ if (empty($_SESSION['username'])) {
                     <p><strong>"Tekun, Terampil, Kreatif"</strong></p>
                 </center>
             </div>
+            
         </section>
-    </div>
-
-    <div class="col-md-4">
         <section class="panel">
-            <header class="panel-heading">
+        <header class="panel-heading">
                 <h3 class="panel-title"><strong>Visi Perpustakaan PGT</strong></h3>
             </header>
             <div class="panel-body">
                 <p align="justify">Terwujudnya Politeknik berkarakter dalam menghasilkan lulusan unggul yang memiliki keahlian dan kemampuan di bidangnya serta mampu bersaing di tingkat nasional maupun internasional.</p>
             </div>
+            
         </section>
-    </div>
-
-    <div class="col-md-4">
         <section class="panel">
-            <header class="panel-heading">
+        <header class="panel-heading">
                 <h3 class="panel-title"><strong>Misi Perpustakaan PGT</strong></h3>
             </header>
             <div class="panel-body">
@@ -307,35 +316,54 @@ if (empty($_SESSION['username'])) {
             </div>
         </section>
     </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="panel">
+    <div class="col-md-4">
+       
+        <section class="panel tasks-widget">
                             <header class="panel-heading">
-                                Daftar Anggota
-                            </header><?php
-                                        $tampil = mysqli_query($conn, "select * from data_anggota order by id desc limit 3");
-                                        while ($data1 = mysqli_fetch_array($tampil)) {
+                                Daftar Bacaan PerPusWeb
+                            </header>
+                            <div class="panel-body">
+
+                                <div class="task-content">
+
+                                    <ul class="task-list">
+                                        <?php
+                                        $tampil = mysqli_query($conn, "select * from data_buku order by id desc limit 5");
+                                        while ($data6 = mysqli_fetch_array($tampil)) {
                                         ?>
-                                <ul class="list-group teammates">
-                                    <li class="list-group-item">
-                                        <img src="<?php echo $data1['foto']; ?>" width="50" height="50" style="border: 3px solid #555555;">
-                                        <?php echo $data1['nama']; ?>
-                                    </li>
-                                </ul>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
+                                            <li>
+                                                <div class="task-checkbox">
+                                                    <!-- <input type="checkbox" class="list-child" value=""  /> -->
+                                                    <input type="checkbox" class="flat-grey list-child" />
+                                                    <!-- <input type="checkbox" class="square-grey"/> -->
+                                                </div>
+                                                <div class="task-title">
+                                                    <span class="task-title-sp"><?php echo $data6['judul']; ?></span>
+                                                    <span class="label label-primary"><?php echo $data6['tgl_input']; ?></span>
+                                                    <div class="pull-right hidden-phone">
+                                                       
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+
+                                <div class=" add-task-row">
+                                    <a class="btn btn-warning btn-sm pull-left" href="buku.php">Lihat Buku Bacaan</a>
+                                    <!--<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>-->
+                                </div>
+                            </div>
+                        </section>
+    </div>
+                </div>         
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">
                 Copyright PerpustakaanPGT2024
             </div>
         </aside><!-- /.right-side -->
-
     </div><!-- ./wrapper -->
-
-
     <!-- jQuery 2.0.2 -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="../js/jquery.min.js" type="text/javascript"></script>

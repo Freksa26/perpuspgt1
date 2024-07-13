@@ -139,10 +139,10 @@
         </div>
 
         <div class="form-group">
-            <label for="kelas"><i class="bi bi-hourglass-split"></i> Usia</label>
+            <label for="kelas"><i class="bi bi-hourglass-split"></i> Umur</label>
             <div class="input-group">
                 <span class="input-group-addon right-icon"><i class="bi bi-hourglass-split"></i></span>
-                <input type="text" id="kelas" name="kelas" class="form-control" placeholder="Usia" autocomplete="off" autofocus="on" required>
+                <input type="number" id="kelas" name="kelas" class="form-control" placeholder="Usia" autocomplete="off" autofocus="on" required>
             </div>
         </div>
 

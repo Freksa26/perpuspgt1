@@ -32,14 +32,6 @@
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <!-- Theme style -->
         <link href="css/style.css" rel="stylesheet" type="text/css" />
-
-        <style>
-    body {
-      background: url('img/ibrary-background.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-    
-  </style>
         <script type="text/javascript">
             // 1 detik = 1000
             window.setTimeout("waktu()", 1000);

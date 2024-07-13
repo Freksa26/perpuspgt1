@@ -146,10 +146,10 @@
         </div>
 
         <div class="form-group">
-            <label for="ttl"><i class="bi bi-calendar4-week"></i> Tempat, Tanggal Lahir (DD MM YY)</label>
+            <label for="ttl"><i class="bi bi-calendar4-week"></i> Tempat, Tanggal Lahir</label>
             <div class="input-group">
                 <span class="input-group-addon right-icon"><i class="bi bi-calendar4-week"></i></span>
-                <input type="text" id="ttl" name="ttl" class="form-control" placeholder="Tempat, Tanggal Lahir (DD MM YY)" autocomplete="off" autofocus="on" required>
+                <input type="date" id="ttl" name="ttl" class="form-control" autocomplete="off" autofocus="on" required>
             </div>
         </div>
 

@@ -26,19 +26,14 @@ if (empty($_SESSION['username'])) {
         <link href="../css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
         <!-- Date Picker -->
         <link href="../css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
-        <!-- fullCalendar -->
-        <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
         <!-- Daterange picker -->
         <link href="../css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <!-- iCheck for checkboxes and radio inputs -->
         <link href="../css/iCheck/all.css" rel="stylesheet" type="text/css" />
-        <!-- bootstrap wysihtml5 - text editor -->
-        <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <!-- Theme style -->
         <link href="../css/style.css" rel="stylesheet" type="text/css" />
-
-
+        <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,7 +43,81 @@ if (empty($_SESSION['username'])) {
           <![endif]-->
 
         <style type="text/css">
+            body {
+                font-family: 'Poppins', sans-serif;
+                background-image: url('path/to/your/background.jpg'); /* Ganti dengan path gambar latar belakang */
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                color: #333;
+            }
 
+            .panel-heading {
+                background: linear-gradient(45deg, #3498db, #2980b9);
+                color: #fff;
+                padding: 10px 15px;
+                border-bottom: 1px solid transparent;
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            }
+
+            .form-horizontal .form-group label {
+                color: #3498db;
+            }
+
+            .form-control {
+                border-radius: 4px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .form-control:focus {
+                border-color: #3498db;
+                box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
+            }
+
+            .btn-primary {
+                background-color: #3498db;
+                border-color: #3498db;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .btn-primary:hover {
+                background-color: #2980b9;
+                border-color: #2980b9;
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .btn-danger {
+                background-color: #e74c3c;
+                border-color: #e74c3c;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .btn-danger:hover {
+                background-color: #c0392b;
+                border-color: #c0392b;
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .footer-main {
+                text-align: center;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.7);
+                color: #fff;
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+                box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .img-circle {
+                border: 3px solid white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
         </style>
     </head>
 
@@ -78,7 +147,7 @@ if (empty($_SESSION['username'])) {
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div>
-                        <center><img src="<?php echo $_SESSION['gambar']; ?>" height="80" width="80" class="img-circle" alt="User Image" style="border: 3px solid white;" /></center>
+                        <center><img src="<?php echo $_SESSION['gambar']; ?>" height="80" width="80" class="img-circle" alt="User Image" /></center>
                     </div>
                     <div class="info">
                         <center>
@@ -87,16 +156,6 @@ if (empty($_SESSION['username'])) {
 
                     </div>
                 </div>
-                <!-- search form -->
-                <!--<form action="#" method="get" class="sidebar-form">
-                                <div class="input-group">
-                                    <input type="text" name="q" class="form-control" placeholder="Search..."/>
-                                    <span class="input-group-btn">
-                                        <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                                    </span>
-                                </div>
-                            </form> -->
-                <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <?php include "menu.php"; ?>
             </section>
@@ -104,21 +163,14 @@ if (empty($_SESSION['username'])) {
         </aside>
 
         <aside class="right-side">
-
             <!-- Main content -->
             <section class="content">
-
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="panel">
                             <header class="panel-heading">
                                 <b>Input Buku</b>
-
                             </header>
-                            <!-- <div class="box-header"> -->
-                            <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-
-                            <!-- </div> -->
                             <div class="panel-body">
                                 <form class="form-horizontal style-form" style="margin-top: 20px;" action="insert-buku.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
                                     <div class="form-group">
@@ -152,32 +204,28 @@ if (empty($_SESSION['username'])) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">ISBN</label>
+                                        <label class="col-sm-2 col-sm-2 control-label">Jumlah Buku</label>
                                         <div class="col-sm-8">
-                                            <input name="isbn" type="text" id="isbn" class="form-control" autocomplete="off" placeholder="ISBN"  />
+                                            <input name="jumlah_buku" type="text" id="jumlah_buku" class="form-control" autocomplete="off" placeholder="Jumlah Buku" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Kategori</label>
+                                        <label class="col-sm-2 col-sm-2 control-label">Lokasi</label>
                                         <div class="col-sm-8">
-                                            <input name="kategori" type="text" id="Kategori" class="form-control" autocomplete="off" placeholder="Kategori" required="" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Jumlah Halaman</label>
-                                        <div class="col-sm-8">
-                                            <input name="jumlah_buku" type="text" id="jumlah_buku" class="form-control" autocomplete="off" placeholder="Jumlah Halaman" required />
+                                            <select class="form-control" name="lokasi" id="lokasi">
+                                                <option>Rak 1</option>
+                                                <option>Rak 2</option>
+                                                <option>Rak 3</option>
+                                                <option>Rak 4</option>
+                                                <option>Rak 5</option>
+                                                <option>Rak 6</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Asal</label>
-                                        <div class="col-sm-4">
-                                            <select class="form-control" name="asal" id="asal" required>
-                                                <option value=""> -- Pilih Salah Satu --</option>
-                                                <option value="Pembelian"> Pembelian</option>
-                                                <option value="Sumbangan"> Sumbangan</option>
-                                                <option value="Koleksi PerpustakaanKU"> Koleksi PerpustakaanPGT</option>
-                                            </select>
+                                        <div class="col-sm-8">
+                                            <input name="asal" type="text" id="asal" class="form-control" autocomplete="off" placeholder="Asal Buku" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -187,46 +235,35 @@ if (empty($_SESSION['username'])) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Link e-Book</label>
+                                        <label class="col-sm-2 col-sm-2 control-label">Foto</label>
                                         <div class="col-sm-8">
-                                            <input name="link_buku" type="text" id="link_buku" class="form-control" autocomplete="off" placeholder="Link e-Book" required="" />
+                                            <input name="nama_file" type="file" id="nama_file" class="form-control" placeholder="Pilih Gambar Buku" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label">Foto</label>
-                                        <div class="col-sm-8">
-                                            <input name="nama_file" id="nama_file" type="file" />
+                                        <div class="col-sm-10">
+                                            <button type="submit" name="input" class="btn btn-primary">Simpan</button>
+                                            <a href="input-buku.php" class="btn btn-danger">Batal</a>
                                         </div>
                                     </div>
-                                    <div class="form-group" style="margin-bottom: 20px;">
-                                        <label class="col-sm-2 col-sm-2 control-label"></label>
-                                        <div class="col-sm-8">
-                                            <input type="submit" value="Simpan" class="btn btn-sm btn-primary" />&nbsp;
-                                            <a href="buku.php" class="btn btn-sm btn-danger">Batal </a>
-                                        </div>
-                                    </div>
-                                    <div style="margin-top: 20px;"></div>
                                 </form>
                             </div>
-                        </div><!-- /.box -->
-                    </div>
-                </div>
-                <!-- row end -->
+                        </div>
+                    </div><!-- col-lg-12-->
+                </div><!-- /.row -->
             </section><!-- /.content -->
+
             <div class="footer-main">
-                Copyright &copy PerpustakaanPGT2024
+                Copyright PerpustakaanKU 2021
             </div>
         </aside><!-- /.right-side -->
 
     </div><!-- ./wrapper -->
 
-
     <!-- jQuery 2.0.2 -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="../js/jquery.min.js" type="text/javascript"></script>
 
-    <!-- jQuery UI 1.10.3 -->
-    <script src="../js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
     <!-- Bootstrap -->
     <script src="../js/bootstrap.min.js" type="text/javascript"></script>
     <!-- daterangepicker -->
@@ -234,10 +271,10 @@ if (empty($_SESSION['username'])) {
 
     <script src="../js/plugins/chart.js" type="text/javascript"></script>
 
-    <!-- datepicker
-        <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>-->
-    <!-- Bootstrap WYSIHTML5
-        <script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>-->
+    <!-- datepicker -->
+    <script src="../js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="../js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
     <!-- iCheck -->
     <script src="../js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <!-- calendar -->
@@ -249,8 +286,7 @@ if (empty($_SESSION['username'])) {
     <!-- Director dashboard demo (This is only for demo purposes) -->
     <script src="../js/Director/dashboard.js" type="text/javascript"></script>
 
-    <!-- Director for demo purposes -->
-    <script type="text/javascript">
+    <script>
         $('input').on('ifChecked', function(event) {
             // var element = $(this).parent().find('input:checkbox:first');
             // element.parent().parent().parent().addClass('highlight');
@@ -263,55 +299,16 @@ if (empty($_SESSION['username'])) {
             $(this).parents('li').removeClass("task-done");
             console.log('not');
         });
-    </script>
-    <script>
-        $('#noti-box').slimScroll({
-            height: '400px',
-            size: '5px',
-            BorderRadius: '5px'
+
+        $("#check-all").click(function() {
+            $("input[type='checkbox']", ".task-list").iCheck("check");
         });
 
-        $('input[type="checkbox"].flat-grey, input[type="radio"].flat-grey').iCheck({
-            checkboxClass: 'icheckbox_flat-grey',
-            radioClass: 'iradio_flat-grey'
+        $("#uncheck-all").click(function() {
+            $("input[type='checkbox']", ".task-list").iCheck("uncheck");
         });
     </script>
-    <script type="text/javascript">
-        $(function() {
-            "use strict";
-            //BAR CHART
-            var data = {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
-                datasets: [{
-                        label: "My First dataset",
-                        fillColor: "rgba(220,220,220,0.2)",
-                        strokeColor: "rgba(220,220,220,1)",
-                        pointColor: "rgba(220,220,220,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(220,220,220,1)",
-                        data: [65, 59, 80, 81, 56, 55, 40]
-                    },
-                    {
-                        label: "My Second dataset",
-                        fillColor: "rgba(151,187,205,0.2)",
-                        strokeColor: "rgba(151,187,205,1)",
-                        pointColor: "rgba(151,187,205,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(151,187,205,1)",
-                        data: [28, 48, 40, 19, 86, 27, 90]
-                    }
-                ]
-            };
-            new Chart(document.getElementById("linechart").getContext("2d")).Line(data, {
-                responsive: true,
-                maintainAspectRatio: false,
-            });
 
-        });
-        // Chart.defaults.global.responsive = true;
-    </script>
     </body>
 
     </html>

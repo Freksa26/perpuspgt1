@@ -268,14 +268,16 @@ if (empty($_SESSION['username'])) {
         <span class="sm-st-icon st-green"><i class="fa fa-group"></i></span>
         <div class="sm-st-info">
             <?php
-            $tampil = mysqli_query($conn, "SELECT * FROM pengunjung ORDER BY id DESC");
-            $total3 = mysqli_num_rows($tampil);
+            $tampil = mysqli_query($conn, "SELECT COUNT(*) as total FROM user_sessions WHERE login_status = 1");
+            $row = mysqli_fetch_assoc($tampil);
+            $total3 = $row['total'];
             ?>
             <span><strong><?php echo "$total3"; ?></strong></span>
-            <strong>Total Pengunjung</strong>
+            <strong>Total Pengunjung Online</strong>
         </div>
     </div>
 </div>
+
 
 </div>
 

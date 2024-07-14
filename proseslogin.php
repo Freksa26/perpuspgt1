@@ -33,6 +33,8 @@ if (empty($username) && empty($password)) {
             $_SESSION['fullname'] = $row['fullname'];
             $_SESSION['gambar'] = $row['gambar'];
 
+            mysqli_query($conn, "REPLACE INTO user_sessions (user_id, login_status) VALUES ('" . $row['user_id'] . "', 1)");
+
             header('location:admin/index.php');
         } else {
             $_SESSION['id'] = $row['id'];
@@ -44,6 +46,8 @@ if (empty($username) && empty($password)) {
             $_SESSION['ttl'] = $row['ttl'];
             $_SESSION['alamat'] = $row['alamat'];
             $_SESSION['foto'] = $row['gambar'];
+
+            mysqli_query($conn, "REPLACE INTO user_sessions (user_id, login_status) VALUES ('" . $row['id'] . "', 1)");
 
             header('location:anggota/index.php');
         }

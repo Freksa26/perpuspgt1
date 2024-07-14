@@ -67,31 +67,20 @@ if (empty($_SESSION['username'])) {
             <section class="sidebar">
                 <!-- Sidebar user panel -->
             
-                <!-- search form -->
-                <!--<form action="#" method="get" class="sidebar-form">
-                                <div class="input-group">
-                                    <input type="text" name="q" class="form-control" placeholder="Search..."/>
-                                    <span class="input-group-btn">
-                                        <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                                    </span>
-                                </div>
-                            </form> -->
-                <!-- /.search form -->
-                <!-- sidebar menu: : style can be found in sidebar.less -->
                 <?php include "menu.php"; ?>
             </section>
             <!-- /.sidebar -->
         </aside>
 
         <aside class="right-side">
-
+<div class="container">
             <!-- Main content -->
             <section class="content">
 
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="panel">
-                        <div class="panel-heading text-center">
+                        <div class="panel-heading text-center"style="background: linear-gradient(45deg, #3498db, #2980b9);">
                             <b>Tentang Perpustakaan PGT</b>
                         </div>
 
@@ -99,37 +88,40 @@ if (empty($_SESSION['username'])) {
                             <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
 
                             <!-- </div> -->
-                        <div class="panel-body table-responsive" style="max-width: 800px; margin: 0 auto;">
-                            <p>PerpustakaanPGT: Menyemai Pengetahuan, Merajut Masa Depan</p>
-                            <p>Selamat datang di PerpustakaanPGT, pusat literasi dan pengetahuan di Politeknik Gajah Tunggal. Kami berdedikasi untuk menyediakan berbagai sumber daya informasi yang mendukung kebutuhan akademik, penelitian, dan pengembangan pribadi seluruh sivitas akademika.</p>
+                            <div class="container">
+    <div class="panel-body table-responsive" style="max-width: 800px; margin: 0 auto;font-size: 20px;">
+        <p><strong>PerpustakaanPGT: Menyemai Pengetahuan, Merajut Masa Depan</strong></p>
+        <p><strong>Selamat datang di PerpustakaanPGT, pusat literasi dan pengetahuan di Politeknik Gajah Tunggal.</strong> Kami berdedikasi untuk menyediakan berbagai sumber daya informasi yang mendukung kebutuhan akademik, penelitian, dan pengembangan pribadi seluruh sivitas akademika.</p>
 
-                            <p>Koleksi Buku yang Lengkap dan Terbaru<br>
-                                PerpustakaanPGT memiliki koleksi buku yang lengkap, mencakup berbagai disiplin ilmu dari teknik, bisnis, komputer, hingga humaniora. Kami secara rutin memperbarui koleksi kami untuk memastikan bahwa setiap buku yang Anda butuhkan tersedia dan up-to-date.</p>
+        <p><strong>Koleksi Buku yang Lengkap dan Terbaru</strong><br>
+            PerpustakaanPGT memiliki koleksi buku yang lengkap, mencakup berbagai disiplin ilmu dari teknik, bisnis, komputer, hingga humaniora. Kami secara rutin memperbarui koleksi kami untuk memastikan bahwa setiap buku yang Anda butuhkan tersedia dan up-to-date.</p>
 
-                            <p>Fasilitas Modern dan Nyaman<br>
-                                Kami memahami pentingnya lingkungan yang kondusif untuk belajar. PerpustakaanPGT dilengkapi dengan fasilitas modern seperti ruang baca yang nyaman, area diskusi kelompok, dan akses internet cepat. Semua ini dirancang untuk mendukung pengalaman belajar yang optimal.</p>
+        <p><strong>Fasilitas Modern dan Nyaman</strong><br>
+            Kami memahami pentingnya lingkungan yang kondusif untuk belajar. PerpustakaanPGT dilengkapi dengan fasilitas modern seperti ruang baca yang nyaman, area diskusi kelompok, dan akses internet cepat. Semua ini dirancang untuk mendukung pengalaman belajar yang optimal.</p>
 
-                            <p>Layanan Digital dan Online<br>
-                                Untuk memudahkan akses informasi, kami menyediakan layanan digital dan online. Melalui portal perpustakaan kami, Anda dapat mencari katalog buku, mengakses jurnal elektronik, dan memanfaatkan berbagai sumber daya digital lainnya dari mana saja dan kapan saja.</p>
+        <p><strong>Layanan Digital dan Online</strong><br>
+            Untuk memudahkan akses informasi, kami menyediakan layanan digital dan online. Melalui portal perpustakaan kami, Anda dapat mencari katalog buku, mengakses jurnal elektronik, dan memanfaatkan berbagai sumber daya digital lainnya dari mana saja dan kapan saja.</p>
 
-                            <p>Program Literasi dan Pelatihan<br>
-                                PerpustakaanPGT tidak hanya tempat untuk membaca buku, tetapi juga pusat kegiatan literasi dan pelatihan. Kami mengadakan berbagai program seperti workshop penulisan akademik, seminar literasi informasi, dan pelatihan penggunaan database penelitian. Ini semua bertujuan untuk meningkatkan keterampilan literasi dan penelitian mahasiswa.</p>
+        <p><strong>Program Literasi dan Pelatihan</strong><br>
+            PerpustakaanPGT tidak hanya tempat untuk membaca buku, tetapi juga pusat kegiatan literasi dan pelatihan. Kami mengadakan berbagai program seperti workshop penulisan akademik, seminar literasi informasi, dan pelatihan penggunaan database penelitian. Ini semua bertujuan untuk meningkatkan keterampilan literasi dan penelitian mahasiswa.</p>
 
-                            <p>Staf yang Ramah dan Profesional<br>
-                                Tim kami terdiri dari pustakawan yang berpengalaman dan profesional, siap membantu Anda menemukan informasi yang Anda butuhkan. Kami berkomitmen untuk memberikan pelayanan terbaik dan mendukung kesuksesan akademik Anda.</p>
+        <p><strong>Staf yang Ramah dan Profesional</strong><br>
+            Tim kami terdiri dari pustakawan yang berpengalaman dan profesional, siap membantu Anda menemukan informasi yang Anda butuhkan. Kami berkomitmen untuk memberikan pelayanan terbaik dan mendukung kesuksesan akademik Anda.</p>
 
-                            <p>Kami mengundang Anda untuk menjelajahi PerpustakaanPGT dan memanfaatkan semua fasilitas yang kami tawarkan. Mari bersama-sama menyemai pengetahuan dan merajut masa depan yang lebih cerah.</p>
+        <p>Kami mengundang Anda untuk menjelajahi PerpustakaanPGT dan memanfaatkan semua fasilitas yang kami tawarkan. Mari bersama-sama menyemai pengetahuan dan merajut masa depan yang lebih cerah.</p>
 
-                            <p>Selamat datang di PerpustakaanPGT!</p>
+        <p><strong>Selamat datang di PerpustakaanPGT!</strong></p>
+    </div>
+</div>
 
-                           
-                        </div>
+
                         <!-- /.box-body -->
                         </div><!-- /.box -->
                     </div>
                 </div>
                 <!-- row end -->
-            </section><!-- /.content -->
+            </section>
+            </div><!-- /.content -->
             <div class="footer-main">
                 Copyright &copy PerpustakaanPGT2024
             </div>

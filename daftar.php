@@ -106,7 +106,7 @@
         <div class="form-group">
     <label for="email"><i class="bi bi-envelope-open"></i> Email</label>
     <div class="email-input-group">
-        <input type="text" id="no_induk" name="no_induk" class="form-control" placeholder="No Induk" autocomplete="off" autofocus="on" required>
+        <input type="text" id="no_induk" name="no_induk" class="form-control" placeholder="Email" autocomplete="off" autofocus="on" required>
         <select id="email_domain" name="email_domain" class="form-control email-domain-select" required>
             <option value="@gmail.com">@gmail.com</option>
             <option value="@yahoo.com">@yahoo.com</option>

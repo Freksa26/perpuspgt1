@@ -110,7 +110,8 @@
         <select id="email_domain" name="email_domain" class="form-control email-domain-select" required>
             <option value="@gmail.com">@gmail.com</option>
             <option value="@yahoo.com">@yahoo.com</option>
-            <option value="@perpus.PGT">@perpus.PGT</option>
+            <option value="@perpus.PGT">@perpus.pgt</option>
+            <option value="@poltek.gt">@poltek.gt</option>
         </select>
     </div>
 </div>

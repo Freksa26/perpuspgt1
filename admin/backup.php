@@ -47,9 +47,68 @@ if (empty($_SESSION['username'])) {
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
           <![endif]-->
 
-        <style type="text/css">
+          <style type="text/css">
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #f4f4f4;
+        }
 
-        </style>
+        .sidebar {
+            background: #2c3e50;
+            color: #ecf0f1;
+            transition: all 0.3s;
+        }
+
+        .sidebar .info p {
+            font-weight: bold;
+        }
+
+        .sidebar img {
+            transition: transform 0.3s;
+        }
+
+        .sidebar img:hover {
+            transform: scale(1.1);
+        }
+
+        .panel {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .panel:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer-main {
+            text-align: center;
+            padding: 10px;
+            background: #2c3e50;
+            color: #ecf0f1;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #1abc9c, #16a085);
+            border: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(45deg, #16a085, #1abc9c);
+        }
+        .panel-heading {
+        background: linear-gradient(45deg, #3498db, #2980b9); /* Ganti dengan warna yang Anda inginkan */
+        color: #fff; /* Warna teks putih agar kontras dengan background */
+        padding: 10px 15px; /* Padding untuk memberi ruang di sekitar teks */
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+    </style>
     </head>
 
     <body class="skin-black">
@@ -104,33 +163,23 @@ if (empty($_SESSION['username'])) {
         </aside>
 
         <aside class="right-side">
-
             <!-- Main content -->
-            <section class="content">
-
+            <section class="content" data-aos="fade-up">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="panel">
                             <header class="panel-heading">
                                 <b>BackUp Database</b>
-
                             </header>
-                            <!-- <div class="box-header"> -->
-                            <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-
-                            <!-- </div> -->
                             <div class="panel-body table-responsive">
                                 <h3><b>Untuk menghindari hilangnya data, Back Up Database PerPusWeb secara berkala.</b></h3>
                                 <?php
-
                                 echo "<br>Nama Database: " . $db_name;
                                 echo "<br><i>Daftar Tabel</i>";
 
-                                // query untuk menampilkan semua tabel dalam database
                                 $query = "SHOW TABLES";
                                 $hasil = mysqli_query($conn, $query);
 
-                                // menampilkan semua tabel dalam form
                                 echo "<form method='post' action='proses-backup.php'>";
                                 echo "<table>";
                                 while ($data = mysqli_fetch_row($hasil)) {
@@ -139,19 +188,16 @@ if (empty($_SESSION['username'])) {
                                 echo "</table><br>";
                                 echo "<input type='submit' class='btn btn-sm btn-success' name='submit' value='Backup Data'>";
                                 echo "</form>";
-
-
                                 ?>
-                            </div><!-- /.box-body -->
-                        </div><!-- /.box -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- row end -->
-            </section><!-- /.content -->
+            </section>
             <div class="footer-main">
                 Copyright &copy PerpustakaanPGT2024
             </div>
-        </aside><!-- /.right-side -->
+        </aside>><!-- /.right-side -->
 
     </div><!-- ./wrapper -->
 

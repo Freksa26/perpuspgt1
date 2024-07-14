@@ -135,7 +135,6 @@
                                 <b>Selamat Datang di PerpustakaanPGT, Untuk Login silahkan klik Icon User atau klik <a href="login.html">disini</a></b>
                             </div>
                         </div>
-
                         <style>
         .panel {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -143,60 +142,49 @@
             transition: all 0.3s ease;
             margin-bottom: 20px;
         }
-        
         .panel:hover {
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             transform: translateY(-5px);
         }
-        
         .panel-heading {
             background-color: #3498db; /* Warna latar belakang header panel */
             color: #ffffff; /* Warna teks pada header panel */
             padding: 10px 15px;
             border-radius: 10px 10px 0 0;
         }
-
         .panel-title {
             margin: 0;
         }
-
         .panel-body {
             padding: 15px;
             background-color: #fff;
             border-radius: 0 0 10px 10px;
         }
-
         .panel-body table {
             width: 100%;
             border-collapse: collapse;
             border-spacing: 0;
         }
-
         .panel-body table th,
         .panel-body table td {
             padding: 8px; /* Mengurangi padding untuk ukuran lebih kecil */
             text-align: left;
             border-bottom: 1px solid #ddd; /* Garis bawah untuk setiap baris */
         }
-
         .panel-body table th {
             background-color: #f2f2f2; /* Warna latar belakang header kolom */
         }
-
         .panel-body table tbody tr:hover {
             background-color: #f9f9f9; /* Warna latar belakang saat dihover */
         }
-
         .panel-body .total-visitors {
             margin-top: 10px;
             font-weight: bold;
         }
-
         .panel-body .total-visitors span {
             color: #3498db; /* Warna teks untuk jumlah pengunjung */
         }
     </style>
-
 <div class="container">
     <div class="col-md-4">
         <section class="panel">
@@ -210,7 +198,6 @@
             </div>
         </section>
     </div>
-
     <div class="col-md-4">
         <section class="panel">
             <header class="panel-heading">
@@ -221,7 +208,6 @@
             </div>
         </section>
     </div>
-
     <div class="col-md-4">
         <section class="panel">
             <header class="panel-heading">
@@ -236,7 +222,6 @@
             </div>
         </section>
     </div>
-
     <div class="col-md-4">
         <section class="panel">
             <header class="panel-heading">
@@ -252,7 +237,6 @@
             </div>
         </section>
     </div>
-
     <div class="col-md-4">
         <section class="panel">
             <header class="panel-heading">
@@ -263,7 +247,6 @@
             </div>
         </section>
     </div>
-
     <div class="col-md-4">
         <section class="panel">
             <header class="panel-heading">
@@ -360,9 +343,7 @@
                 </div>
             </div>
         </section>
-    </div>
-
-    <!-- Data Pengunjung Hari Ini -->
+    </div>    <!-- Data Pengunjung Hari Ini -->
     <div class="col-md-4">
         <section class="panel">
             <header class="panel-heading">
@@ -374,10 +355,8 @@
                 $limit = 5;
                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $start = ($page - 1) * $limit;
-
                 $query1 = "SELECT * FROM pengunjung WHERE tgl_kunjung='$tanggal' LIMIT $start, $limit";
                 $tampil = mysqli_query($conn, $query1) or die(mysqli_error($conn));
-
                 $query_total = "SELECT COUNT(*) AS total FROM pengunjung WHERE tgl_kunjung='$tanggal'";
                 $result_total = mysqli_query($conn, $query_total);
                 $row_total = mysqli_fetch_assoc($result_total);
@@ -436,10 +415,8 @@
             $limit = 5; // Jumlah data per halaman
             $page = isset($_GET['page']) ? $_GET['page'] : 1; // Halaman saat ini, default halaman 1
             $start = ($page - 1) * $limit; // Perhitungan offset data
-
             $query = "SELECT * FROM pengunjung ORDER BY id DESC LIMIT $start, $limit";
             $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
-
             if (mysqli_num_rows($result) > 0) {
                 ?>
                 <table class="table table-hover table-bordered" style="table-layout: fixed; word-wrap: break-word; border-width: 2px;">
@@ -494,39 +471,6 @@
         </div>
     </section>
 </div>
-<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="contactLabel">Contact Us</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email address</label>
-                                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message">Message</label>
-                                            <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Send message</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        <div class="footer-main">
             Copyright &copy; PerpustakaanPGT2024
         </div>
         </aside>
@@ -539,28 +483,8 @@
                         <h4 class="modal-title" id="myModalLabel">PerpustakaanKU</h4>
                     </div>
                     <div class="modal-body">
-                        <p> PerpustakaanKu adalah salah satu layanan bagi pengguna untuk dapat mengakses berbagai buku bacaan yang dan dilakukan kapan saja dan dari mana saja, dengan menggunakan jaringan internet.</p>
-                        <p> PerpustakaanKu memiliki koleksi buku dalam bentuk format digital dan bisa diakses dengan komputer. koleksi bacaan dari PerpustakaanKu dapat diakses dengan cepat dan mudah lewat jaringan komputer.</p>
-                        <p> PerpustakaanKU bebasis website yang responsif, untuk info, saran, maupun kritik bisa menghubungi kami :</p>
-                        <table>
-                            <tr>
-                                <td>E-mail</td>
-                                <td>:</td>
-                                <td><a href="sisteminformasi494@gmail.com">PerpustakaanKU@gmail.com</a></td>
-                            </tr>
-                            <br />
-                            <tr>
-                                <td>Blog</td>
-                                <td>:</td>
-                                <td><a href="#" target="_blank">www.PerpustakaanKU.com</a></td>
-                            </tr>
-                            <br />
-                            <tr>
-                                <td>Website</td>
-                                <td>:</td>
-                                <td><a href="#" target="_blank">www.PerpustakaanKU.com</a></td>
-                            </tr>
-                        </table>
+                        <p> PerpustakaanPGT adalah salah satu layanan bagi pengguna untuk dapat mengakses berbagai buku bacaan yang dan dilakukan kapan saja dan dari mana saja, dengan menggunakan jaringan internet.</p>
+                        <p> PerpustakaanPGT memiliki koleksi buku dalam bentuk format digital dan bisa diakses dengan komputer. koleksi bacaan dari PerpustakaanKu dapat diakses dengan cepat dan mudah lewat jaringan komputer.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -594,7 +518,6 @@
                 size: '5px',
                 BorderRadius: '5px'
             });
-
             $('input[type="checkbox"].flat-grey, input[type="radio"].flat-grey').iCheck({
                 checkboxClass: 'icheckbox_flat-grey',
                 radioClass: 'iradio_flat-grey'

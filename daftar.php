@@ -5,64 +5,60 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="PerpustakaanKU">
   <meta name="perpustakaanku" content="PerpustakaanKU">
   <link rel="icon" href="../../favicon.ico">
-
   <title>PerpustakaanKU</title>
 
-  <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.0/font/bootstrap-icons.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
   <link href="signin.css" rel="stylesheet">
   <script src="js/ie-emulation-modes-warning.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.js"></script>
-  <link rel="stylesheet" href="style.css"> <!-- Rujukan ke file CSS -->
+  <link rel="stylesheet" href="style.css">
   <style>
       body {
-          background: url('img/ibrary-background.jpg') no-repeat center center fixed; 
-          background-size: cover; /* Mengatur ukuran gambar agar menutupi seluruh halaman */
+          background: url('img/ibrary-background.jpg') no-repeat center center fixed;
+          background-size: cover;
       }
 
       .container {
-          max-width: 400px; /* Lebar maksimum container */
-          margin: 0 auto; /* Posisi tengah */
-          background-color: rgba(255, 255, 255, 1); /* Warna latar belakang transparan untuk container */
-          padding: 20px; /* Padding di dalam container */
-          border-radius: 10px; /* Sudut bulat container */
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Efek bayangan untuk tampilan 3D */
-          backdrop-filter: blur(10px); /* Efek blur untuk tampilan lebih menarik */
+          max-width: 400px;
+          margin: 0 auto;
+          background-color: rgba(255, 255, 255, 1);
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(10px);
       }
 
       .form-group {
-          margin-bottom: 15px; /* Jarak antara setiap elemen form */
+          margin-bottom: 15px;
       }
 
       .form-group label {
-          font-weight: bold; /* Memperjelas label */
-          display: block; /* Memastikan label tetap pada baris yang sama */
-          margin-bottom: 5px; /* Jarak antara label dan input */
+          font-weight: bold;
+          display: flex;
+          align-items: center; /* Center align label and icon */
+          margin-bottom: 5px;
       }
 
       .radio label {
-          display: flex; /* Membuat radio button dan label sejajar */
-          align-items: center; /* Menyatukan ikon dengan teks */
+          display: flex;
+          align-items: center;
       }
 
       .radio label i {
-          margin-left: 5px; /* Jarak antara ikon dan teks */
-          font-size: 1.2em; /* Ukuran ikon */
-          vertical-align: middle; /* Memposisikan ikon di tengah vertikal */
+          margin-left: 5px;
+          font-size: 1.2em;
+          vertical-align: middle;
       }
 
       .input-group-addon {
-          background-color: white; /* Warna latar belakang putih untuk span */
+          background-color: white;
       }
 
       .right-icon {
@@ -70,9 +66,9 @@
           right: 10px;
           top: 50%;
           transform: translateY(-50%);
-          background-color: white; /* Add background color white */
+          background-color: white;
           padding: 5px;
-          border-radius: 50%; /* Optional: make the icon background circular */
+          border-radius: 50%;
           pointer-events: none;
       }
 
@@ -81,12 +77,21 @@
       }
 
       .form-control {
-          padding-right: 45px; /* Add space for the icon */
+          padding-right: 45px;
       }
 
       .small-icon {
-          padding: 2px; /* Smaller padding for the icon */
-          font-size: 0.8em; /* Smaller font size for the icon */
+          padding: 2px;
+          font-size: 0.8em;
+      }
+
+      .email-input-group {
+          display: flex;
+          align-items: center;
+      }
+
+      .email-domain-select {
+          margin-left: 10px;
       }
   </style>
 </head>
@@ -99,12 +104,19 @@
         </div>
 
         <div class="form-group">
-            <label for="no_induk"><i class="bi bi-envelope-open"></i> Email</label>
-            <div class="input-group">
-                <span class="input-group-addon right-icon"><i class="bi bi-envelope-open"></i></span>
-                <input type="text" id="no_induk" name="no_induk" class="form-control" placeholder="Email" autocomplete="off" autofocus="on" required>
-            </div>
-        </div>
+    <label for="email"><i class="bi bi-envelope-open"></i> Email</label>
+    <div class="email-input-group">
+        <input type="text" id="no_induk" name="no_induk" class="form-control" placeholder="No Induk" autocomplete="off" autofocus="on" required>
+        <select id="email_domain" name="email_domain" class="form-control email-domain-select" required>
+            <option value="@gmail.com">@gmail.com</option>
+            <option value="@yahoo.com">@yahoo.com</option>
+            <option value="@perpus.PGT">@perpus.PGT</option>
+        </select>
+    </div>
+</div>
+
+<input type="hidden" id="email" name="email" class="form-control" placeholder="Email" autocomplete="off" required>
+
 
         <div class="form-group">
             <label for="nama"><i class="bi bi-person"></i> Full Name</label>
@@ -169,17 +181,38 @@
     </form>
 </div>
 
-
-<!-- /container -->
-
-<h5 class="form-signin">Copyright &copy; <a href="#" data-toggle="modal" data-target="#contact">PerpustakaanPGT2024</a>
-</h5>
+<h5 class="form-signin">Copyright &copy; <a href="#" data-toggle="modal" data-target="#contact">PerpustakaanPGT2024</a></h5>
 
 <!-- Modal Dialog Contact -->
 <?php include("modal.php")?>
 <!-- end dialog modal -->
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="js/ie10-viewport-bug-workaround.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const noIndukInput = document.getElementById("no_induk");
+    const emailDomainSelect = document.getElementById("email_domain");
+
+    const updateEmailField = () => {
+        // Hanya tambahkan domain email jika noIndukValue tidak mengandung @
+        if (!noIndukInput.value.includes('@')) {
+            let noIndukValue = noIndukInput.value.trim();
+            let emailDomainValue = emailDomainSelect.value.trim();
+            noIndukInput.value = noIndukValue + emailDomainValue;
+        }
+    };
+
+    // Hapus domain email saat input no_induk mendapatkan fokus
+    noIndukInput.addEventListener("focus", () => {
+        if (noIndukInput.value.includes('@')) {
+            noIndukInput.value = noIndukInput.value.split('@')[0];
+        }
+    });
+
+    // Panggil fungsi updateEmailField saat select email_domain berubah
+    emailDomainSelect.addEventListener("change", updateEmailField);
+});
+</script>
+
 </body>
 </html>

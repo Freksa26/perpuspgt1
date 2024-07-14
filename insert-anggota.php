@@ -1,6 +1,7 @@
 <?php
+include "conn.php"; // Memasukkan file koneksi database
 
-include "conn.php";
+// Mengambil nilai dari form
 $no_induk = $_POST['no_induk'];
 $nama = $_POST['nama'];
 $username = $_POST['username'];
@@ -10,10 +11,19 @@ $kelas = $_POST['kelas'];
 $ttl = $_POST['ttl'];
 $alamat = $_POST['alamat'];
 
-$sql = "INSERT INTO data_anggota(id,no_induk,nama,username,password,jk,kelas,ttl,alamat,foto) VALUES
-            ('','$no_induk','$nama','$username','$password','$jk','$kelas','$ttl','$alamat','')";
-$res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-echo "<script type='text/javascript'>
-alert('Data anda telah berhasil diinput.');
-window.location.href = 'login.html';
-</script>";
+// Query SQL untuk memasukkan data ke dalam tabel
+$sql = "INSERT INTO data_anggota (no_induk, nama, username, password, jk, kelas, ttl, alamat, foto) 
+        VALUES ('$no_induk', '$nama', '$username', '$password', '$jk', '$kelas', '$ttl', '$alamat', '')";
+
+// Menjalankan query dan menangani hasilnya
+if (mysqli_query($conn, $sql)) {
+    echo "<script type='text/javascript'>
+            alert('Data anda telah berhasil diinput.');
+            window.location.href = 'login.html';
+          </script>";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn); // Menampilkan pesan error jika query tidak berhasil
+}
+
+mysqli_close($conn); // Menutup koneksi database setelah selesai
+?>

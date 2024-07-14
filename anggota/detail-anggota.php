@@ -48,7 +48,56 @@ if (empty($_SESSION['username'])) {
           <![endif]-->
 
         <style type="text/css">
+<style type="text/css">
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
 
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            text-align: left;
+            color: #333;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #ddd;
+        }
+
+        .table img {
+            border: 3px solid #333;
+            border-radius: 8px;
+        }
+
+        .table .btn {
+            padding: 5px 10px;
+            margin: 5px;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+        .panel-heading {
+        background: linear-gradient(45deg, #3498db, #2980b9); /* Ganti dengan warna yang Anda inginkan */
+        color: #fff; /* Warna teks putih agar kontras dengan background */
+        padding: 10px 15px; /* Padding untuk memberi ruang di sekitar teks */
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+    </style>
         </style>
     </head>
 

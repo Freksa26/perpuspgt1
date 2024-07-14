@@ -91,10 +91,10 @@ if (empty($_SESSION['username'])) {
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="panel">
-                            <header class="panel-heading">
-                                <b>Input Buku</b>
+                        <header class="panel-heading" style="background: linear-gradient(45deg, #3498db, #2980b9);">
+                        <b style="color: white;">Edit Buku</b>
+</header>
 
-                            </header>
                             <!-- <div class="box-header"> -->
                             <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
                             <?php

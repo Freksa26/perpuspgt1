@@ -38,7 +38,48 @@ if (empty($_SESSION['username'])) {
         <!-- Theme style -->
         <link href="../css/style.css" rel="stylesheet" type="text/css" />
 
+        <style>
+        /* Tambahkan gaya kustom di sini */
+        .panel-heading {
+            background-color: #337ab7; /* Warna latar belakang untuk judul panel */
+            color: #fff; /* Warna teks untuk judul panel */
+            padding: 15px; /* Padding di sekitar judul panel */
+            border-radius: 4px; /* Sudut melengkung untuk judul panel */
+        }
 
+        .panel-body {
+            background-color: #fff; /* Warna latar belakang untuk tubuh panel */
+            padding: 15px; /* Padding di sekitar isi panel */
+            border: 1px solid #ddd; /* Garis tepi panel */
+            border-top: none; /* Hilangkan garis di bagian atas */
+        }
+
+        .form-control {
+            border: 1px solid #ccc; /* Garis tepi untuk input form */
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); /* Efek shadow di dalam input */
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; /* Transisi untuk efek hover */
+        }
+
+        .form-control:focus {
+            border-color: #66afe9; /* Warna garis tepi saat fokus */
+            outline: 0; /* Hilangkan outline default */
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6); /* Efek shadow saat fokus */
+        }
+
+        .btn {
+            background-color: #337ab7; /* Warna latar belakang tombol */
+            color: #fff; /* Warna teks tombol */
+            border: 1px solid #2e6da4; /* Garis tepi tombol */
+            border-radius: 4px; /* Sudut melengkung tombol */
+            padding: 6px 12px; /* Padding di dalam tombol */
+            transition: background-color .3s ease; /* Transisi untuk efek hover */
+        }
+
+        .btn:hover {
+            background-color: #286090; /* Warna latar belakang tombol saat hover */
+            color: #fff; /* Warna teks tombol saat hover */
+        }
+    </style>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,9 +88,6 @@ if (empty($_SESSION['username'])) {
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
           <![endif]-->
 
-        <style type="text/css">
-
-        </style>
     </head>
 
     <body class="skin-black">

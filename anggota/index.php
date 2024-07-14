@@ -163,68 +163,199 @@ if (empty($_SESSION['username'])) {
                 text-align: center;
                 box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Efek bayangan */
             }
+            .sm-st {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.sm-st-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
+    color: #fff;
+}
+
+.st-red { background: linear-gradient(45deg, #ff6b6b, #ff4757); }
+.st-violet { background: linear-gradient(45deg, #9b59b6, #8e44ad); }
+.st-blue { background: linear-gradient(45deg, #3498db, #2980b9); }
+.st-green { background: linear-gradient(45deg, #2ecc71, #27ae60); }
+
+.sm-st-info {
+    text-align: center;
+    color: #343a40;
+}
+
+.sm-st-info span {
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+    color: #343a40;
+}
+
+.sm-st-info span:last-child {
+    font-size: 1.2em;
+    color: #6c757d;
+    font-weight: 600;
+}
+
+.sm-st:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.st-red, .st-violet, .st-blue, .st-green {
+    background-size: 200% 200%;
+    animation: backgroundMove 10s ease infinite;
+}
+
         </style>
 
-    <div class="col-md-4">
-        <div class="sm-st clearfix">
-            <span class="sm-st-icon st-red"><i class="fa fa-user"></i></span>
-            <div class="sm-st-info">
-                <?php
-                $tampil = mysqli_query($conn, "SELECT * FROM data_anggota ORDER BY id DESC");
-                $total = mysqli_num_rows($tampil);
-                ?>
-                <span><?php echo "$total"; ?></span>
-                Total Anggota
+<div class>
+            <div class="col-md-11">
+                <div class="sm-st clearfix" style="background: linear-gradient(45deg, #3498db, #2980b9);">
+                    <span class="sm-st-icon st-violet"><i class="fa fa-book"></i></span>
+                    <div class="sm-st-info">
+                        <?php
+                        $tampil = mysqli_query($conn, "SELECT * FROM data_buku ORDER BY id DESC");
+                        $total1 = mysqli_num_rows($tampil);
+                        ?>
+                        <span><strong><?php echo "$total1"; ?></strong></span>
+                        <strong>Total Buku</strong>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="sm-st clearfix">
-            <span class="sm-st-icon st-violet"><i class="fa fa-book"></i></span>
-            <div class="sm-st-info">
-                <?php
-                $tampil = mysqli_query($conn, "SELECT * FROM data_buku ORDER BY id DESC");
-                $total1 = mysqli_num_rows($tampil);
-                ?>
-                <span><?php echo "$total1"; ?></span>
-                Total Buku
+            <div class="col-md-4">
+                <div class="sm-st clearfix" style="background: linear-gradient(45deg, #3498db, #2980b9);">
+                    <span class="sm-st-icon st-red"><i class="fa fa-user"></i></span>
+                    <div class="sm-st-info">
+                        <?php
+                        $tampil = mysqli_query($conn, "SELECT * FROM data_anggota ORDER BY id DESC");
+                        $total = mysqli_num_rows($tampil);
+                        ?>
+                        <span><strong><?php echo "$total"; ?></strong></span>
+                        <strong>Total Anggota</strong>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="sm-st clearfix">
-            <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
-            <div class="sm-st-info">
-                <?php
-                $tampil = mysqli_query($conn, "SELECT * FROM admin ORDER BY user_id DESC");
-                $total2 = mysqli_num_rows($tampil);
-                ?>
-                <span><?php echo "$total2"; ?></span>
-                Total Admin
+            <div class="col-md-4">
+                <div class="sm-st clearfix" style="background: linear-gradient(45deg, #3498db, #2980b9);">
+                    <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
+                    <div class="sm-st-info">
+                        <?php
+                        $tampil = mysqli_query($conn, "SELECT * FROM admin ORDER BY user_id DESC");
+                        $total2 = mysqli_num_rows($tampil);
+                        ?>
+                        <span><strong><?php echo "$total2"; ?></strong></span>
+                        <strong>Total Admin</strong>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Tambah blok untuk statistik pengunjung -->
-    <div class="col-md-4">
-        <div class="sm-st clearfix">
-            <span class="sm-st-icon st-green"><i class="fa fa-group"></i></span>
-            <div class="sm-st-info">
-                <?php
-                $tampil = mysqli_query($conn, "SELECT * FROM pengunjung ORDER BY id DESC");
-                $total3 = mysqli_num_rows($tampil);
-                ?>
-                <span><?php echo "$total3"; ?></span>
-                Total Pengunjung
-            </div>
+</div>
+<div class="col-md-3">
+    <div class="sm-st clearfix" style="background: linear-gradient(45deg, #3498db, #2980b9);">
+        <span class="sm-st-icon st-green"><i class="fa fa-group"></i></span>
+        <div class="sm-st-info">
+            <?php
+            $tampil = mysqli_query($conn, "SELECT * FROM pengunjung ORDER BY id DESC");
+            $total3 = mysqli_num_rows($tampil);
+            ?>
+            <span><strong><?php echo "$total3"; ?></strong></span>
+            <strong>Total Pengunjung</strong>
         </div>
     </div>
 </div>
-<div class="container">
+
+</div>
+
+
 <div class="row">
-                    <div class="col-lg-4">
+<div class="col-md-4">     
+        <section class="panel tasks-widget">
+                            <header class="panel-heading">
+                                Daftar Bacaan PerPusWeb
+                            </header>
+                            <div class="panel-body">
+
+                                <div class="task-content">
+
+                                    <ul class="task-list">
+                                        <?php
+                                        $tampil = mysqli_query($conn, "select * from data_buku order by id desc limit 5");
+                                        while ($data6 = mysqli_fetch_array($tampil)) {
+                                        ?>
+                                            <li>
+                                                <div class="task-checkbox">
+                                                    <!-- <input type="checkbox" class="list-child" value=""  /> -->
+                                                    <input type="checkbox" class="flat-grey list-child" />
+                                                    <!-- <input type="checkbox" class="square-grey"/> -->
+                                                </div>
+                                                <div class="task-title">
+                                                    <span class="task-title-sp"><?php echo $data6['judul']; ?></span>
+                                                    <span class="label label-primary"><?php echo $data6['tgl_input']; ?></span>
+                                                    <div class="pull-right hidden-phone">
+                                                       
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+
+                                <div class=" add-task-row">
+                                    <a class="btn btn-warning btn-sm pull-left" href="buku.php">Lihat Buku Bacaan</a>
+                                    <!--<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>-->
+                                </div>
+                            </div>
+                        </section>
+    </div>
+                   
+                    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title"><strong>Motto Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <center>
+                    <p><strong>"Tekun, Terampil, Kreatif"</strong></p>
+                </center>
+            </div>
+            
+        </section>
+        <section class="panel">
+        <header class="panel-heading">
+                <h3 class="panel-title"><strong>Visi Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <p align="justify">Terwujudnya Politeknik berkarakter dalam menghasilkan lulusan unggul yang memiliki keahlian dan kemampuan di bidangnya serta mampu bersaing di tingkat nasional maupun internasional.</p>
+            </div>
+            
+        </section>
+        <section class="panel">
+        <header class="panel-heading">
+                <h3 class="panel-title"><strong>Misi Perpustakaan PGT</strong></h3>
+            </header>
+            <div class="panel-body">
+                <ol>
+                    <li align="justify">Membentuk manusia yang beriman, bertaqwa dan berakhlak mulia.</li>
+                    <li align="justify">Menghasilkan lulusan yang kompeten sesuai dengan bidang keahliannya.</li>
+                    <li align="justify">Menyelenggarakan program pendidikan vokasi yang berkualitas sesuai dengan perkembangan ilmu pengetahuan dan teknologi.</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    <div class="col-lg-4">
 
                         <!--chat start-->
                         <section class="panel">
@@ -282,80 +413,6 @@ if (empty($_SESSION['username'])) {
                             </div>
                         </section>
                     </div>
-                    <div class="col-md-4">
-        <section class="panel">
-            <header class="panel-heading">
-                <h3 class="panel-title"><strong>Motto Perpustakaan PGT</strong></h3>
-            </header>
-            <div class="panel-body">
-                <center>
-                    <p><strong>"Tekun, Terampil, Kreatif"</strong></p>
-                </center>
-            </div>
-            
-        </section>
-        <section class="panel">
-        <header class="panel-heading">
-                <h3 class="panel-title"><strong>Visi Perpustakaan PGT</strong></h3>
-            </header>
-            <div class="panel-body">
-                <p align="justify">Terwujudnya Politeknik berkarakter dalam menghasilkan lulusan unggul yang memiliki keahlian dan kemampuan di bidangnya serta mampu bersaing di tingkat nasional maupun internasional.</p>
-            </div>
-            
-        </section>
-        <section class="panel">
-        <header class="panel-heading">
-                <h3 class="panel-title"><strong>Misi Perpustakaan PGT</strong></h3>
-            </header>
-            <div class="panel-body">
-                <ol>
-                    <li align="justify">Membentuk manusia yang beriman, bertaqwa dan berakhlak mulia.</li>
-                    <li align="justify">Menghasilkan lulusan yang kompeten sesuai dengan bidang keahliannya.</li>
-                    <li align="justify">Menyelenggarakan program pendidikan vokasi yang berkualitas sesuai dengan perkembangan ilmu pengetahuan dan teknologi.</li>
-                </ol>
-            </div>
-        </section>
-    </div>
-    <div class="col-md-4">
-       
-        <section class="panel tasks-widget">
-                            <header class="panel-heading">
-                                Daftar Bacaan PerPusWeb
-                            </header>
-                            <div class="panel-body">
-
-                                <div class="task-content">
-
-                                    <ul class="task-list">
-                                        <?php
-                                        $tampil = mysqli_query($conn, "select * from data_buku order by id desc limit 5");
-                                        while ($data6 = mysqli_fetch_array($tampil)) {
-                                        ?>
-                                            <li>
-                                                <div class="task-checkbox">
-                                                    <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                                    <input type="checkbox" class="flat-grey list-child" />
-                                                    <!-- <input type="checkbox" class="square-grey"/> -->
-                                                </div>
-                                                <div class="task-title">
-                                                    <span class="task-title-sp"><?php echo $data6['judul']; ?></span>
-                                                    <span class="label label-primary"><?php echo $data6['tgl_input']; ?></span>
-                                                    <div class="pull-right hidden-phone">
-                                                       
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        <?php } ?>
-                                    </ul>
-                                </div>
-
-                                <div class=" add-task-row">
-                                    <a class="btn btn-warning btn-sm pull-left" href="buku.php">Lihat Buku Bacaan</a>
-                                    <!--<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>-->
-                                </div>
-                            </div>
-                        </section>
-    </div>
                 </div>         
                 <!-- row end -->
             </section><!-- /.content -->

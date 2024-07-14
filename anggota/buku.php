@@ -182,7 +182,7 @@ if (empty($_SESSION['username'])) {
                                 <!-- Tombol Refresh dan Tambah Buku -->
                                 <div class="text-right" style="margin-top: 10px;">
                                     <a href="buku.php" class="btn btn-info btn-sm">Refresh Buku <i class="fa fa-refresh"></i></a>
-                                    <a href="input-buku.php" class="btn btn-warning btn-sm">Tambah Buku <i class="fa fa-arrow-circle-right"></i></a>
+                                   
                                 </div>
                             </div><!-- /.panel-body -->
                         </div><!-- /.panel -->

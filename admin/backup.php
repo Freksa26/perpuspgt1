@@ -48,67 +48,83 @@ if (empty($_SESSION['username'])) {
           <![endif]-->
 
           <style type="text/css">
-        body {
-            font-family: 'Lato', sans-serif;
-            background: #f4f4f4;
-        }
+            body {
+                font-family: 'Poppins', sans-serif;
+                background-image: url('path/to/your/background.jpg'); /* Ganti dengan path gambar latar belakang */
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                color: #333;
+            }
 
-        .sidebar {
-            background: #2c3e50;
-            color: #ecf0f1;
-            transition: all 0.3s;
-        }
+            .panel-heading {
+                background: linear-gradient(45deg, #3498db, #2980b9);
+                color: #fff;
+                padding: 10px 15px;
+                border-bottom: 1px solid transparent;
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            }
 
-        .sidebar .info p {
-            font-weight: bold;
-        }
+            .form-horizontal .form-group label {
+                color: #3498db;
+            }
 
-        .sidebar img {
-            transition: transform 0.3s;
-        }
+            .form-control {
+                border-radius: 4px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
 
-        .sidebar img:hover {
-            transform: scale(1.1);
-        }
+            .form-control:focus {
+                border-color: #3498db;
+                box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
+            }
 
-        .panel {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
+            .btn-primary {
+                background-color: #3498db;
+                border-color: #3498db;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
 
-        .panel:hover {
-            transform: translateY(-5px);
-        }
+            .btn-primary:hover {
+                background-color: #2980b9;
+                border-color: #2980b9;
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+            }
 
-        .footer-main {
-            text-align: center;
-            padding: 10px;
-            background: #2c3e50;
-            color: #ecf0f1;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
+            .btn-danger {
+                background-color: #e74c3c;
+                border-color: #e74c3c;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
 
-        .btn-success {
-            background: linear-gradient(45deg, #1abc9c, #16a085);
-            border: none;
-            color: white;
-            font-weight: bold;
-        }
+            .btn-danger:hover {
+                background-color: #c0392b;
+                border-color: #c0392b;
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+            }
 
-        .btn-success:hover {
-            background: linear-gradient(45deg, #16a085, #1abc9c);
-        }
-        .panel-heading {
-        background: linear-gradient(45deg, #3498db, #2980b9); /* Ganti dengan warna yang Anda inginkan */
-        color: #fff; /* Warna teks putih agar kontras dengan background */
-        padding: 10px 15px; /* Padding untuk memberi ruang di sekitar teks */
-        border-bottom: 1px solid transparent;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-    }
-    </style>
+            .footer-main {
+                text-align: center;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.7);
+                color: #fff;
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+                box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .img-circle {
+                border: 3px solid white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+
     </head>
 
     <body class="skin-black">

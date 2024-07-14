@@ -183,15 +183,38 @@ if (empty($_SESSION['username'])) {
                 </div>
             </div>
         </section>
-        <div class="footer-main">
+         <div class="footer-main">
                 Copyright &copyPerpustakaanPGT2024
             </div>
-    </aside>   
+    </aside>
+    
 </div>
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js" type="text/javascript"></script>
 <script src="../js/AdminLTE/app.js" type="text/javascript"></script>
+<script>
+$(document).ready(function() {
+    $('.treeview > a').click(function() {
+        var treeviewMenu = $(this).next('.treeview-menu');
+        var parentLi = $(this).parent('li');
+        
+        if (treeviewMenu.is(':visible')) {
+            treeviewMenu.slideUp();
+            parentLi.removeClass('active');
+        } else {
+            // Menutup semua treeview-menu lainnya yang terbuka
+            $('.treeview-menu').slideUp();
+            $('.treeview').removeClass('active');
+
+            // Membuka treeview-menu yang diklik
+            treeviewMenu.slideDown();
+            parentLi.addClass('active');
+        }
+    });
+});
+</script>
+
 
 </body>
 

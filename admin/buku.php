@@ -46,10 +46,40 @@ if (empty($_SESSION['username'])) {
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
           <![endif]-->
+          <style type="text/css">
+    /* Tabel 3D */
+    .panel-heading {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: #fff;
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        box-shadow: 0px 0px 10px rgba(10, 1, 1, 0.5);
+    }
 
-        <style type="text/css">
+    table th, table td {
+        padding: 8px;
+        text-align: center;
+    }
 
-        </style>
+    table th {
+        background-color: #f2f2f2;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table td {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+    }
+</style>
     </head>
 
     <body class="skin-black">

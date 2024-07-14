@@ -105,213 +105,339 @@ if (empty($_SESSION['username'])) {
 
         <aside class="right-side">
 
-            <!-- Main content -->
-            <section class="content">
+<!-- Main content -->
+<section class="content">
 
-                <div class="row" style="margin-bottom:5px;">
+<div class="row" style="margin-bottom: 20px;">
 
+<style type="text/css">
+/* Style untuk memberikan efek 3D pada ikon */
+.sidebar-menu .treeview-menu > li > a {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.sm-st-icon {
+    display: inline-block;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+    transition: transform 0.3s ease; /* Efek transisi */
+}
+.sm-st-icon:hover {
+    transform: scale(1.1); /* Efek skala saat hover */
+}
+/* Style untuk informasi di dalam blok statistik */
+.sm-st-info {
+    padding-left: 10px;
+}
+/* Style untuk clearfix */
+.sm-st.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+/* Warna dan tata letak sesuai kebutuhan */
+.st-red {
+    background-color: #e74c3c;
+    color: white;
+}
+.st-violet {
+    background-color: #9b59b6;
+    color: white;
+}
+.btn {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.st-blue {
+    background-color: #3498db;
+    color: white;
+}
+.st-green {
+    background-color: #2ecc71;
+    color: white;
+}
+/* Tambahan styling untuk panel */
+.panel {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    border-radius: 10px; /* Membuat sudut membulat */
+    transition: transform 0.3s ease; /* Efek transisi */
+}
+.panel:hover {
+    transform: translateY(-10px); /* Efek mengangkat saat hover */
+}
+/* Tambahan styling untuk header */
+.panel-heading {
+    background: linear-gradient(45deg, #3498db, #2980b9); /* Mengubah menjadi biru */
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+/* Tambahan styling untuk footer */
+.footer-main {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+}
+.sm-st {
+border: 1px solid #ddd;
+border-radius: 8px;
+padding: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s, box-shadow 0.3s;
+overflow: hidden;
+position: relative;
+}
 
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-red"><i class="fa fa-user"></i></span>
-                            <div class="sm-st-info">
-                                <?php $tampil = mysqli_query($conn, "select * from data_anggota order by id desc");
-                                $total = mysqli_num_rows($tampil);
-                                ?>
-                                <span><?php echo "$total"; ?></span>
-                                Total Anggota
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-violet"><i class="fa fa-book"></i></span>
-                            <div class="sm-st-info">
-                                <?php $tampil = mysqli_query($conn, "select * from data_buku order by id desc");
-                                $total1 = mysqli_num_rows($tampil);
-                                ?>
-                                <span><?php echo "$total1"; ?></span>
-                                Total Buku
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
-                            <div class="sm-st-info">
-                                <?php $tampil = mysqli_query($conn, "select * from admin order by user_id desc");
-                                $total2 = mysqli_num_rows($tampil);
-                                ?>
-                                <span><?php echo "$total2"; ?></span>
-                                Total Admin
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-green"><i class="fa fa-group"></i></span>
-                            <div class="sm-st-info">
-                                <?php $tampil = mysqli_query($conn, "select * from pengunjung order by id desc");
-                                $total3 = mysqli_num_rows($tampil);
-                                ?>
-                                <span><?php echo "$total3"; ?></span>
-                                Total Pengunjung
-                            </div>
-                        </div>
-                    </div>
-                </div>
+.sm-st-icon {
+font-size: 3em;
+margin-bottom: 15px;
+display: block;
+text-align: center;
+color: #fff;
+}
 
-                <!-- Main row -->
-                <div class="row">
+.st-red { background: linear-gradient(45deg, #ff6b6b, #ff4757); }
+.st-violet { background: linear-gradient(45deg, #9b59b6, #8e44ad); }
+.st-blue { background: linear-gradient(45deg, #3498db, #2980b9); }
+.st-green { background: linear-gradient(45deg, #2ecc71, #27ae60); }
 
-                    <div class="col-md-8">
-                        <!--earning graph start-->
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Grafik Peminjaman Buku
-                            </header>
-                            <div class="panel-body">
-                                <canvas id="linechart" width="600" height="330"></canvas>
-                            </div>
-                        </section>
-                        <!--earning graph end-->
+.sm-st-info {
+text-align: center;
+color: #343a40;
+}
 
-                    </div>
-                    <div class="col-lg-4">
+.sm-st-info span {
+font-size: 2em;
+font-weight: bold;
+display: block;
+color: #343a40;
+}
 
-                        <!--chat start-->
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Pemberitahuan
-                            </header>
-                            <div class="panel-body" id="noti-box">
-                                <?php
-                                $tampil = mysqli_query($conn, "select * from data_anggota order by id desc limit 1");
-                                while ($data2 = mysqli_fetch_array($tampil)) {
-                                ?>
-                                    <div class="alert alert-block alert-danger">
-                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                        <strong><?php echo $data2['nama']; ?></strong>, Telah terdaftar menjadi anggota perpustakaan.
+.sm-st-info span:last-child {
+font-size: 1.2em;
+color: #6c757d;
+font-weight: 600;
+}
+
+.sm-st:hover {
+transform: translateY(-10px);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes backgroundMove {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+.st-red, .st-violet, .st-blue, .st-green {
+background-size: 200% 200%;
+animation: backgroundMove 10s ease infinite;
+}
+
+</style>
+
+<div class>
+<div class="col-md-11">
+    <div class="sm-st clearfix" style="background: linear-gradient(45deg, #3498db, #2980b9);">
+        <span class="sm-st-icon st-violet"><i class="fa fa-book"></i></span>
+        <div class="sm-st-info">
+            <?php
+            $tampil = mysqli_query($conn, "SELECT * FROM data_buku ORDER BY id DESC");
+            $total1 = mysqli_num_rows($tampil);
+            ?>
+            <span><strong><?php echo "$total1"; ?></strong></span>
+            <strong>Total Buku</strong>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="sm-st clearfix" style="background: linear-gradient(45deg, #3498db, #2980b9);">
+        <span class="sm-st-icon st-red"><i class="fa fa-user"></i></span>
+        <div class="sm-st-info">
+            <?php
+            $tampil = mysqli_query($conn, "SELECT * FROM data_anggota ORDER BY id DESC");
+            $total = mysqli_num_rows($tampil);
+            ?>
+            <span><strong><?php echo "$total"; ?></strong></span>
+            <strong>Total Anggota</strong>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="sm-st clearfix" style="background: linear-gradient(45deg, #3498db, #2980b9);">
+        <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
+        <div class="sm-st-info">
+            <?php
+            $tampil = mysqli_query($conn, "SELECT * FROM admin ORDER BY user_id DESC");
+            $total2 = mysqli_num_rows($tampil);
+            ?>
+            <span><strong><?php echo "$total2"; ?></strong></span>
+            <strong>Total Admin</strong>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="sm-st clearfix" style="background: linear-gradient(45deg, #3498db, #2980b9);">
+<span class="sm-st-icon st-green"><i class="fa fa-group"></i></span>
+<div class="sm-st-info">
+<?php
+$tampil = mysqli_query($conn, "SELECT COUNT(*) as total FROM user_sessions WHERE login_status = 1");
+$row = mysqli_fetch_assoc($tampil);
+$total3 = $row['total'];
+?>
+<span><strong><?php echo "$total3"; ?></strong></span>
+<strong>Total Pengunjung Online</strong>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">     
+<section class="panel tasks-widget">
+                <header class="panel-heading">
+                    Daftar Bacaan PerPusWeb
+                </header>
+                <div class="panel-body">
+
+                    <div class="task-content">
+
+                        <ul class="task-list">
+                            <?php
+                            $tampil = mysqli_query($conn, "select * from data_buku order by id desc limit 5");
+                            while ($data6 = mysqli_fetch_array($tampil)) {
+                            ?>
+                                <li>
+                                    <div class="task-checkbox">
+                                        <!-- <input type="checkbox" class="list-child" value=""  /> -->
+                                        <input type="checkbox" class="flat-grey list-child" />
+                                        <!-- <input type="checkbox" class="square-grey"/> -->
                                     </div>
-                                <?php } ?>
-
-                                <?php
-                                $tampil = mysqli_query($conn, "select * from admin order by user_id desc limit 1");
-                                while ($data3 = mysqli_fetch_array($tampil)) {
-                                ?>
-                                    <div class="alert alert-success">
-                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                        <strong><?php echo $data3['fullname']; ?></strong>, Telah ditambahkan menjadi admin PerPusWeb yang baru.
+                                    <div class="task-title">
+                                        <span class="task-title-sp"><?php echo $data6['judul']; ?></span>
+                                        <span class="label label-primary"><?php echo $data6['tgl_input']; ?></span>
+                                        <div class="pull-right hidden-phone">
+                                           
+                                        </div>
                                     </div>
-                                <?php } ?>
-
-                                <?php
-                                $tampil = mysqli_query($conn, "select * from data_buku order by id desc limit 1");
-                                while ($data4 = mysqli_fetch_array($tampil)) {
-                                ?>
-                                    <div class="alert alert-info">
-                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                        <strong><?php echo $data4['judul']; ?></strong>, Buku bacaan baru yang ada di PerPusWeb.
-                                    </div>
-                                <?php } ?>
-
-                                <?php
-                                $tampil = mysqli_query($conn, "select * from pengunjung order by id desc limit 1");
-                                while ($data5 = mysqli_fetch_array($tampil)) {
-                                ?>
-                                    <div class="alert alert-warning">
-                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                        <strong><?php echo $data5['nama']; ?> </strong> Pengunjung baru di PerPusWeb.
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        </section>
-
-
-
-                    </div>
-
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="panel">
-                            <header class="panel-heading">
-                                Daftar Anggota Baru
-                            </header><?php
-                                        $tampil = mysqli_query($conn, "select * from data_anggota order by id desc limit 3");
-                                        while ($data1 = mysqli_fetch_array($tampil)) {
-                                        ?>
-                                <ul class="list-group teammates">
-                                    <li class="list-group-item">
-                                        <a href="anggota.php"><img src="<?php echo $data1['foto']; ?>" width="50" height="50" style="border: 3px solid #555555;"></a>
-                                        <a href="anggota.php"><?php echo $data1['nama']; ?></a>
-                                    </li>
-                                </ul>
+                                </li>
                             <?php } ?>
-                            <div class="panel-footer bg-white">
-                                <!-- <span class="pull-right badge badge-info">32</span> -->
-                                <a href="anggota.php" class="btn btn-sm btn-info">Data Anggota <i class="fa fa-plus"></i></a>
-                            </div>
-                        </div>
+                        </ul>
                     </div>
-                    <div class="col-md-7">
-                        <section class="panel tasks-widget">
-                            <header class="panel-heading">
-                                Daftar Bacaan PerPusWeb
-                            </header>
-                            <div class="panel-body">
 
-                                <div class="task-content">
-
-                                    <ul class="task-list">
-                                        <?php
-                                        $tampil = mysqli_query($conn, "select * from data_buku order by id desc limit 5");
-                                        while ($data6 = mysqli_fetch_array($tampil)) {
-                                        ?>
-                                            <li>
-                                                <div class="task-checkbox">
-                                                    <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                                    <input type="checkbox" class="flat-grey list-child" />
-                                                    <!-- <input type="checkbox" class="square-grey"/> -->
-                                                </div>
-                                                <div class="task-title">
-                                                    <span class="task-title-sp"><?php echo $data6['judul']; ?></span>
-                                                    <span class="label label-primary"><?php echo $data6['tgl_input']; ?></span>
-                                                    <div class="pull-right hidden-phone">
-                                                        <button class="btn btn-info btn-xs"><i class="fa fa-check"></i></button>
-                                                        <button class="btn btn-success btn-xs"><i class="fa fa-pencil"></i></button>
-                                                        <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        <?php } ?>
-                                    </ul>
-                                </div>
-
-                                <div class=" add-task-row">
-                                    <a class="btn btn-warning btn-sm pull-left" href="buku.php">Lihat Buku Bacaan</a>
-                                    <!--<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>-->
-                                </div>
-                            </div>
-                        </section>
+                    <div class=" add-task-row">
+                        <a class="btn btn-warning btn-sm pull-left" href="buku.php">Lihat Buku Bacaan</a>
+                        <!--<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>-->
                     </div>
                 </div>
-                <!-- row end -->
-            </section><!-- /.content -->
-            <div class="footer-main">
-                Copyright &copy PerpustakaanPGT2024
-            </div>
-        </aside><!-- /.right-side -->
+            </section>
+</div>
+       
+        <div class="col-md-4">
+<section class="panel">
+<header class="panel-heading">
+    <h3 class="panel-title"><strong>Motto Perpustakaan PGT</strong></h3>
+</header>
+<div class="panel-body">
+    <center>
+        <p><strong>"Tekun, Terampil, Kreatif"</strong></p>
+    </center>
+</div>
+
+</section>
+<section class="panel">
+<header class="panel-heading">
+    <h3 class="panel-title"><strong>Visi Perpustakaan PGT</strong></h3>
+</header>
+<div class="panel-body">
+    <p align="justify">Terwujudnya Politeknik berkarakter dalam menghasilkan lulusan unggul yang memiliki keahlian dan kemampuan di bidangnya serta mampu bersaing di tingkat nasional maupun internasional.</p>
+</div>
+
+</section>
+<section class="panel">
+<header class="panel-heading">
+    <h3 class="panel-title"><strong>Misi Perpustakaan PGT</strong></h3>
+</header>
+<div class="panel-body">
+    <ol>
+        <li align="justify">Membentuk manusia yang beriman, bertaqwa dan berakhlak mulia.</li>
+        <li align="justify">Menghasilkan lulusan yang kompeten sesuai dengan bidang keahliannya.</li>
+        <li align="justify">Menyelenggarakan program pendidikan vokasi yang berkualitas sesuai dengan perkembangan ilmu pengetahuan dan teknologi.</li>
+    </ol>
+</div>
+</section>
+</div>
+<div class="col-lg-4">
+
+            <!--chat start-->
+            <section class="panel">
+                <header class="panel-heading">
+                    Pemberitahuan
+                </header>
+                <div class="panel-body" id="noti-box">
+                    <?php
+                    $tampil = mysqli_query($conn, "select * from data_anggota order by id desc limit 1");
+                    while ($data2 = mysqli_fetch_array($tampil)) {
+                    ?>
+                        <div class="alert alert-block alert-danger">
+                            <button data-dismiss="alert" class="close close-sm" type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong><?php echo $data2['nama']; ?></strong>, Telah terdaftar menjadi anggota perpustakaan.
+                        </div>
+                    <?php } ?>
+
+                    <?php
+                    $tampil = mysqli_query($conn, "select * from admin order by user_id desc limit 1");
+                    while ($data3 = mysqli_fetch_array($tampil)) {
+                    ?>
+                        <div class="alert alert-success">
+                            <button data-dismiss="alert" class="close close-sm" type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong><?php echo $data3['fullname']; ?></strong>, Telah ditambahkan menjadi admin PerPusWeb yang baru.
+                        </div>
+                    <?php } ?>
+
+                    <?php
+                    $tampil = mysqli_query($conn, "select * from data_buku order by id desc limit 1");
+                    while ($data4 = mysqli_fetch_array($tampil)) {
+                    ?>
+                        <div class="alert alert-info">
+                            <button data-dismiss="alert" class="close close-sm" type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong><?php echo $data4['judul']; ?></strong>, Buku bacaan baru yang ada di PerPusWeb.
+                        </div>
+                    <?php } ?>
+
+                    <?php
+                    $tampil = mysqli_query($conn, "select * from pengunjung order by id desc limit 1");
+                    while ($data5 = mysqli_fetch_array($tampil)) {
+                    ?>
+                        <div class="alert alert-warning">
+                            <button data-dismiss="alert" class="close close-sm" type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong><?php echo $data5['nama']; ?> </strong> Pengunjung baru di PerPusWeb.
+                        </div>
+                    <?php } ?>
+                </div>
+            </section>
+        </div>
+    </div>         
+    <!-- row end -->
+</section><!-- /.content -->
+<div class="footer-main">
+    Copyright PerpustakaanPGT2024
+</div>
+</aside><!-- /.right-side -->
 
     </div><!-- ./wrapper -->
 

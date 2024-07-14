@@ -214,7 +214,7 @@ $result_data = mysqli_query($conn, $query_data) or die(mysqli_error($conn));
         </div>
     </section><!-- /.content -->
 
-    <div class="footer-main"></div>
+    <?php include "footer.php";?>
 </aside>
 <!-- /.right-side -->
 

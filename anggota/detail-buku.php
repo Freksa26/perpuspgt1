@@ -99,45 +99,7 @@ if (empty($_SESSION['username'])) {
 
 <body class="skin-black">
     <!-- header logo: style can be found in header.less -->
-    <header class="header">
-        <a href="index.php" class="logo">
-            PerpustakaanKU
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <div class="navbar-right">
-                <ul class="nav navbar-nav">
-                    <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-user"></i>
-                            <span><?php echo $_SESSION['nama']; ?> <i class="caret"></i></span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                            <li class="dropdown-header text-center">Account</li>
-                            <li>
-                                <a href="detail-anggota.php?hal=edit&kd=<?php echo $_SESSION['id']; ?>">
-                                    <i class="fa fa-user fa-fw pull-right"></i>
-                                    Profile
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <?php include "header.php"; ?>
     <?php
     $timeout = 10; // Set timeout minutes
     $logout_redirect_url = "../login.html"; // Set logout URL
@@ -167,77 +129,89 @@ if (empty($_SESSION['username'])) {
     </aside>
 
     <aside class="right-side">
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="panel">
-                        <header class="panel-heading">
-                            <b>Detail Buku</b>
-                        </header>
-                        <?php
-                        $query = mysqli_query($conn, "SELECT * FROM data_buku WHERE id='$_GET[kd]'");
-                        $data  = mysqli_fetch_array($query);
-                        ?>
-                        <div class="panel-body">
-                            <table id="example" class="table table-hover table-bordered">
-                                <tr>
-                                    <td>ID Anggota</td>
-                                    <td><?php echo $data['id']; ?></td>
-                                    <td rowspan="9">
-                                        <div class="pull-right image">
-                                            <img src="<?php echo $data['gambar']; ?>" class="img-rounded" height="300" width="250" alt="User Image" />
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="250">Judul</td>
-                                    <td width="550"><?php echo $data['judul']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Pengarang</td>
-                                    <td><?php echo $data['pengarang']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Tahun Terbit</td>
-                                    <td><?php echo $data['th_terbit']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Penerbit</td>
-                                    <td><?php echo $data['penerbit']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>ISBN</td>
-                                    <td><?php echo $data['isbn']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Kategori</td>
-                                    <td><?php echo $data['kategori']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Jumlah Buku</td>
-                                    <td><?php echo $data['jumlah_buku']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Asal</td>
-                                    <td colspan="2"><?php echo $data['asal']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Tanggal Input</td>
-                                    <td colspan="2"><?php echo $data['tgl_input']; ?></td>
-                                </tr>
-                            </table>
-                            <div class="text-right">
-                                <a href="buku.php" class="btn btn-sm btn-primary">Kembali <i class="fa fa-arrow-circle-right"></i></a>
-                                <a href="edit-buku.php?hal=edit&kd=<?php echo $data['id']; ?>" class="btn btn-sm btn-warning">Edit Buku <i class="fa fa-edit"></i></a>
-                            </div>
-                        </div>
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <header class="panel-heading">
+                    <b>Detail Buku</b>
+
+                </header>
+                <!-- <div class="box-header"> -->
+                <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
+                <?php
+                $query = mysqli_query($conn, "SELECT * FROM data_buku WHERE id='$_GET[kd]'");
+                $data  = mysqli_fetch_array($query);
+                ?>
+                <!-- </div> -->
+                <div class="panel-body">
+                    <table id="example" class="table table-hover table-bordered">
+                        <tr>
+                            <td>ID Anggota</td>
+                            <td><?php echo $data['id']; ?></td>
+                            <td rowspan="9">
+                                <div class="pull-right image">
+                                    <img src="<?php echo $data['gambar']; ?>" class="img-rounded" height="300" width="250" alt="User Image" style="border: 3px solid #333333;" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="250">Judul</td>
+                            <td width="550"><?php echo $data['judul']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Pengarang</td>
+                            <td><?php echo $data['pengarang']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Tahun Terbit</td>
+                            <td><?php echo $data['th_terbit']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Penerbit</td>
+                            <td><?php echo $data['penerbit']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>ISBN</td>
+                            <td><?php echo $data['isbn']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Kategori</td>
+                            <td><?php echo $data['kategori']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Jumlah Halaman</td>
+                            <td><?php echo $data['jumlah_buku']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Asal Buku</td>
+                            <td colspan="2"><?php echo $data['asal']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Tanggal Input</td>
+                            <td colspan="2"><?php echo $data['tgl_input']; ?></td>
+                        </tr>
+                    </table>
+
+                    <div class="text-right">
+                        <a href="<?php echo $data['link_buku']; ?>" class="btn btn-sm btn-primary"> Baca <i class="fa fa-book"></i></a>
+                        <a href="buku.php" class="btn btn-sm btn-warning"> Kembali <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
+
+
                 </div>
-            </div>
-        </section>
-        <!-- /.content -->
-    </aside><!-- /.right-side -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+    <!-- row end -->
+</section><!-- /.content -->
+<div class="footer-main">
+    Copyright&copy PerpustakaanPGT2024
+</div>
+</aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
 

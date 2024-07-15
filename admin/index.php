@@ -435,7 +435,7 @@ $total3 = $row['total'];
     <!-- row end -->
 </section><!-- /.content -->
 <div class="footer-main">
-    Copyright PerpustakaanPGT2024
+    Copyright&copy PerpustakaanPGT2024
 </div>
 </aside><!-- /.right-side -->
 

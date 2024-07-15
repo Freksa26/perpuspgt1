@@ -223,9 +223,27 @@ if (empty($_SESSION['username'])) {
 <script src="../js/bootstrap.min.js" type="text/javascript"></script>
 <!-- AdminLTE App -->
 <script src="../js/AdminLTE/app.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.treeview > a').on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $treeview = $this.parent();
+
+            // Toggle the treeview menu
+            $treeview.toggleClass('active');
+            $treeview.children('.treeview-menu').slideToggle();
+
+            // Close other treeview menus
+            $treeview.siblings('.treeview').removeClass('active');
+            $treeview.siblings('.treeview').children('.treeview-menu').slideUp();
+        });
+    });
+</script>
 
 <!-- page script -->
 <script type="text/javascript">
+    
     $(function () {
         $("#example1").dataTable();
         $('#example2').dataTable({

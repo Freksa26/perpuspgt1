@@ -55,6 +55,24 @@ if (empty($_SESSION['username'])) {
     <script src="../js/plugins/chart.js" type="text/javascript"></script>
     <!-- iCheck -->
     <script src="../js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.treeview > a').on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $treeview = $this.parent();
+
+            // Toggle the treeview menu
+            $treeview.toggleClass('active');
+            $treeview.children('.treeview-menu').slideToggle();
+
+            // Close other treeview menus
+            $treeview.siblings('.treeview').removeClass('active');
+            $treeview.siblings('.treeview').children('.treeview-menu').slideUp();
+        });
+    });
+</script>
+
 </head>
 
 <body class="skin-black">
@@ -202,6 +220,7 @@ if (empty($_SESSION['username'])) {
 
     <!-- Chart.js -->
     <script>
+        
         $(function() {
             // Initiate tooltips
             $('[data-toggle="tooltip"]').tooltip();
@@ -214,5 +233,7 @@ if (empty($_SESSION['username'])) {
             });
         });
     </script>
+    
+       
 </body>
 </html>
